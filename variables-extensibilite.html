@@ -1,0 +1,187 @@
+131209
+
+hypothèses :
+- une variable déclarée n'importe où en amont, existe
+- une variable déclarée en aval MAIS dans le même "niveau" de fichier, existe 
+	note : même non exécutée comme : if (false) var un;
+	note : même après des instructions chronophages comme : for (var i = 0;i<444444444;i++) ii += i;
+	note : apparemment "use strict" indifférent
+- attention cf. dernier test : deux éléments script directs définissent deux "niveaux" distincts où amont et aval s'appliquent '
+
+"niveau" : comme un bassin versant, une plaine
+
+
+
+NUL PART vérif de routine protocolaire--
+
+--------------------------------------------------------------------------
+<body>
+<script>
+if (un === undefined){}
+</script>
+</body>
+
+donne : ReferenceError: un is not defined
+------------------------
+--------------------------------------------------------------------------
+<body>
+<script src="tobe1.js"></script>
+</body>
+
+avec tobe1.js :
+if (un === undefined){}
+
+donne : ReferenceError: un is not defined (tobe1.js)
+------------------------
+
+
+
+AVAL AUTRE PLAINE --
+
+--------------------------------------------------------------------------
+<body>
+<script>
+if (un === undefined){}
+</script>
+<script>
+var un;
+</script>
+</body>
+
+donne : ReferenceError: un is not defined
+------------------------
+------------------------------------------------------------------------
+<body>
+<script src="tobe1.js"></script>
+<script>
+var un;
+</script>
+</body>
+
+avec tobe1.js :
+if (un === undefined){}
+
+					??????????????????????? NON TESTE MAIS A PRIORI DEVRAIT DONNER :
+											ReferenceError: un is not defined (tobe1.js)
+------------------------
+------------------------------------------------------------------------
+<body>
+<script src="tobe1.js"></script>
+<script src="tobe2.js"></script>
+</body>
+
+avec tobe1.js :
+if (un === undefined){}
+
+avec tobe2.js :
+var un;
+
+donne : ReferenceError: un is not defined (tobe1.js)
+------------------------
+
+
+
+MEME PLAINE --
+
+--------------------------------------------------------------------------
+<body>
+<script>
+var un;
+if (un === undefined){}
+</script>
+</body>
+
+fonctionne
+------------------------
+--------------------------------------------------------------------------
+<body>
+<script>
+if (un === undefined){}
+var un;
+</script>
+</body>
+
+fonctionne
+------------------------
+--------------------------------------------------------------------------
+<body>
+<script src="tobe1.js"></script>
+</body>
+
+avec tobe1.js :
+if (un === undefined){}
+//une boucle chronophage
+var un;
+
+fonctionne
+--------------------------
+
+
+
+AMONT --
+
+--------------------------------------------------------------------------
+<body>
+<script>
+var un;
+</script>
+<script>
+if (un === undefined){}
+</script>
+</body>
+
+fonctionne
+------------------------
+--------------------------------------------------------------------------
+<body>
+<script>
+var un;
+</script>
+<script src="tobe1.js"></script>
+</body>
+
+avec tobe1.js :
+if (un === undefined){}
+
+fonctionne
+------------------------
+--------------------------------------------------------------------------
+<body>
+<script src="tobe1.js"></script>
+<script>
+if (un === undefined){}
+</script>
+</body>
+
+avec tobe1.js :
+var un;
+
+fonctionne
+------------------------
+--------------------------------------------------------------------------
+<body>
+<script src="tobe1.js"></script>
+<script src="tobe2.js"></script>
+</body>
+
+avec tobe1.js :
+var un;
+
+avec tobe2.js :
+if (un === undefined){}
+
+fonctionne
+------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
