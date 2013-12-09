@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>Existence d'une variable</title>
+</head>
+
+<body>
+<h1>
+COMMENT DISTINGUER VARIABLES QUI N'EXISTENT PAS DE VARIABLES SANS VALEUR ?
+</h1>
+<p>
+une variable declaree en amont ou en aval (attention : de la meme "plaine") existe mais n'a eventuellement de valeur que si sa declaration est deja executee au moment du controle
+</p>
+<p>
+http://stackoverflow.com/questions/858181/how-to-check-a-not-defined-variable-in-javascript
+</p>
+<script>
+"use strict";
+
+//COMMENT DISTINGUER VARIABLES QUI N'EXISTENT PAS DE VARIABLES SANS VALEUR ?
+	/* PROBLEME :
+
+1) les variables qui n'existent pas
+passent :
+	if (typeof un === "undefined"){}
+mais creent une erreur avec :
+	if (! un){}
+	if (un === undefined){}
+
+2) les variables qui existent sans avoir de valeur
+passent les 3 :
+	if (typeof un === "undefined"){}
+	if (! un){}
+	if (un === undefined){}
+
+apparemment "use strict"; est indifferent
+
+cf. resultat tests plus bas :
+DONC
+une variable declaree en amont ou en aval (attention : de la meme "plaine") existe mais n'a eventuellement de valeur que si sa declaration est deja executee au moment du controle
+
+*/
+
+var B;
+if (false){
+	var C;
+} 
+var D = 4;
+if (false){
+	var E = 4;
+} 
+
+var controler = function(variable){
+	try{ return eval(variable) === undefined ? "existence sans valeur" : "existence avec valeur"; }
+	catch(e){ return "sans existence"; }
+}
+
+
+Object.prototype.controler = function(){
+	//attention ne semble pas fonctionner sur IE en deca de 10
+	try{ return eval(this) === undefined ? "existence sans valeur" : "existence avec valeur"; }
+	catch(e){ return "sans existence"; }
+}
+
+var existences = new Array();
+existences.push(["inexistence de A","A".controler(),controler("A")]);
+existences.push(["existence de B sans valeur","B".controler(),controler("B")]);
+existences.push(["existence de BB sans valeur","BB".controler(),controler("BB")]);
+existences.push(["existence malgre tout de C sans valeur","C".controler(),controler("C")]);
+existences.push(["existence malgre tout de CC sans valeur","CC".controler(),controler("CC")]);
+existences.push(["existence de D avec valeur","D".controler(),controler("D")]);
+existences.push(["existence de DD sans valeur","DD".controler(),controler("DD")]);
+existences.push(["existence malgre tout de E mais sans valeur","E".controler(),controler("E")]);
+existences.push(["existence malgre tout de EE mais sans valeur","EE".controler(),controler("EE")]);
+
+console.log(existences.join("\n"))
+
+var BB;
+if (false){
+	var CC;
+} 
+var DD = 4;
+if (false){
+	var EE = 4;
+} 
+
+
+
+
+
+
+/* 
+FF 26 Win7
+inexistence de A,sans existence,sans existence
+existence de B sans valeur,existence sans valeur,existence sans valeur
+existence de BB sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de C sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de CC sans valeur,existence sans valeur,existence sans valeur
+existence de D avec valeur,existence avec valeur,existence avec valeur
+existence de DD sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de E mais sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de EE mais sans valeur,existence sans valeur,existence sans valeur
+
+GC 31 Win 7
+inexistence de A,sans existence,sans existence
+existence de B sans valeur,existence sans valeur,existence sans valeur
+existence de BB sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de C sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de CC sans valeur,existence sans valeur,existence sans valeur
+existence de D avec valeur,existence avec valeur,existence avec valeur
+existence de DD sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de E mais sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de EE mais sans valeur,existence sans valeur,existence sans valeur 
+
+Safari 4 Win 7
+inexistence de A,sans existence,sans existence
+existence de B sans valeur,existence sans valeur,existence sans valeur
+existence de BB sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de C sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de CC sans valeur,existence sans valeur,existence sans valeur
+existence de D avec valeur,existence avec valeur,existence avec valeur
+existence de DD sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de E mais sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de EE mais sans valeur,existence sans valeur,existence sans valeur 
+
+Safari 5 Win 7
+inexistence de A,sans existence,sans existence
+existence de B sans valeur,existence sans valeur,existence sans valeur
+existence de BB sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de C sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de CC sans valeur,existence sans valeur,existence sans valeur
+existence de D avec valeur,existence avec valeur,existence avec valeur
+existence de DD sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de E mais sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de EE mais sans valeur,existence sans valeur,existence sans valeur
+
+IE 10 Win 7
+inexistence de A,sans existence,sans existence
+existence de B sans valeur,existence sans valeur,existence sans valeur
+existence de BB sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de C sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de CC sans valeur,existence sans valeur,existence sans valeur
+existence de D avec valeur,existence avec valeur,existence avec valeur
+existence de DD sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de E mais sans valeur,existence sans valeur,existence sans valeur
+existence malgre tout de EE mais sans valeur,existence sans valeur,existence sans valeur 
+
+
+
+IE 9 en machine virtuelle
+ATTENTION prototype ne marche pas !!!!
+
+	inexistence de A,existence avec valeur,sans existence
+	existence de B sans valeur,existence avec valeur,existence sans valeur
+	existence de BB sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de C sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de CC sans valeur,existence avec valeur,existence sans valeur
+	existence de D avec valeur,existence avec valeur,existence avec valeur
+	existence de DD sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de E mais sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de EE mais sans valeur,existence avec valeur,existence sans valeur 
+
+
+IE mode 9 Win 7
+ATTENTION prototype ne marche pas !!!!
+
+	inexistence de A,existence avec valeur,sans existence
+	existence de B sans valeur,existence avec valeur,existence sans valeur
+	existence de BB sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de C sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de CC sans valeur,existence avec valeur,existence sans valeur
+	existence de D avec valeur,existence avec valeur,existence avec valeur
+	existence de DD sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de E mais sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de EE mais sans valeur,existence avec valeur,existence sans valeur 
+
+IE mode 8 Win 7
+ATTENTION prototype ne marche pas !!!!
+
+	inexistence de A,existence avec valeur,sans existence
+	existence de B sans valeur,existence avec valeur,existence sans valeur
+	existence de BB sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de C sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de CC sans valeur,existence avec valeur,existence sans valeur
+	existence de D avec valeur,existence avec valeur,existence avec valeur
+	existence de DD sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de E mais sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de EE mais sans valeur,existence avec valeur,existence sans valeur 
+
+
+IE mode 7 Win 7
+ATTENTION prototype ne marche pas !!!!
+
+	inexistence de A,existence avec valeur,sans existence
+	existence de B sans valeur,existence avec valeur,existence sans valeur
+	existence de BB sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de C sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de CC sans valeur,existence avec valeur,existence sans valeur
+	existence de D avec valeur,existence avec valeur,existence avec valeur
+	existence de DD sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de E mais sans valeur,existence avec valeur,existence sans valeur
+	existence malgre tout de EE mais sans valeur,existence avec valeur,existence sans valeur 
+
+
+
+
+DONC
+
+une variable declaree en amont ou en aval (attention : de la meme "plaine") existe mais n'a eventuellement de valeur que si sa declaration est deja executee au moment du controle
+*/
+
+
+
+
+
+</script>
+</body>
+</html>
