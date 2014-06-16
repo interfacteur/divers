@@ -2,7 +2,7 @@
 
 	sauf avec <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
 	tout en veillant en ce cas très attentivement à tous les impacts possibles
-	dont le fait de ne pas rétrograder MSIE10
+	dont le fait de ne pas rétrograder MSIE 10
 	
 	nota bene : une valeur plus classique de cette meta
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
@@ -11,7 +11,8 @@
 	Les commentaires conditionnels <!--[if IE ]><![endif]--> ne sont plus reconnus à partir de MSIE10
 	et resent donc inutiles si l'on avait pensé ajuster ainsi la meta */
 
-//Pour toutes les versions de MSIE inférieures à 11, instancier une variable à 0, ou si IE, à la valeur de la version de IE
+//Pour toutes les versions de MSIE inférieures à 11,
+	//instancier une variable à 0, ou si IE, à la valeur de la version de IE
 
 var msie = 0 /*@cc_on + parseInt(navigator.userAgent.toLowerCase().split("msie")[1]) @*/;
 
