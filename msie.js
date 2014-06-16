@@ -12,7 +12,7 @@
 	et resent donc inutiles si l'on avait pensé ajuster ainsi la meta
 	
 	Il reste possible d'établir un moyen terme dans ces décalages :
-	https://github.com/interfacteur/js-astuces/blob/master/msie.classique.html */
+	https://github.com/interfacteur/utiles/blob/master/msie.classique.html */
 
 
 //Pour toutes les versions de MSIE inférieures à 11 :
