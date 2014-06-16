@@ -1,4 +1,12 @@
-/* NE FONCTIONNE PLUS AVEC MSIE 11 */
+/* NE FONCTIONNE PLUS AVEC MSIE 11
+	sauf avec <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+	tout en veillant en ce cas très attentivement à tous les impacts possibles
+	dont le fait de ne pas rétrograder MSIE10
+	
+	nota bene : la valeur plus classique de cette meta
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+	permet d'ajuster la version déclarée de IE à sa version véritable, et d'être "frame" pour GC
+*/
 
 //Pour toutes les versions de MSIE inférieures à 11, instancier une variable à 0, ou si IE, à la valeur de la version de IE
 
