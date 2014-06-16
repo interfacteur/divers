@@ -3,7 +3,7 @@
 	tout en veillant en ce cas très attentivement à tous les impacts possibles
 	dont le fait de ne pas rétrograder MSIE10
 	
-	nota bene : la valeur plus classique de cette meta
+	nota bene : une valeur plus classique de cette meta
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
 	permet d'ajuster la version déclarée de MSIE à sa version véritable, et d'être "frame" pour GC
 	
