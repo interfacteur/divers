@@ -1,0 +1,36 @@
+<!--
+pour un développement classique, sans les apports de HTML5,
+faire de MSIE 9 le mode de rendu maximum (*)
+de façon à pouvoir "jouer" avec les commentaires conditionnels HTML et JavaScript
+
+(*) précisément : faire sur MSIE de la version 9 le mode de rendu max
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+<!--[if IE ]><![endif]-->
+
+<head>
+<meta charset="UTF-8">
+<!--[if lte IE 9]> <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1"> <![endif]-->
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9;chrome=1">
+
+<title>i-espoir ?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<!--[if IE ]><ins>pour IE seulement</ins><![endif]-->
+<!--[if !IE]><del>pour IE seulement</del><!-- <![endif]-->
+<div>&nbsp;</div>
+<script>
+document.querySelector("div").innerHTML ="pour tous"
+/*@cc_on
+document.querySelector("div").innerHTML = "pour MSIE "
+@*/
+/*@cc_on
+document.querySelector("div").innerHTML += parseInt(navigator.userAgent.toLowerCase().split("msie")[1]);
+@*/
+</script>
+</body>
+</html>
