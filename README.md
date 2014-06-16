@@ -2,4 +2,4 @@ js-trucs
 ========
 
 
-Astuces utiles et outils de compréhension
+Astuces utiles et outils de compréhension JavaScript
