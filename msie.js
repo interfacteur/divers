@@ -1,6 +1,10 @@
-//Instancier une variable a 0, ou si IE, a la valeur de la version de IE
+/* NE FONCTIONNE PLUS AVEC MSIE 11 */
+
+//Pour toutes les versions de MSIE inférieures à 11, instancier une variable à 0, ou si IE, à la valeur de la version de IE
 
 var msie = 0 /*@cc_on + parseInt(navigator.userAgent.toLowerCase().split("msie")[1]) @*/;
+
+/* INFO : http://msdn.microsoft.com/fr-fr/library/8ka90k2e%28v=vs.94%29.aspx */
 
 //Verifier si version de IE inferieure a l'argument 'zv'
 
