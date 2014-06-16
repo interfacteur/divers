@@ -8,7 +8,7 @@
 	permet d'ajuster la version déclarée de MSIE à sa version véritable, et d'être "frame" pour GC
 	
 	Les commentaires conditionnels <!--[if IE ]><![endif]--> ne sont plus reconnus à partir de MSIE10
-	et sont inutiles si l'on avait pensé ajuster ainsi la  meta
+	et resent donc inutiles si l'on avait pensé ajuster ainsi la  meta
 */
 
 //Pour toutes les versions de MSIE inférieures à 11, instancier une variable à 0, ou si IE, à la valeur de la version de IE
