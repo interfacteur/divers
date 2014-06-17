@@ -37,3 +37,4 @@ function etc(){
 //En complement pour la preparation de methodes telles que methodes[normes]() 
 
 var normes = Math.ceil(Math.abs(msie - 8) / (Math.abs(msie - 8) + 1)); //pour IE 8 : 0 ; sinon : 1
+
