@@ -34,14 +34,21 @@ var toContrast = function(r,g,b) {
 	}
 
 
-	/* contrast */
+	/* contrast * /
+
+part's refounding
+
+
+
+
 	var H = (h + .5) % 1,
 		h = H,
 		L = 1 - l,
 		l = L;
+*/
 
 
-	/* hsl to rgb */
+/* hsl to rgb */
 	var r, g, b;
 
 	if(s == 0){
