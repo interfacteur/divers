@@ -1,5 +1,5 @@
 /* NE FONCTIONNE PLUS AVEC MSIE 11
-
+ 
 	sauf avec <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
 	tout en veillant en ce cas très attentivement à tous les impacts possibles
 	dont le fait de ne pas rétrograder MSIE 10
