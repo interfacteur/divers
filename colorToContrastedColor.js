@@ -16,7 +16,7 @@
 var toContrast = function(origR,origG,origB) {
 	"use strict";
 
-	/* rgb to h (s and l are declined in an array) */
+	//axonflux.com : rgb to h (s and l are declined in an array)
 	var r = origR / 255,
 		g = origG / 255,
 		b = origB / 255,
@@ -41,7 +41,7 @@ var toContrast = function(origR,origG,origB) {
 	H.forEach(function(zv1) {
 		sl.forEach(function(zv2) {
 
-			/* hsl to rgb */
+			//axonflux.com : hsl to rgb
 			h = zv1, s = zv2[0], l = zv2[1];
 			if(s == 0) r = g = b = l; // achromatic
 			else{
@@ -52,14 +52,15 @@ var toContrast = function(origR,origG,origB) {
 				b = hue2rgb(p, q, h - 1/3);
 			}
 
-			/* le contraste le plus accentue */
+			//le contraste le plus accentue
 			var contrastant = contrasteEvaluer(origR,origG,origB,r * 255,g * 255,b * 255);
 			if (contraste[0] < contrastant) contraste = [Math.floor(r * 255), Math.floor(g * 255), Math.floor(b * 255), contrastant];
 	});	});
 
 	return contraste;
 }
-//(from http://axonflux.com/handy-rgb-to-hsl-and-rgb-to-hsv-color-model-c)
+
+//axonflux.com : method
 function hue2rgb(p, q, t) {
 	if(t < 0) t += 1;
 	if(t > 1) t -= 1;
