@@ -2,7 +2,7 @@
 /**
  * Provide contrasted values of a RGB color via its HLS values in order to extract complemtary colors
  *
- * Adapted from http://axonflux.com/handy-rgb-to-hsl-and-rgb-to-hsv-color-model-c
+ * RGB to HSL and HSL to RGB adapted from http://axonflux.com/handy-rgb-to-hsl-and-rgb-to-hsv-color-model-c
  * wich gives all conversion formulas
  * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
  * Assumes r, g, and b are contained in the set [0, 255]
@@ -59,7 +59,7 @@ var toContrast = function(origR,origG,origB) {
 
 	return contraste;
 }
-
+//(from http://axonflux.com/handy-rgb-to-hsl-and-rgb-to-hsv-color-model-c)
 function hue2rgb(p, q, t) {
 	if(t < 0) t += 1;
 	if(t > 1) t -= 1;
@@ -68,6 +68,7 @@ function hue2rgb(p, q, t) {
 	if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
 	return p;
 }
+
 var sl = [];
 [0,.125,.25,.375,.5,.625,.75,.875,1].forEach(function(zv1) {
 	[.125,.25,.375,.5,.625,.75,.875].forEach(function(zv2) {
