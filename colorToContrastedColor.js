@@ -89,3 +89,4 @@ function contrasteEvaluer(r,g,b,R,G,B) {
 		L2 = luminanceCalculer(R,G,B);
 	return L1 > L2 ? (L1 + 0.05) / (L2 + 0.05) : (L2 + 0.05) / (L1 + 0.05);
 }
+ 
