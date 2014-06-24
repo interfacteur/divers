@@ -101,7 +101,7 @@ function hue2rgb(p, q, t) {
 //End of axonflux.com : methods for hsl/hue to rgb
 
 //To calculate contrast ratio from WCAG 2: http://www.w3.org/TR/WCAG20-TECHS/G17.html
-/* seel also https://github.com/interfacteur/js-astuces/blob/master/colorContrastCalculation.js */
+/* see also https://github.com/interfacteur/js-astuces/blob/master/colorContrastCalculation.js */
 function hexaTraiter(n) {
 	n /= 255;
 	return n < 0.03928 ? n / 12.92 : Math.pow(((n + 0.055) / 1.055), 2.4);
