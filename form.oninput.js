@@ -52,16 +52,17 @@ var indiquer =
 
 
 
-		/* notes
-on old mobiles without oninput - cf. A HTML5 Browser maze - consider
-if ($.browser.mozilla) $("#id").keypress (keyPress);
-else $("#id").keydown (keyPress);
-from http://stackoverflow.com/questions/9940829/how-to-capture-the-onscreen-keyboard-keydown-and-keyup-events-for-touch-devi
+/* notes
 
 - init idea from -
 Using the oninput event handler with onkeyup/onkeydown as its fallback · Mathias Bynens
 http://mathiasbynens.be/notes/oninput
 	but how could it get new value on keydown?
+
+on old mobiles without oninput - cf. A HTML5 Browser maze - consider
+if ($.browser.mozilla) $("#id").keypress (keyPress);
+else $("#id").keydown (keyPress);
+from http://stackoverflow.com/questions/9940829/how-to-capture-the-onscreen-keyboard-keydown-and-keyup-events-for-touch-devi
 
 onInput event detection support · Issue #210 · Modernizr/Modernizr · GitHub
 https://github.com/modernizr/modernizr/issues/210
