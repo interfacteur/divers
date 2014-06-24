@@ -24,7 +24,7 @@ var contrasteTrouver = function(origR,origG,origB) {
 		h, s, l = (max + min) / 2,
 		contrasteOK = ["",0];
 
-	//from axonflux.com : rgb to h (s and l are declined in an array)
+	//From axonflux.com : rgb to h (s and l are declined in an array)
 	if(max == min) h = s = 0; // achromatic
 	else{
 		var d = max - min;
@@ -36,11 +36,11 @@ var contrasteTrouver = function(origR,origG,origB) {
 		}
 		h /= 6;
 	}
-	//end from axonflux.com : rgb to h (s and l are declined in an array)
+	//End from axonflux.com : rgb to h (s and l are declined in an array)
 
 	if (l < .15 || l > .85){
 		var rgb = hsl2rgb(h,s,1 - l);
-	//return 1
+	//Return 1
 		return contrasteOK = [
 			Math.floor(rgb[0] * 255) + "," + Math.floor(rgb[1] * 255) + "," + Math.floor(rgb[2] * 255),
 			Math.floor(contrasteEvaluer(origR,origG,origB,rgb[0] * 255,rgb[1] * 255,rgb[2] * 255) * 100) / 100
@@ -66,7 +66,7 @@ var contrasteTrouver = function(origR,origG,origB) {
 					Math.floor(contrastant * 100) / 100
 				];
 	}	});	});
-	//final return
+	//Final return
 	return contrasteOK;
 }
 
