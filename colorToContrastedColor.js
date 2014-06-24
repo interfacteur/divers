@@ -77,7 +77,7 @@ var sl = [];
 		sl.push([zv1,zv2]);
 });	});
 
-//axonflux.com : hsl to rgb
+//axonflux.com : methods for hsl/hue to rgb
 function hsl2rgb(h,s,l) {
 	var r, g, b;
 	if(s == 0) r = g = b = l; // achromatic
@@ -90,9 +90,6 @@ function hsl2rgb(h,s,l) {
 	}
 	return [r,g,b];
 }
-//end of axonflux.com : hsl to rgb
-
-//axonflux.com : method for hsl to rgb
 function hue2rgb(p, q, t) {
 	if(t < 0) t += 1;
 	if(t > 1) t -= 1;
@@ -101,7 +98,7 @@ function hue2rgb(p, q, t) {
 	if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
 	return p;
 }
-//end of axonflux.com : method for hsl to rgb
+//End of axonflux.com : methods for hsl/hue to rgb
 
 //To calculate contrast ratio from WCAG 2: http://www.w3.org/TR/WCAG20-TECHS/G17.html
 /* seel also https://github.com/interfacteur/js-astuces/blob/master/colorContrastCalculation.js */
