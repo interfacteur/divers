@@ -13,7 +13,7 @@ input.invalid {
 }
 */
 
-var qs = typeof(document.querySelector) === "undefined"; //IE 5.5-7, FF 2-3.0, Opera 9-9.9
+var qs = typeof(document.querySelector) === "undefined"; //IE 5.5-7, FF 2-3.0, Opera 9-9.6
 var checkValiditySupport = {
 	formulaire:
 		qs ? false :
