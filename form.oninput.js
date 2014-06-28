@@ -36,7 +36,7 @@ var gererOninputOnkey = function(zfun,a,b,c,d,e) { //until 5 target elements
 }	};	}	}
 
 //For instance:
-//Events -> manipulate form to get contrast
+//Events -> manipulate form to get…
 function faire() {
   this.truc = -4;
   //etc.
