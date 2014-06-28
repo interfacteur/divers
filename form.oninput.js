@@ -1,4 +1,13 @@
-//To manage 'oninput' and its fallback ('onkeydown' + 'onkeyup')
+/* To manage 'oninput' and its fallback ('onkeydown' + 'onkeyup')
+
+Note: for HTML5 inputs without oninput, like 'range' on MSIE:
+el.oninput = function() {
+	this.onchange = null;
+	faire();
+	this.oninput = faire;
+}
+el.onchange = faire; */
+		
 var gererOninputOnkey = function(zfun,a,b,c,d,e) { //until 5 target elements
 	/* NORMAL ORDER OF THESE EVENTS:
 		keydown input keyup */
