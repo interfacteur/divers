@@ -48,7 +48,7 @@ gererOninputOnkey(faire,document.querySelector("input"));
 var indiquer =
 	(typeof(document.querySelector("output").value) !== "undefined") ?
 	function(ze,zv) { ze.value = zv; } :
-	function(ze,zv) { ze.innerHTML = zv;};
+	function(ze,zv) { ze.innerHTML = zv; };
 
 
 
