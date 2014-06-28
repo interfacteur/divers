@@ -1,6 +1,6 @@
 /* To manage 'oninput' and its fallback ('onkeydown' + 'onkeyup')
 
-Note: for HTML5 inputs without oninput, like 'range' on MSIE:
+Note: for HTML5 inputs without 'oninput' event support, like 'range' on MSIE:
 el.oninput = function() {
 	this.onchange = null;
 	faire();
