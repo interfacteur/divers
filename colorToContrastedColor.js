@@ -3,7 +3,7 @@ To find an enhaced contrast
 
 @return		Array	["RGB string for contrasted color",floating number for contrast ratio]
 
-Example: http://www.equatorium.net/e1/ou-obtenir-contraste_en.html
+Example: http://www.equatorium.net/e1/ou-contrastes-obtenir_en.html
 & http://interfacteur.blogspot.fr/2014/06/outils-couleurs-contrastes-accessibles.html
 
 Functions converting rgb to hsl and hsl to rgb
