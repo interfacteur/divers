@@ -1,7 +1,7 @@
 //calculer les contrastes
 	//http://www.w3.org/TR/WCAG20-TECHS/G17.html
 	//http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html
-//en se basant sur un ratio entre deux couleurs
+//sur un ratio entre deux couleurs
 
 /* contrasteEvaluer
 @return		nombre flottant
