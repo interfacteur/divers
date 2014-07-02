@@ -52,6 +52,12 @@ switch(html5ctrl){
 }
 To try: var html5ctrl = typeof document.createElement('form').checkValidity === "function";
 
+
+
+return "noValidate" in document.createElement("form")
+
+
+
 To test:
 var elementSupportsRequird = function() {
 	if ("required" in document.createElement("input")) return true;
