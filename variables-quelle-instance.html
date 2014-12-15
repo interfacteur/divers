@@ -15,16 +15,16 @@ une déclaration de variable vaut "synchroniquement" sur sa portée, par effet d
 dès le début de l'exécution :
 
 	que sa déclaration soit instruite avant ou après (la déclaration n'étant pas encore exécutée)
-	de l'exécution,
+	l'exécution,
 
-	que sa déclaration soit même exécutable ou non exécutable : au-delà d'un return,
+	que sa déclaration soit exécutable ou non exécutable : au-delà d'un return,
 	dans une condition non remplie etc.
 
 
 une affectation vaut "diachroniquement" sur sa portée, c'est-à-dire qu'elle n'a de valeur
 que lorsque l'affectation est exécutée
 
-	par "hoisting" la variable existe comme === undefined jusqu'à l'instant de l'exécution de l'affectation
+	par "hoisting" la variable existe de typeof === "undefined" jusqu'à l'instant de l'exécution de l'affectation
 
 
 AVANT "use strict"
