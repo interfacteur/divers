@@ -11,7 +11,7 @@
 <pre>
 EN "use strict"
 
-une déclaration de variable vaut "synchroniquement" sur sa portée, par effet du "hoisting" elle existe
+1) une déclaration de variable vaut "synchroniquement" sur sa portée, par effet du "hoisting" elle existe
 dès le début de l'exécution :
 
 	que sa déclaration soit instruite avant ou après l'exécution (la déclaration n'étant pas encore exécutée)
@@ -20,7 +20,7 @@ dès le début de l'exécution :
 	dans une condition non remplie etc.
 
 
-une affectation vaut "diachroniquement" sur sa portée, c'est-à-dire qu'elle n'a de valeur
+2) une affectation vaut "diachroniquement" sur sa portée, c'est-à-dire qu'elle n'a de valeur
 que lorsque l'affectation est exécutée
 
 	par "hoisting" la variable existe de typeof === "undefined" jusqu'à l'instant de l'exécution de l'affectation
