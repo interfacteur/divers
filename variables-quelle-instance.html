@@ -11,19 +11,29 @@
 <pre>
 EN "use strict"
 
-une déclaration de variable vaut "synchroniquement" sur sa portée, par effet du "hoisting" elle existe dès le début de l'exécution :
-	que sa déclaration soit instruite avant ou après (la déclaration n'étant pas encore exécutée) de l'exécution,
-	que sa déclaration soit même exécutable ou non exécutable : au-delà d'un return, dans une condition non remplie etc.
+une déclaration de variable vaut "synchroniquement" sur sa portée, par effet du "hoisting" elle existe
+dès le début de l'exécution :
 
-une affectation vaut "diachroniquement" sur sa portée, c'est-à-dire qu'elle n'a de valeur que lorsque l'affectation est exécutée
+	que sa déclaration soit instruite avant ou après (la déclaration n'étant pas encore exécutée)
+	de l'exécution,
+
+	que sa déclaration soit même exécutable ou non exécutable : au-delà d'un return,
+	dans une condition non remplie etc.
+
+
+une affectation vaut "diachroniquement" sur sa portée, c'est-à-dire qu'elle n'a de valeur
+que lorsque l'affectation est exécutée
+
 	par "hoisting" la variable existe comme === undefined jusqu'à l'instant de l'exécution de l'affectation
 
 
 AVANT "use strict"
 
-affecter une valeur à une variable non déclarée crée une variable globale : existant après l'affectation, devant apparaître "diachroniquement" dans le contexte global
+affecter une valeur à une variable non déclarée crée une variable globale : existant après l'affectation,
+devant apparaître "diachroniquement" dans le contexte global
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var :
-"Declared variables are created before any code is executed. Undeclared variables do not exist until the code assigning to them is executed."
+"Declared variables are created before any code is executed. Undeclared variables do not exist until
+the code assigning to them is executed."
 
 PS : delete fonctionne avec cet emploi périmé des variables (alors propriétés de window)
 </pre>
@@ -37,11 +47,17 @@ et creent une erreur avec :
 	if (! un)
 Les variables déclarées sans affectation passent les 3
 Les propriétés non déclarées passent les 3
-	- l'existence d'une propriété se testant avec "prop" in object - object.hasOwnProperty("prop") pour exclure les propriétés héritées (?)
+	- l'existence d'une propriété pouvant se tester avec "prop" in object
+	et object.hasOwnProperty("prop") pour exclure les propriétés héritées (?)
+	(voir aussi object.prop et object["prop"])
 */
 
 String.prototype.controler = function(){
-	try{ return eval(this) === undefined ? " :\n\ta une valeur indéfinie" : " :\n\t++++++++ a une valeur définie ++++++++"; }
+	try{
+		return eval(this) === undefined ?
+			" :\n\ta une valeur indéfinie" :
+			" :\n\t++++++++ a une valeur définie ++++++++";
+	}
 	catch(e){ return " :\n\t-------- n'existe pas --------"; }
 }
 
