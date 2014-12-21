@@ -1,5 +1,9 @@
 /* Mémo sur les opérateurs JavaScript
-	Interfacteur 2014 */
+	Interfacteur 2014
+
+=> peut-être utiles pour des formules au résultat duel 
+cf. http://interfacteur.blogspot.fr/2014/01/js-condition-ou-operation-mathematique.html
+*/
 
 ! String() / Number([1]) === Boolean(new String()) - "";
 // conversion d'une chaîne vide à true par l'opérateur logique, puis à 1 dans une exécution numérique
