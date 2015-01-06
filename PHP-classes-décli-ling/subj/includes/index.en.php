@@ -1,0 +1,9 @@
+<article>
+<h2>About Subj</h2>
+<p class="center"><img src="subj/images/photo02-fp.jpg" height="250" width="166" alt="Subj"></p>
+<p class="center"><a href="http://www.armadilloserver.com/downloads/subj/subj.wmv" title="Subj vidéo, french, .wmv format, 14 Mo">Click to download the Subj video</a></p>
+<p>Subj’s creations are a combination of current imaging technologies – from the digital camera and the photocopier to the computer – to which he integrates the use of acrylics and of various materials of synthesis and retrieval. His figurative – even narrative – art might therefore bewilder the eye due to the distortion and the accumulation of details. But it also gives the “reader” of his works the keys which enable him to enter them by following a path unique to his own sensibilities. Between puzzle and labyrinth, this therefore leads to a reconstitution and a path which free the creativity of “the one who looks”. From “Crowds” to “Masterpieces Revisited” and from “Memories” to Autos-da-fe”, they are the chronicles of yesterday and today that he explores, these very chronicles giving to the history of each one a collective importance.</p>
+<h2>A portrait of Subj</h2>
+<p>Born in 1938, Subj became a student of the renowned affichiste Paul COLIN in 1956 before being accepted by the prestigious JULIAN Academy in 1960. Since 1979, subj has been living at the BATEAU LAVOIR in Paris – a historic mecca of the arts of which he was president from 1981 to 1984. subj owns a second atelier in a former presbytery at the border between the Lorraine and Champagne-Ardenne regions. In France, the National Fund of Contemporary Art, the National Library, the National Assembly, the Museum of Sports – as well as many other museums and public or private collections in France and abroad – already own several of his art works.</p>
+<p class="right"><a href="<?php echo $pages[1].'.php?lang='.$lg; ?>"><em>Continue reading...</em></a></p>
+</article>
