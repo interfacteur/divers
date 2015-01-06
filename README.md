@@ -13,6 +13,6 @@ Astuces et techniques utiles, js et intégration
 Dossiers
 
 * css-alt-php-js : CSS alternatifs aux CSS 3 avec PHP et Modernizr cf. http://interfacteur.blogspot.fr/2014/12/css-alternatifs-avec-php-et-js.html
-* php-classes-décli-ling : développement POO PHP pour gestion d'une navigation multilingue
+* php-classes-décli-ling : développement PHP OO pour gestion d'une navigation multilingue
 
 
