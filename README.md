@@ -4,6 +4,7 @@ Divers
 
 Astuces et techniques utiles, js et intégration
 
+* js-hoisting-tests.pdf : tableau de tests et mémo sur l'incidence du hoisting sur la valeur des variables
 * js-operateurs-memo.js : aide-mémoire sur les opérateurs logiques, arithmétiques etc. en JavaScript
 * msie-cc.js : commentaires conditionnels en-deça de MSIE 11
 * msie.classique.html : limiter les capacités de MSIE à v. 9 sur un développement classique
