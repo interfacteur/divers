@@ -73,3 +73,18 @@ eval(false) === eval("false");
 /* mais : */
 		false === (false === "false");
 
+
+var d = new Date();
+d instanceof eval((typeof d).charAt(0).toUpperCase() + (typeof d).slice(1)); //Object()
+/* et : */
+		x instanceof Date === x instanceof Object;
+
+
+
+(eval("Object") === eval(Object)) === ! (eval("Object()") === eval(Object()));
+/* eval("Object()"); //Object {}
+eval(Object()); //Object {}
+eval("Object"); //Object()
+eval(Object); //Object() */
+
+
