@@ -1,7 +1,7 @@
 /* Mémo sur les opérateurs JavaScript
 	Interfacteur 2014
 
-=> peut-être utiles pour des formules au résultat duel 
+=> utiles parfois pour des formules au résultat binaire
 cf. http://interfacteur.blogspot.fr/2014/01/js-condition-ou-operation-mathematique.html
 */
 
@@ -38,6 +38,10 @@ true === Boolean((Boolean(String()) + Boolean(Number()) + Boolean(new String()))
 typeof ! null === typeof(null === "object");
 
 
+var x = new Cl();
+x instanceof x.constructor;
+
+
 
 /* arithmétique */
 
@@ -70,13 +74,13 @@ eval(a[0]) === eval(eval("a[0]"));
 
 
 eval(false) === eval("false");
-/* mais : */
+// mais :
 		false === (false === "false");
 
 
 var d = new Date();
 d instanceof eval((typeof d).charAt(0).toUpperCase() + (typeof d).slice(1)); //Object()
-/* et : */
+// et :
 		x instanceof Date === x instanceof Object;
 
 
