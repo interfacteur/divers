@@ -9,7 +9,28 @@
 <body>
 <h1>Variables : déclaration, affectation, exécution</h1>
 <pre>
-EN "use strict"
+Rappel :
+en mode "use strict", une variable globale v :
+- est traitée en évaluation et en affectation par window.v / window["v"]
+- ne peut être traitée par l'opérateur delete sur v sans provoquer une erreur SyntaxError :
+	applying the 'delete' operator to an unqualified name is deprecated !!!
+- ne peut être traitée par l'opérateur delete sur window.v sans provoque une erreur TypeError :
+	property "v" is non-configurable and can't be deleted
+
+en mode normal, une variable globale v :
+- est traitée en évaluation et en affectation par window.v / window["v"]
+- n'est traitée (ni comme telle, ni comme propriété de window) par l'opérateur delete sur v et sur window.v,
+	mais aucune erreur n'est levée
+
+en mode normal, une variable locale v résultant d'une affectation sans déclaration :
+- devient globale
+- est traitée en évaluation et en affectation par window.v / window["v"]
+- est traitée (comme telle et comme propriété de window) par l'opérateur delete sur v et sur window.v
+
+
+JEU DES VARIABLES ENTRE DÉCLARATION, AFFECTATION ET EXÉCUTION 
+
+I- En "use strict"
 
 1) une déclaration de variable vaut "synchroniquement" sur sa portée, par effet du "hoisting" elle existe
 dès le début de l'exécution :
@@ -26,7 +47,7 @@ dès le début de l'exécution :
 	par "hoisting" la variable est de type "undefined" jusqu'à l'instant de l'exécution de l'affectation
 
 
-AVANT "use strict"
+II- Avant "use strict"
 
 affecter une valeur à une variable non déclarée crée une variable globale : existant après l'affectation,
 devant apparaître "diachroniquement" dans le contexte global
@@ -34,7 +55,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
 "Declared variables are created before any code is executed. Undeclared variables do not exist until
 the code assigning to them is executed."
 
-PS : delete fonctionne avec cet emploi périmé des variables (alors propriétés de window)
+	
 </pre>
 <script>
 "use strict";
