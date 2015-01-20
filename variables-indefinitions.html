@@ -59,7 +59,7 @@ the code assigning to them is executed."
 </pre>
 <script>
 "use strict";
-/* NB :
+/* Note :
 Les variables non déclarées passent :
 	if (typeof un === "undefined")
 et creent une erreur avec :
@@ -70,6 +70,8 @@ Les propriétés non déclarées passent les 3
 	- l'existence d'une propriété pouvant se tester avec "prop" in object
 	et object.hasOwnProperty("prop") pour exclure les propriétés héritées (?)
 	(voir aussi object.prop et object["prop"])
+L'existence d'une variable globale peut ainsi être testée avec :
+	"identifiantVariable" in window
 */
 
 String.prototype.controler = function(){
