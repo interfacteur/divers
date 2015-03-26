@@ -3,12 +3,6 @@
 //Gaëtan Langhade, Interfacteur, 2015 march
 
 
-/* to use :
-	var sounds = { k: path.without.extension, k: etc.}
-	globMeth.Sound.init(sounds)
-	globMeth.sounds["k"].play() where "k" is the key of the sound path in object parameter sd
-*/
-
 
 var globMeth = {
 	doNothing: function () { }
