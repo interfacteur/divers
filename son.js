@@ -18,9 +18,14 @@ var globMeth = {
 // $(function () {
 	// "use strict";
 
-/* Pseudo-class Sound */
-	globMeth.Sound = globMeth.doNothing;
-	(	(globMeth.audioCompat = (function () {
+//Pseudo-class Sound ----------------------------------------------------------------------------
+	commonLAg.Sound = function () {
+		"use strict";
+		if (! this instanceof commonLAg.Sound)
+			throw new Error("Attention à l'instanciation");
+		this.audio = true;
+	};
+	(	(commonLAg.audioCompat = (function () {
 			"use strict";
 			var audio = document.createElement("audio")
 			return !! audio.canPlayType ?
@@ -28,34 +33,69 @@ var globMeth = {
 						".mp3" : audio.canPlayType('audio/ogg; codecs="vorbis"') ? ".ogg" : false	)
 				: false;
 		})())
-	//fine for the class (with mp3 and ogg)
-		&& (globMeth.Sound = function (srce) {
+		&& (commonLAg.Sound = function (srce, key) {
 			"use strict";
-			if (! this instanceof globMeth.Sound)
+			if (! this instanceof commonLAg.Sound)
 				throw new Error("Attention à l'instanciation");
-			// this.srce = srce + globMeth.audioCompat;
-			// this.ikey = p; //with one parameter more, keys of object of sounds path in globMeth.Sound.init(): new globMeth.Sound(sd[p], p) and globMeth.Sound = function (srce, p)
-			this.audio = new Audio(srce + globMeth.audioCompat);
+			this.key = key;
+			this.srce = srce + commonLAg.Sound.audioCompat;
+			this.audio = new Audio(this.srce);
+			this.readable = false;
+			this.stall = commonLAg.doNothing;
+			this.readdom();
 		})
-		&& (globMeth.Sound.prototype.play = function () {
+		&& (commonLAg.Sound.prototype.readdom = function () {
 			"use strict";
-			this.audio.play();
-			return true;
+			$(this.audio).data("obj", this)
+			.on({
+				canplay: function () {
+					"use strict";
+					$(this).data("obj").readable = true;
+				},
+				play: function () {
+					"use strict";
+					var t = this,
+						tob = $(t).data("obj");
+					$(t).off("play");
+					setTimeout(function () {
+						"use strict";
+						(tob.readable === true)
+						&& (tob.stall = function (n) {
+							"use strict";
+							t.currentTime = n;
+						});
+					}, 750); //to do: how to adjust this duration?
+				},
+				error: function () {
+					"use strict";
+					$(this).data("obj").readable = false;
+		}	});	})
+		&& (commonLAg.Sound.prototype.turnon = function () {
+			"use strict";
+			this.readable === true
+			&& this.audio.play();
+			return this;
 		})
-		&& (globMeth.Sound.prototype.pause = function () {
+		&& (commonLAg.Sound.prototype.turnoff = function () {
 			"use strict";
-			this.audio.pause();
-			return true;
+			if (this.readable === true) {
+				! this.audio.paused
+				&& this.audio.pause();
+				this.stall(0);
+			}
+			return this;
 		})	)
-	|| (globMeth.Sound.prototype.play = globMeth.returnTrue)
-	&& (globMeth.Sound.prototype.pause = globMeth.returnTrue);
-	globMeth.Sound.audioCompat = globMeth.audioCompat;
-	delete globMeth.audioCompat;
-	globMeth.Sound.init = function (sd) { //sd : object of sounds path without extension (mp3 and ogg)
+	|| (commonLAg.Sound.prototype.turnon = function () {
 		"use strict";
-		globMeth.sounds = globMeth.sounds || [];
+		return this;
+	})
+	&& (commonLAg.Sound.prototype.turnoff = commonLAg.Sound.prototype.turnon);
+	commonLAg.Sound.audioCompat = commonLAg.audioCompat;
+	delete commonLAg.audioCompat;
+	commonLAg.Sound.init = function (sd) { //sd : object of sounds path without extension (mp3 and ogg)
+		"use strict";
+		commonLAg.sounds = commonLAg.sounds || [];
 		for (var p in sd)
-			globMeth.sounds[p] = new globMeth.Sound(sd[p]);
+			commonLAg.sounds[p] = new commonLAg.Sound(sd[p], p);
 	}
-
 // );
