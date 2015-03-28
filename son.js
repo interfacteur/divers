@@ -21,7 +21,7 @@ var globMeth = {
 	};
 	(	(globMeth.audioCompat = (function () {
 			"use strict";
-			var audio = document.createElement("audio")
+			var audio = document.createElement("audio");
 			return !! audio.canPlayType ?
 				(	audio.canPlayType("audio/mpeg") ?
 						".mp3" : audio.canPlayType('audio/ogg; codecs="vorbis"') ? ".ogg" : false	)
@@ -34,7 +34,7 @@ var globMeth = {
 			this.key = key;
 			this.srce = srce + globMeth.Sound.audioCompat;
 			this.audio = new Audio(this.srce);
-			this.readable = false;
+			this.readable = ! navigator.userAgent.toLowerCase().match(/(iphone|ipod|ipad)/) ? false : true; //loaded when playing: http://www.ibm.com/developerworks/library/wa-ioshtml5/
 			this.stall = globMeth.doNothing;
 			this.readdom();
 		})
@@ -44,7 +44,7 @@ var globMeth = {
 			.on({
 				canplay: function () {
 					"use strict";
-					$(this).data("obj").readable = true;
+					$(this).data("obj").readable = true; //to do: check play() before: and after ?
 				},
 				play: function () {
 					"use strict";
@@ -84,12 +84,16 @@ var globMeth = {
 		return this;
 	})
 	&& (globMeth.Sound.prototype.turnoff = globMeth.Sound.prototype.turnon);
+
 	globMeth.Sound.audioCompat = globMeth.audioCompat;
 	delete globMeth.audioCompat;
+
 	globMeth.Sound.init = function (sd) { //sd : object of sounds path without extension (mp3 and ogg)
 		"use strict";
 		globMeth.sounds = globMeth.sounds || [];
 		for (var p in sd)
 			globMeth.sounds[p] = new globMeth.Sound(sd[p], p);
 	}
+
+
 // );
