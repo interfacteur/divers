@@ -3,6 +3,10 @@
 //Gaëtan Langhade, Interfacteur, 2015 march
 
 
+/*
+	suppose jQuery
+*/
+
 
 var globMeth = {
 	doNothing: function () { }
