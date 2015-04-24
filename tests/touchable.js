@@ -1,5 +1,9 @@
 //http://www.equatorium.net/e1/tests/
 
+/*
+simplifier le trigger d'un événement "mouse" par un événement "touch"
+*/
+
 "use strict";
 
 var $b = $("body");
