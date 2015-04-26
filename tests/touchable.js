@@ -38,6 +38,28 @@ function touchable (el, te) { //el : element or $(element) ; te : array of touch
 		that.addEventListener(val, touchable.treatevents, false);
 });	}
 
+//Exemple :
+/* $(function () {
+	"use strict";
+	var $retour1 = $("#retour1"),
+		$retour2 = $("#retour2"),
+		$retour3 = $("#retour3");
+
+	touchable($("#zone").on({
+		mouseover: function (ze) {
+			"use strict";
+			$retour1.text(ze.type + " : " +  new Date());
+		},
+		mousemove: function (ze) {
+			"use strict";
+			$retour2.text(ze.type + " : " +  new Date());
+		},
+		mouseout: function (ze) {
+			"use strict";
+			$retour3.text(ze.type + " : " +  new Date());
+	}	}), ["touchstart", "touchmove", "touchend", "touchleave"]);
+}); */
+
 
 $.fn.touchable = function (te) { //te : array of touch events
 	"use strict";
@@ -70,5 +92,28 @@ $.fn.touchable = function (te) { //te : array of touch events
 		"use strict";
 		that.addEventListener(val, $.fn.touchable.treatevents, false);
 });	}
+
+//Exemple :
+/* $(function () {
+	"use strict";
+	var $retour1 = $("#retour1"),
+		$retour2 = $("#retour2"),
+		$retour3 = $("#retour3");
+
+	$("#zone").on({
+		mouseover: function (ze) {
+			"use strict";
+			$retour1.text(ze.type + " : " +  new Date());
+		},
+		mousemove: function (ze) {
+			"use strict";
+			$retour2.text(ze.type + " : " +  new Date());
+		},
+		mouseout: function (ze) {
+			"use strict";
+			$retour3.text(ze.type + " : " +  new Date());
+	}	})
+	.touchable(["touchstart", "touchmove", "touchend", "touchleave"]);
+}); */
 
 
