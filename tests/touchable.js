@@ -6,6 +6,7 @@ simplifier le trigger d'un événement "mouse" par un événement "touch"
 
 "use strict";
 
+//FONCTION GLOBALE :
 function touchable (el, te) { //el : element or $(element) ; te : array of touch events
 	"use strict";
 	var that;
@@ -61,6 +62,7 @@ function touchable (el, te) { //el : element or $(element) ; te : array of touch
 }); */
 
 
+//PLUGIN JQUERY :
 $.fn.touchable = function (te) { //te : array of touch events
 	"use strict";
 	var that;
