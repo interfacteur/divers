@@ -6,8 +6,6 @@ simplifier le trigger d'un événement "mouse" par un événement "touch"
 
 "use strict";
 
-var $b = $("body");
-
 function touchable (el, te) { //el : element or $(element) ; te : array of touch events
 	"use strict";
 	var that;
@@ -74,19 +72,29 @@ $.fn.touchable = function (te) { //te : array of touch events
 });	}
 
 
-$b.on({
-	mousemove: function (ze) {
-		"use strict";
-		var x = new Date().getTime();
-		x % 10 == 0
-		&& console.log(x);
-	},
-	mouseover: function (ze) {
-		"use strict";
-		var x = new Date().getTime();
-		console.log("x", x);
-}	});
+$(function () {
+	"use strict";
+	var $d = $("div"),
+		$p1 = $("p:eq(0)"),
+		$p2 = $("p:eq(1)"),
+		$p3 = $("p:eq(2)");
 
-touchable($b, ["touchmove", "touchstart"]);
+	$d.on({
+		mouseover: function (ze) {
+			"use strict";
+			$p1.text(ze.type + " : " +  new Date());
+		},
+		mousemove: function (ze) {
+			"use strict";
+			$p2.text(ze.type + " : " +  new Date());
+		},
+		mouseout: function (ze) {
+			"use strict";
+			$p3.text(ze.type + " : " +  new Date());
+	}	});
 
-$b.touchable(["touchmove", "touchstart"]);
+	touchable($b, ["touchstart", "touchmove", "touchend", "touchleave"]);
+
+	$b.touchable(["touchstart", "touchmove", "touchend", "touchleave"]);
+});
+
