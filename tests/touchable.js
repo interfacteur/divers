@@ -72,29 +72,3 @@ $.fn.touchable = function (te) { //te : array of touch events
 });	}
 
 
-$(function () {
-	"use strict";
-	var $d = $("div"),
-		$p1 = $("p:eq(0)"),
-		$p2 = $("p:eq(1)"),
-		$p3 = $("p:eq(2)");
-
-	$d.on({
-		mouseover: function (ze) {
-			"use strict";
-			$p1.text(ze.type + " : " +  new Date());
-		},
-		mousemove: function (ze) {
-			"use strict";
-			$p2.text(ze.type + " : " +  new Date());
-		},
-		mouseout: function (ze) {
-			"use strict";
-			$p3.text(ze.type + " : " +  new Date());
-	}	});
-
-	touchable($b, ["touchstart", "touchmove", "touchend", "touchleave"]);
-
-	$b.touchable(["touchstart", "touchmove", "touchend", "touchleave"]);
-});
-
