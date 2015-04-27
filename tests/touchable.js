@@ -89,11 +89,13 @@ $.fn.touchable = function (te) { //te : array of touch events
 						$(this).trigger($.fn.touchable.touchevents[ze.type], [ze]);
 					})
 			)	)
-	&& (that = this.get(0))
-	&& te.forEach(function (val) {
+	&& this.each(function () {
 		"use strict";
-		that.addEventListener(val, $.fn.touchable.treatevents, false);
-});	}
+		var that = this.get(0);
+		te.forEach(function (val) {
+			"use strict";
+			that.addEventListener(val, $.fn.touchable.treatevents, false);
+});	});	}
 
 //Exemple :
 /* $(function () {
@@ -102,7 +104,7 @@ $.fn.touchable = function (te) { //te : array of touch events
 		$retour2 = $("#retour2"),
 		$retour3 = $("#retour3");
 
-	$("#zone").on({
+	$("#zone").on({ //ou $("#zone1, #zone2, #zone3")
 		mouseover: function (ze) {
 			"use strict";
 			$retour1.text(ze.type + " : " +  new Date());
