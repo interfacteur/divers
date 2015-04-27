@@ -1,5 +1,5 @@
 /* Gaëtan Langhade, Interfacteur, mars-avril 2015
-?
+
 jouer des sons en mode play vs stop
 	.mp3 et .ogg
 	avec gestion tactile et prise en compte spécificités Apple cf. http://www.ibm.com/developerworks/library/wa-ioshtml5/
