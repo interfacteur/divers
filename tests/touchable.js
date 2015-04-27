@@ -34,7 +34,7 @@ function touchable (el, te) { //el : element or $(element) ; te : array of touch
 					})
 			)	)
 	&& (that = $(el).get(0))
-	&& te.split(" ").forEach(function (val) {
+	&& te.forEach(function (val) {
 		"use strict";
 		that.addEventListener(val, touchable.treatevents, false);
 });	}
@@ -90,7 +90,7 @@ $.fn.touchable = function (te) { //te : array of touch events
 					})
 			)	)
 	&& (that = this.get(0))
-	&& te.split(" ").forEach(function (val) {
+	&& te.forEach(function (val) {
 		"use strict";
 		that.addEventListener(val, $.fn.touchable.treatevents, false);
 });	}
