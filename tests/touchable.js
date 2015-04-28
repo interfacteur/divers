@@ -91,7 +91,7 @@ $.fn.touchable = function (te) { //te : array of touch events
 			)	)
 	&& this.each(function () {
 		"use strict";
-		var that = this.get(0);
+		var that = this;
 		te.forEach(function (val) {
 			"use strict";
 			that.addEventListener(val, $.fn.touchable.treatevents, false);
