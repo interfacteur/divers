@@ -10,7 +10,6 @@ Astuces et techniques utiles, js et intégration
 * msie.classique.html : limiter les capacités de MSIE à v. 9 sur un développement classique
 * snippet.client.add.jquery.js : snippet client d'ajout de jQuery à une page en consultation
 * variables-indefinitions.html : variables et déclaration, affectation, exécution
-* son.js : usage de l'API son de HTML5
 
 Dossiers
 
