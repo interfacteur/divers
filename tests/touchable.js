@@ -30,6 +30,7 @@ function touchable (el, te) { //el : element or $(element) ; te : array of touch
 				&& (touchable.treatevents = function (ze) {
 						"use strict";
 						ze.preventDefault();
+						ze.stopPropagation();
 						var ore = ze,
 							tactTouch = typeof ze.pageX == "number" && (ze.pageX > 0 || ze.pageY > 0) ? ze
 							: typeof ze.touches[0].pageX == "number" && (ze.touches[0].pageX > 0 || ze.touches[0].pageY > 0) ? ze.touches[0]
@@ -43,9 +44,9 @@ function touchable (el, te) { //el : element or $(element) ; te : array of touch
 							for (var p in ze)
 								ore[p] = ze[p];
 							ore.pageX = tactTouch.pageX;
-							ore.pageY = tactTouch.pageY - rayonLoupe / 2;
+							ore.pageY = tactTouch.pageY;
 						}
-						$(this).trigger($.fn.touchable.touchevents[ze.type], [ore]);
+						$(this).trigger(touchable.touchevents[ze.type], [ore]);
 	})	)	)
 	&& (that = $(el).get(0))
 	&& te.forEach(function (val) {
@@ -100,6 +101,7 @@ $.fn.touchable = function (te) { //te : array of touch events
 				&& ($.fn.touchable.treatevents = function (ze) {
 						"use strict";
 						ze.preventDefault();
+						ze.stopPropagation();
 						var ore = ze,
 							tactTouch = typeof ze.pageX == "number" && (ze.pageX > 0 || ze.pageY > 0) ? ze
 							: typeof ze.touches[0].pageX == "number" && (ze.touches[0].pageX > 0 || ze.touches[0].pageY > 0) ? ze.touches[0]
@@ -113,7 +115,7 @@ $.fn.touchable = function (te) { //te : array of touch events
 							for (var p in ze)
 								ore[p] = ze[p];
 							ore.pageX = tactTouch.pageX;
-							ore.pageY = tactTouch.pageY - rayonLoupe / 2;
+							ore.pageY = tactTouch.pageY;
 						}
 						$(this).trigger($.fn.touchable.touchevents[ze.type], [ore]);
 	})	)	)
