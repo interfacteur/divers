@@ -1,0 +1,1 @@
+Player vidéo sur le principe du stop motion, animation image par image cf. http://www.equatorium.net/e1/in-player-animateur.html
