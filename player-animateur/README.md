@@ -1,6 +1,6 @@
 Player vidéo sur le principe du stop motion, animation image par image
 
-//code procédural
+//code procédural fin 2012
 
 L'interface : http://www.equatorium.net/e1/in-player-animateur.html
 
