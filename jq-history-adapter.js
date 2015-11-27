@@ -1,4 +1,4 @@
-//https://github.com/browserstate/history.js
+//patch pour conserver la syntaxe standard de l'API history avec history.js https://github.com/browserstate/history.js
 
 history = window.History;
 history.state = history.getState().data;
