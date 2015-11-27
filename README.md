@@ -4,7 +4,10 @@ Divers
 
 Astuces et techniques utiles, js et intégration
 
-* jq-history-adapter.js : patch pour conserver la syntaxe standard de l'API history avec history.js (https://github.com/browserstate/history.js)
+* jq-history-adapter.js : patch pour conserver la syntaxe standard de l'API history avec history.js
+	(https://github.com/browserstate/history.js)
+	exemple : https://github.com/interfacteur/github-api/blob/master/js/appli-dev.js
+	à partir de https://github.com/interfacteur/github-api/blob/master/js/utils.js#L173
 * js-hoisting-tests.pdf : tableau de tests-mémo sur l'incidence du hoisting sur la val. des var.
 * js-operateurs-memo.js : aide-mémoire sur les opérateurs logiques, arithmétiques etc.
 * msie-cc.js : commentaires conditionnels en-deça de MSIE 11
