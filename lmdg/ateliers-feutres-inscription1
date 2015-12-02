@@ -1,0 +1,27 @@
+<?php
+include("includes/_phase.php"); //seul include relatif, permet les include absolus
+
+include($inclusion."includes/inc.head1.php");
+?>
+<title>Dolce Gusto - La Machine : inscription à l'atelier Feutres</title>
+<?php
+include($inclusion."includes/inc.head2.php");
+?>
+
+<body class="ateliers niveau4">
+<?php
+include($inclusion."includes/inc.header.php");
+?>
+
+<div id="contenu">
+<?php
+include($inclusion."includes/cont.ateliers-feutres-inscription1.php");
+?>
+</div><!-- contenu -->
+
+<?php
+include($inclusion."includes/inc.footer.php");
+?>
+
+</body>
+</html>

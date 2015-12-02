@@ -1,0 +1,27 @@
+<?php
+include("includes/_phase.php"); //seul include relatif, permet les include absolus
+
+include($inclusion."includes/inc.head1.php");
+?>
+<title>Dolce Gusto - La Machine : l'exposition des Machines métamorphosées</title>
+<?php
+include($inclusion."includes/inc.head2.php");
+?>
+
+<body class="exposition niveau2">
+<?php
+include($inclusion."includes/inc.header.php");
+?>
+
+<div id="contenu">
+<?php
+include($inclusion."includes/cont.exposition-index.php");
+?>
+</div><!-- contenu -->
+
+<?php
+include($inclusion."includes/inc.footer.php");
+?>
+
+</body>
+</html>

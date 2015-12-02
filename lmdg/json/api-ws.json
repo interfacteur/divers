@@ -1,0 +1,145 @@
+/*
+ * WS pour récupérer les informations sur les ateliers
+ */
+
+GET /ateliers.json
+
+[
+    {
+        "id": 1                    // id de l atelier
+        "label": "marqueurs 2012/12/09 15h15"       // titre de l atelier + date + heure
+        "nbPlace": 12              // nombre de place total de l atelier
+        "nbPlacePrises": 5         // nombre de place occupé de l atelier
+        "ouvert": true             // atelier ouvert ou fermé (false si la date de l atelier est passé)
+        "start_date": 12312312312,  // timestamp date debut atelier
+        "end_date": 213123123213,  // timestamp date de fin atelier
+        "urlFB": "http://www.lamachine-dolcegusto.fr/atelier/marqueurs" // url id FB pour recupérer les commentaires FB
+    },
+    {
+        "id": 2,                 // id de l atelier    
+        ...
+        ...
+    },
+    {
+        ...
+        ...
+    }
+]
+
+
+/*
+ * WS pour récupérer les informations sur les machines
+ */
+
+GET /machines.json
+
+[
+    {
+        "id": 1,                 // id de la machine
+        "label": "melody",    // titre de la machine (a titre indicatif)       
+        "urlFB": "http://www.lamachine-dolcegusto.fr/machine/melody" // url id FB pour recupérer les commentaires FB
+    },
+    {
+        "id": 2,                 // id de la machine 
+        ...
+        ...
+    },
+    {
+        ...
+        ...
+    }
+]
+
+
+/*
+ * WS pour poster une incription user a un atelier
+ */
+
+POST /inscription.json
+
+à poster :
+    - id       // id de l atelier | (int)
+    - lastname     // nom | (string)
+    - firstname    // prenom | (string)
+    - email        // email | (email)
+    - tel          // telephone | (string)
+    - address      // adresse | (string)
+    - city         // ville | (string)
+    - zip          // code postal | (string)
+    - gender       // civilité | (Madame / Monsieur)
+    - birthdate     // date de naissance | (timestamp)
+    - kidbirthdate    // date de naissance de l'enfant qui accompagne (laisser vide si atelier non enfant) | (timestamp)
+    - optmachine      // opt in possédez vous une machine | (0 / 1)
+    - optavantage     // opt in avantages | (0 / 1)
+    - optnews         // opt in offres spéciales | (0 / 1)
+
+/* retour json en cas de succes */
+
+{
+    "status": true,   // tout est ok
+    "error": ""       // pas d'erreur
+    "code": 0         // 0 = aucune erreur
+}
+
+/* retour json en d echec */
+
+{
+    "status": false,    // incription echouée
+    "error": "email deja inscrit pour cet atelier"  // retour dynamique en fonction de l erreur rencontrée
+    "code": 3
+}
+
+
+/*
+ * code d'erreur possible
+ */
+
+1 = format incorrect de saisie
+2 = atelier complet
+3 = utilisateur deja incrit
+
+/*
+ * WS pour récupérer les dernier commentaires d'un atelier ou machine
+ */
+
+GET /fb/(atelier|machine)/:id
+GET /fb/atelier/1
+GET /fb/machine/9
+
+{
+    "nbComTotal": 56,                   // nombre total des commentaires
+    "label": "marqueurs",               // nom de la machine / atelier (a titre indicatif)
+    "urlFB": "http://www.lamachine.dolce-gusto.fr/ateliers-stickers",      // url FB de la machine / atelier (a titre indicatif)
+    "comments": [
+        {
+            "name": "Julien Leclerc",   // prenom + nom de la personne qui a commenté
+            "text": "je me suis inscrit à l'atelier et j'y suis aller le premier, je connaissais déjà la marque ...",  // commentaire de personne
+            "picture": "https://graph.facebook.com/596751694/picture", // url de l'image FB miniature de la personne'
+            "date": "2 Décembre 2012, à 12h05"  // date du commentaire
+        },
+        {
+            ...,
+            ...
+        }
+    ]
+}
+
+
+/*
+ * WS pour récupérer les 10 derniers commentaires FB toutes machines / ateliers confondus (HP)
+ */
+
+GET /fb/latest
+
+[
+    {
+        "name": "Julien Leclerc",   // prenom + nom de la personne qui a commenté
+        "text": "je me suis inscrit à l'atelier et j'y suis aller le premier, je connaissais déjà la marque ...",  // commentaire de personne
+        "picture": "https://graph.facebook.com/596751694/picture", // url de l'image FB miniature de la personne'
+        "date": "2 Décembre 2012, à 12h05"  // date du commentaire
+    },
+    {
+        ...,
+        ...
+    }
+]

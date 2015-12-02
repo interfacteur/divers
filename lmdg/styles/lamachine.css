@@ -1,0 +1,2928 @@
+/*
+Projet :	Dolce Gusto, La Machine
+Date :		02 X 2012
+Auteur :	gaelan
+								*/
+
+/*
+I -		Reset
+II -	Font-face et generiques
+III -	Habillages
+IV -	Fondations
+V -		Constructions
+VI -	Superbox
+VII -	Videojs
+								*/
+
+/*
+I - RESET								*/
+html, body, h1, h2, h3, h4,
+hr, div, span, a, img, a img,
+p, strong, em, address,
+ol, ul, li, dl, dt, dd,
+form, fieldset, legend, label, 
+button, input, optgroup, option, select, textarea	{
+	border: 0;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+button, input, optgroup, option, select, textarea	{
+	color: #000;
+	font: inherit;
+	vertical-align: middle;
+}
+[type="submit"], [type="reset"]	{
+	cursor: pointer;
+}
+
+
+/*
+II - FONT-FACE ET GENERIQUES								*/
+@font-face	{
+	font-family: "tradegothic";
+	src: url("../typo/tradegothic.eot");
+	src: url("../typo/tradegothic.eot?#iefix") format("embedded-opentype"), url("../typo/tradegothic.woff") format("woff"), url("../typo/tradegothic.ttf") format("truetype"), url("../typo/tradegothic.svg#tradegothic") format("svg");
+}
+@font-face	{
+	font-family: "tradegothic-gr20";
+	src: url("../typo/tradegothic-gr20.eot");
+	src: url("../typo/tradegothic-gr20.eot?#iefix") format("embedded-opentype"), url("../typo/tradegothic-gr20.woff") format("woff"), url("../typo/tradegothic-gr20.ttf") format("truetype"), url("../typo/tradegothic-gr20.svg#tradegothic-gr20") format("svg");
+}
+@font-face {
+	font-family: "bodoni1";
+	src: url("../typo/bodoni1.eot");
+	src: url("../typo/bodoni1.eot?#iefix") format("embedded-opentype"), url("../typo/bodoni1.woff") format("woff"), url("../typo/bodoni1.ttf") format("truetype"), url("../typo/bodoni1.svg#bodoni1") format("svg");
+}
+@font-face {
+	font-family: "bodoni2";
+	src: url("../typo/bodoni2.eot");
+	src: url("../typo/bodoni2.eot?#iefix") format("embedded-opentype"), url("../typo/bodoni2.woff") format("woff"), url("../typo/bodoni2.ttf") format("truetype"), url("../typo/bodoni2.svg#bodoni2") format("svg");
+}
+li	{
+	list-style: none;
+}
+a	{
+	color: #000;
+}
+a,
+a:hover,
+a:focus	{
+	outline: 0;
+	text-decoration: none;
+}
+.footer li a:hover	{
+	text-decoration: underline;
+}
+body	{
+	background: #FFF;
+	color: #000;
+	font: 62.5% "tradegothic", sans-serif; /* 1em = 10px */
+	line-height: 1;
+	padding-bottom: 120px;
+	position: relative;
+	text-align: center;
+	-moz-transform-origin: center top; 
+	-webkit-transform-origin: center top; 
+	-opera-transform-origin: center top; 
+	-ms-transform-origin: center top;
+	transform-origin: center top;
+}
+.corset body	{
+	overflow: hidden;
+}
+
+
+
+
+/*
+III - HABILLAGES menu								*/
+/* NB : pas de prise en compte de :focus */
+.menu ol a,
+.corset .menu ol a	{
+	border: 1px solid transparent;
+	border-width: 3px 0 1px 0;
+	font: 1.8em "tradegothic-gr20";
+	text-transform: uppercase;
+}
+.menu ol :hover,
+.menu ol [title]	{
+	border-color: #000;
+}
+.evenement .menu ol [href*="evenement"],
+.exposition .menu ol [href*="exposition"],
+.ateliers .menu ol [href*="ateliers"],
+.openbar .menu ol [href*="openbar"],
+.corset .evenement .menu ol [href*="evenement"]:hover,
+.corset .exposition .menu ol [href*="exposition"]:hover,
+.corset .ateliers .menu ol [href*="ateliers"]:hover,
+.corset .openbar .menu ol [href*="openbar"]:hover	{
+	border-top-color: #000;
+}
+.corset .evenement .menu ol [href*="evenement"],
+.corset .exposition .menu ol [href*="exposition"],
+.corset .ateliers .menu ol [href*="ateliers"],
+.corset .openbar .menu ol [href*="openbar"]	{
+	border-top-color: transparent;
+}
+.menu ul	{
+	font-family: "bodoni1";
+	font-size: 1.6em;
+	letter-spacing: -1px;
+}
+.menu a em,
+.introductionG a em,
+.list-02H a em	{
+	font-size: 1.05em;
+	font-style: normal;
+	letter-spacing: 1px;
+}
+
+
+
+
+/*
+III - HABILLAGES boissons openbar								*/
+.openbar .item-01H a:hover,
+.openbar .item-01H .actif,
+.list-02H #expresso a {
+	background:#8e1325;
+	color:#fff;
+}
+.openbar .item-02H a:hover,
+.openbar .item-02H .actif,
+.list-02H #expressoI a {
+	background:#1f1919;
+	color:#fff;
+}
+.openbar .item-03H a:hover,
+.openbar .item-03H .actif,
+.list-02H #cafeL a {
+	background:#e27c00;
+	color:#000;
+}
+.openbar .item-04H a:hover,
+.openbar .item-04H .actif,
+.list-02H #expressoB a {
+	background:#a9a8a6;
+	color:#000;
+}
+.openbar .item-05H a:hover,
+.openbar .item-05H .actif,
+.list-02H #expressoD a {
+	background:#8e1325;
+	color:#fff;
+}
+.openbar .item-05H a:hover span,
+.openbar .item-05H .actif span {
+	background:#069ce8;
+	color:#000;
+}
+.openbar .item-06H a:hover,
+.openbar .item-06H .actif,
+.list-02H #cappuccino a {
+	background:#cbbe2d;
+	color:#000;
+}
+.openbar .item-07H a:hover,
+.openbar .item-07H .actif,
+.list-02H #latteM a {
+	background:#e98604;
+	color:#000;
+}
+.openbar .item-08H a:hover,
+.openbar .item-08H .actif,
+.list-02H #chococino a {
+	background:#7b3a00;
+	color:#fff;
+}
+.openbar .item-09H a:hover,
+.openbar .item-09H .actif,
+.list-02H #nesquik a {
+	background:#feed01;
+	color:#000;
+}
+.openbar .item-10H a:hover,
+.openbar .item-10H .actif,
+.list-02H #chaiT a {
+	background:#bc68a6;
+	color:#000;
+}
+
+
+
+
+/*
+III - certains des autres HABILLAGES thematiques								*/
+#index .plateauxtv h2,
+#index .plateauxtv strong,
+.list-03H .plateauxtv > em,
+div.ateliers .list-03H .plateauxtv a + a	{
+	color: #d961be;
+}
+#index .tassecom h2,
+#index .tassecom strong,
+.list-03H .tassecom > em,
+div.ateliers .list-03H .tassecom a + a	{
+	color: #e40056;
+}
+#index .okdouceurs h2,
+#index .okdouceurs strong,
+.list-03H .okdouceurs > em,
+div.ateliers .list-03H .okdouceurs a + a	{
+	color: #ea8501;
+}
+#index .superchoco h2,
+#index .superchoco strong,
+.list-03H .superchoco > em,
+div.ateliers .list-03H .superchoco a + a	{
+	color: #b55601;
+}
+#index .feutres h2,
+#index .feutres strong,
+.list-03H .feutres > em,
+div.ateliers .list-03H .feutres a + a	{
+	color: #6b27c3;
+}
+#index .tricot h2,
+#index .tricot strong,
+.list-03H .tricot > em,
+div.ateliers .list-03H .tricot a + a	{
+	color: #01c1f3;
+}
+#index .stickers h2,
+#index .stickers strong,
+.list-03H .stickers > em,
+div.ateliers .list-03H .stickers a + a	{
+	color: #ccb806;
+}
+#index > div + div h2,
+#index p strong	{
+	color: #EA8501;
+}
+#index > div + div > div + div h2	{
+	color: #E40056;
+}
+#index .plateauxtv li	{
+	background: #ecb0de;
+}
+#index .plateauxtv .actif,
+.list-03H .plateauxtv > a img	{
+	background: #d961be;
+}
+#index .tassecom li	{
+	background: #f17faa;
+}
+#index .tassecom .actif,
+.list-03H .tassecom > a img	{
+	background: #e40056;
+}
+#index .okdouceurs li	{
+	background: #f4c280;
+}
+#index .okdouceurs .actif,
+.list-03H .okdouceurs > a img	{
+	background: #f19922;
+}
+#index .superchoco li	{
+	background: #daaa80;
+}
+#index .superchoco .actif,
+.list-03H .superchoco > a img	{
+	background: #b55601;
+}
+#index .feutres li	{
+	background: #b593e1;
+}
+#index .feutres .actif,
+.list-03H .feutres > a img	{
+	background: #6b27c3;
+}
+#index .tricot li	{
+	background: #80e0f9;
+}
+#index .tricot .actif,
+.list-03H .tricot > a img	{
+	background: #01c1f3;
+}
+#index .stickers li	{
+	background: #e5db82;
+}
+#index .stickers .actif,
+.list-03H .stickers > a img	{
+	background: #ccb806;
+}
+#index > div + div li	{
+	background: #F4C280;
+}
+#index > div + div .actif	{
+	background: #EA8501;
+}
+div.ateliers .list-03H .plateauxtv > em	{
+	border-bottom-color: #d961be;
+}
+div.ateliers .list-03H .tassecom > em	{
+	border-bottom-color: #e40056;
+}
+div.ateliers .list-03H .okdouceurs > em	{
+	border-bottom-color: #f19922;
+}
+div.ateliers .list-03H .superchoco > em	{
+	border-bottom-color: #b55601;
+}
+div.ateliers .list-03H .feutres > em	{
+	border-bottom-color: #6b27c3;
+}
+div.ateliers .list-03H .tricot > em	{
+	border-bottom-color: #01c1f3;
+}
+div.ateliers .list-03H .stickers > em	{
+	border-bottom-color: #ccb806;
+}
+
+
+
+
+/*
+III - HABILLAGES generique								*/
+.list-02H #nesquik a,
+div.ateliers .list-03H a + a span em {
+	color:#000;
+}
+div.ateliers .list-03H a + a span em {
+	font-style:normal;
+}
+.block-styleH .list-01H li span {
+	color:#4f2684;
+}
+.footer	div p,
+.footer li a,
+.mention	{
+	color: #636363;
+}
+
+#index p strong	{
+	font-weight: normal;
+}
+.title-01H,
+#sommaire h1	{
+	text-transform:uppercase;
+}
+.list-02H #latteM a {
+	letter-spacing: -2px;
+}
+
+sup {
+	font-size:0.7em;
+}
+.mention {
+	font-size:0.85em;
+}
+.itemsH a	{
+	font-size: 1.3em;
+}
+.list-02H li	{
+	font-size: 1.5em;
+	letter-spacing:-1px;
+}
+#sommaire p,
+.list-01H li {
+	font-size:1.4em;
+}
+.title-01H {
+	font-size: 2.4em;
+}
+#sommaire h1	{
+	font-size: 4.3em;
+}
+div.openbar #sommaire h1 {
+	font-size:5.8em;
+}
+
+.bt-01H,
+.bt-02H,
+.bt-03H {
+	color:#fff;
+	font-weight:normal;
+}
+.txt-02H {
+	font-size:1.3em;
+	line-height:1.3em;
+}
+.title-03H {
+	color:#AD2C4B;
+	font-size:2em;
+	text-transform:uppercase;
+}
+.list-01H li strong {
+	background:#ffee4b;
+	font-weight:normal;
+}
+.block-rightH .txt-01H,
+.block-right-02H .txt-01H,
+.block-styleH .txt-01H {
+	letter-spacing:-0.10em;
+	line-height:1.4em;
+}
+.list-01H li span {
+	text-transform:uppercase;
+	line-height:1.3em;
+}
+
+.introductionG p + p	{
+	font: 1.45em "tradegothic";
+}
+
+#sommaire h1,
+#sommaire strong,
+.title-01H,
+.title-03H	{
+	font-family: "tradegothic-gr20";
+	font-weight: normal;
+}
+.list-01H li span {
+	color:#da2e37;
+	font-family:"tradegothic-gr20";
+	font-size:1.429em;
+}
+.footer > p,
+#index h3,div.ateliers .list-03H a + a strong	{
+	font: 2.4em "tradegothic-gr20";
+	font-weight: normal;
+	text-transform: uppercase;
+}
+div.ateliers .list-03H a + a strong	{
+	color: #000;
+	font-size: 1.1em;
+	font-style: normal;
+}
+.footer > p strong	{
+	color: #C50752;
+	font-weight: normal;
+}
+#index p	{
+	font: 1.5em "bodoni1";
+	letter-spacing:-1px;
+}
+div.ateliers .list-03H a + a	{
+	font: 1.7em "bodoni1";
+	letter-spacing:-1px;
+}
+.introductionG a	{
+	font: 1.9em "bodoni1";
+}
+#sousMenu a	{
+	font: 1.8em "bodoni1";
+	letter-spacing:-1px;
+}
+#index h2	{
+	font: 2em "bodoni1";
+}
+.bt-01H,
+.bt-02H,
+.bt-03H {
+	font: 1.8em "bodoni1";
+}
+.introductionG p	{
+	font: 2.1em "bodoni1";
+	letter-spacing: -1px;
+}
+.titre-contenuT em	{
+	font-family: "bodoni2";
+	letter-spacing:-1px;
+	font-size: 1em;
+	font-weight:normal;
+}
+.txt-01H {
+	font-family: "bodoni1";
+	font-size:2.02em;
+}
+div.ateliers .list-03H li > em	{
+	border-bottom: 4px solid white;
+	font: 4.1em "bodoni1";
+	letter-spacing: -1px;
+	width: auto;
+}
+div.ateliers .list-03H li > em span	{
+	font-size: .5em;
+}
+.title-02H,
+div.exposition .capsule h2,
+div.ateliers .capsule h2,
+div.evenement .evenementbis h2	{
+	color: #BDA78D;
+	font: 4.4em "bodoni2";
+	font-weight: normal;
+	letter-spacing: -2px;
+    -moz-text-shadow: 1px 1px 1px #aaa;
+	-webkit-text-shadow: 1px 1px 1px #aaa;
+	text-shadow: 1px 1px 1px #aaa;
+}
+.list-02H li a{
+	color:#fff;
+	font-family: "bodoni1";
+	font-size:1.2em;
+	letter-spacing: -1px;
+}
+
+
+
+
+/*
+IV - FONDATIONS header								*/
+#menu	{
+	background: #BEA68C url(../images/skin/fd-motif-kraft.jpg) repeat;
+	height: 49px;
+	left: 0;
+	min-width: 1180px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 4;
+}
+.menu	{
+	height: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+	text-align: left;
+	width: 1180px;
+}
+.menu > a,
+.menu > a img,
+.menu ol,
+.menu li	{
+	float: left;
+}
+.menu ol li	{
+	padding: 18px 12px 0 13px;
+}
+.menu ul	{
+	float: right;
+	padding: 14px 0 0 13px
+}
+.menu a span,
+.facebook > span	{
+	background: url(../images/skin/fd-blanc-alpha-moyen.png) repeat;
+	display: inline-block;
+	min-height: 21px;
+	padding: 3px 12px 1px 10px;
+	margin-top: 3px;
+}
+.facebook > span	{
+	cursor: pointer;
+}
+.facebook,
+.facebook > img,
+.facebook > a img	{
+	margin-left: 9px;
+}
+.facebook img	{
+	margin-top: 1px;
+}
+.facebook span,
+.facebook > a,
+.facebook img	{
+	float: left
+}
+.facebook > span,
+.facebook > a > span	{
+	padding-right: 5px;
+	width: 204px;
+}
+.facebook strong	{
+	float: left;
+	font-weight: normal;
+	overflow: hidden;
+	padding-left: 3px;
+	width: 120px;
+}
+.facebook span a img	{
+	float: right;
+}
+#loader	{
+	display: none;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 5;
+}
+.installation #loader,
+.attente #loader	{
+	display: block;
+}
+#loader div	{
+	background: url(../images/picto/goutte.gif) repeat-x left top;
+	border-radius: 64px;
+	height: 64px;
+	left: 50%;
+	margin-left: -128px;
+	position: absolute;
+	top: 384px;
+	width: 256px;
+}
+#loader p	{
+	background: grey;
+	color: #FFF;
+	border-radius: 64px;
+	font-size: 1.75em;
+	height: 48px;
+	opacity: .66;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=66)"; /* IE 8 */
+	padding-top: 16px;
+	width: 100%;
+}
+.msie7	#loader p	{
+	filter: alpha(opacity=50);
+}
+
+
+/*
+IV - FONDATIONS transitions								*/
+#contenu	{
+	margin: 0 auto;
+	position: relative;
+	text-align: left;
+	top: 49px;
+	width: 1180px;
+}
+.contenu,
+.attente	{
+	left: 0;
+	overflow: hidden;
+	position: relative;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+.attente	{
+	position: absolute;
+	z-index: 2;
+}
+.attente.verticale	{
+	left: 0;
+	top: -4444px;
+}
+.attente.horizontale	{
+	left: 1180px;
+	top: 0;
+}
+.niveau2 .niveau3,
+.niveau3 .niveau4,
+.niveau4 .niveau2	{
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; /* IE 8 */
+}
+.msie7 .niveau2 .niveau3,
+.msie7 .niveau3 .niveau4,
+.msie7 .niveau4 .niveau2	{
+	filter: alpha(opacity=0);
+}
+.descente	{
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; /* IE 8 */
+	position: absolute;
+	right: 0;
+	top: -4444px;
+}
+.msie7 .descente	{
+	filter: alpha(opacity=0);
+}
+.croix {
+	position:absolute;
+	right:24px;
+	top:16px;
+	z-index: 1;
+}
+.niveau4 .niveau3 .croix	{
+	display: none;
+}
+
+
+
+
+/*
+IV - FONDATIONS footer								*/
+#footer	{
+	height: 88px;
+	left: 0;
+	margin-top: 50px;
+	position: absolute;
+	width: 100%;
+	z-index: 0;
+}
+.corset #footer	{
+	z-index: 3;
+}
+.footer	{
+	background: url(../images/skin/fd-footer.jpg) no-repeat 385px 17px;
+	height: 100%;
+	margin: auto;
+	text-align: left;
+	width: 1180px;
+}
+.footer img	{
+	float: left;
+}
+.footer > p	{
+	padding: 18px 0 20px 0;
+}
+.footer div p,
+.footer ul,
+.footer li	{
+	float: left;
+}
+.footer ul	{
+	margin-left: 28px;
+}
+.footer li	{
+	padding: 0 3px;
+}
+.footer li + li	{
+	border-left: 1px solid #636363;
+}
+
+
+
+
+/*
+V - CONSTRUCTION Accueil								*/
+div.accueil	{
+	height: 763px;
+	overflow: visible;
+}
+#introduction	{
+	background: url(../images/skin/fd-accueil.jpg) no-repeat left top;
+	float: left;
+	height: 751px;
+	position: relative;
+	width: 580px;
+}
+.introductionG	{
+	background: url(../images/skin/fd-blanc-alpha-fort.png) repeat;
+	overflow: hidden;
+	padding: 27px 12px 24px 53px;
+	width: 515px;
+}
+.introductionG h1	{
+	float: left;
+	margin-right: 30px;
+}
+.introductionG h1 span	{
+	position: absolute;
+	left: -4444px;
+}
+.introductionG p	{
+	line-height: 1;
+}
+.introductionG p + p	{
+	margin: 7px 0;
+}
+.introductionG a	{
+	background: url(../images/skin/fd-motif-kraft.jpg) repeat;
+	display: inline-block;
+	padding: 3px 16px 2px 7px;
+}
+#introduction > a	{
+	bottom: 0;
+	left: 0;
+	position: absolute;
+}
+#index h2	{
+	margin: 5px 0 -5px 0;
+	letter-spacing:-1px;
+}
+#index > div + div h2	{
+	margin: 0;
+}
+#index	{
+	float: left;
+	height: 762px;
+	padding-left: 20px;
+	width: 580px;
+}
+#index > div	{
+	height: 385px;
+	overflow: hidden;
+	width: 100%;
+}
+#index > div + div	{
+	height: 372px;
+	padding-top: 5px;
+}
+#index > div > div	{
+	float: left;
+	height: 100%;
+	position: relative;
+	width: 280px;
+}
+#index > div > div + div	{
+	float: right;
+	padding-left: 9px;
+}
+#index > div > div + div > h2 + div,
+#index > div > div + div > div + div	{
+	padding-left: 9px;
+}
+#index > div > div > h2 + div > div,
+#index > div > div > div + div > div	{
+	height: 50px;
+	padding: 10px 0 0 79px;
+	position: relative;
+	z-index: 1;
+}
+#index > div > div > h2 + div,
+#index > div > div > div + div,
+#index > div + div h3 + div > p	{
+	left: -4444px;
+	position: absolute;
+	top: 30px;
+	width: 280px;
+}
+#index .plateauxtv #plateauxtv,
+#index .tassecom #tassecom,
+#index .okdouceurs #okdouceurs,
+#index .superchoco #superchoco,
+#index .feutres #feutres,
+#index .tricot #tricot,
+#index .stickers #stickers	{
+	left: 0;
+}
+#index .tizieu > #tizieu,
+#index .birderline > #birderline,
+#index .shera > #shera,
+#index .swiz > #swiz,
+#index .daidaitran > #daidaitran,
+#index .cosmosapiens > #cosmosapiens	{
+	left: 0;
+	top: 0;
+}
+#plateauxtv div	{
+	background: url(../images/edito/qui-griottes.jpg) no-repeat left center;
+}
+#tassecom div,
+#superchoco div	{
+	background: url(../images/edito/qui-delphinehuguet.jpg) no-repeat left center;
+}
+#okdouceurs div	{
+	background: url(../images/edito/qui-spookmeacookie.jpg) no-repeat left center;
+}
+#okdouceurs h3	{
+	position: relative;
+}
+#okdouceurs h3 span	{
+	font-size: .66em;
+	position: absolute;
+	right: 0;
+	top: 24px;
+	white-space: nowrap;
+}
+#feutres div	{
+	background: url(../images/edito/qui-trbdsgn.jpg) no-repeat left center;
+}
+#tricot div	{
+	background: url(../images/edito/qui-cft.jpg) no-repeat left center;
+}
+#stickers div	{
+	background: url(../images/edito/qui-stickaz.jpg) no-repeat left center;
+}
+#index > div > div > h2 + div > a img,
+#index > div > div > div + div > a img	{
+	margin: -7px 0 0 23px;
+	position: relative;
+	z-index: 0;
+}
+#index h3	{
+	line-height: 1;
+	margin-bottom: 6px;
+}
+#index > div + div > div + div h3	{
+	margin-top: 6px;
+}
+.moz #index > div + div > div + div h3	{
+	line-height: .7;
+}
+#index > div + div h3 + div	{
+	height: 260px;
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+#index p img	{
+	display: block;
+	margin: 0 0 2px 20px
+}
+#index > div + div > div + div img	{
+	bottom: 0;
+	left: 0;
+	position: absolute;
+}
+#index ul	{
+	height: 12px;
+	margin: 0 auto;
+	position: relative;
+	top: 334px;
+	width: 80px;
+}
+#index > div > div + div ul	{
+	width: 60px;
+}
+#index > div + div ul	{
+	top: 14px;
+	width: 120px;
+}
+#index li	{
+	margin: 0 4px;
+}
+#index li,
+#index li a	{
+	float: left;
+	height: 100%;
+	width: 12px;
+}
+#index li a	{
+	background: url(../images/skin/fd-clavier.png) no-repeat -2px -2px;
+}
+#index .actif a	{
+	background-position: -16px -2px;
+}
+#index li span	{
+	left: -4444px;
+	position: absolute;
+}
+
+
+
+
+/*
+V - CONSTRUCTIONS contenu type								*/
+#sommaire	{
+	background: url(../images/skin/fd-motif-kraft.jpg) repeat;
+	float: left;
+	margin-top: 4px;
+	padding: 0 1px 0 1px;
+	text-align: center;
+	width: 278px;
+}
+#sommaire h1	{
+	padding:230px 0 30px;
+	position: relative;
+	white-space: nowrap;
+}
+#sommaire h1 img	{
+	position: absolute;
+	left: 55px;
+	top: 23px;
+}
+#sommaire p	{
+	line-height: 1.5;
+}
+#sommaire strong	{
+	display: block;
+}
+#sommaire ul	{
+	margin-top: 30px;
+}
+div.exposition #sommaire ul + p { 
+	bottom:5px;
+	font-size:1.1em;
+	left:32px;
+	position:absolute;
+	text-align:left;
+}
+#sousMenu a	{
+	background: url(../images/skin/fd-blanc-alpha-faible.png) repeat;
+	display: inline-block;
+	margin-bottom: 1px;
+	padding: 12px 12px 8px 32px;
+	text-align: left;
+	width: 234px;
+	white-space: nowrap;
+}
+#sousMenu a[title],
+#sousMenu a:hover	{
+	background: #FFF;
+}
+#presentation	{
+	float: right;
+	overflow: hidden;
+	position: relative;
+	width: 900px;
+}
+
+
+
+
+/*
+V - CONSTRUCTION Evenement index et suite								*/
+#sommaire.ev	{
+	height:781px;
+}
+.hauteurG	{
+	height: 790px
+}
+div.evenement.niveau3 .contentH	{
+	left: 140px;
+}
+.float-lH { float:left; }
+.float-rH { float:right; }
+.contentH {
+	overflow: hidden;
+	position:relative;
+	width:900px;
+}
+/***********************************/
+.bg-evenement-indexH {
+	background: url(../images/edito/evenement-index.jpg) no-repeat 88px 22px;
+	height:764px;
+}
+.global-pushH {
+	overflow:hidden;
+	position:absolute;
+	bottom:0;
+	left:20px;
+}
+.pushH {
+	background:url(../images/skin/fd-blanc-alpha-fort.png);
+	border:solid 3px #e0ddd7;
+	height:275px;
+	text-align:left;
+	width:275px;
+}
+.push-imprimerieH {
+	margin:0 18px;
+}
+.block-leftH {
+	margin-left:35px;
+	text-align:left;
+}
+.block-left-02H {
+	margin-left:45px;
+	text-align:left;
+}
+.block-rightH,
+.block-right-02H {
+	text-align:left;
+	width:490px;
+}
+.block-rightH {
+	margin:90px 30px 0 0;
+}
+.block-right-02H {
+	margin:84px 4px 0 0;
+}
+.block-infosH {
+	margin:54px 0 0 35px;
+}
+.block-mapH {
+	border:solid 1px #a7a6a4;
+	height:365px;
+	margin-top:45px;
+	width:485px;
+}
+.block-styleH {
+	background: url(../images/edito/evenement-style.jpg) no-repeat 0 5px;
+	margin-right:60px;
+	text-align:left;
+	width:795px;
+}
+/***********************************/
+.title-01H {
+	padding:15px 0 0 15px;
+}
+.asssuptionG	{
+	/*margin-top: -4px;*/
+}
+.moz .asssuptionG	{
+	margin-top: -6px;
+}
+.title-02H {
+	padding:30px 0 30px 20px;
+	text-align:left;
+}
+/***********************************/
+.block-rightH .txt-01H {
+	padding:30px 35px 0;
+}
+.block-styleH .txt-01H {
+	padding:260px 0 0 365px;
+}
+.txt-06H {	
+  	font-family: "bodoni1";
+	font-size:2.182em;	/*24px*/
+	font-weight:normal;
+	letter-spacing:-1px;
+	margin-left:20px;
+}
+/***********************************/
+.bt-01H,
+.bt-02H,
+.bt-03H {
+	margin-left:15px;
+	padding:3px 20px 3px 15px;
+}
+.bt-01H {
+	background:#da2c35;
+}
+.bt-02H {
+	background:#ad2c4b;
+}
+.bt-03H {
+	background:#4f2684;
+}
+.gallery { display:none;}
+.gallery .bt-pagination { cursor:pointer; }
+/***********************************/
+.list-01H li {
+	line-height:1.2em;
+	text-align:left;
+}
+.list-01H li span {
+	display:block;
+}
+.block-rightH .list-01H li {
+	margin:25px 35px 0;
+}
+.block-styleH .list-01H li {
+	margin-top:30px;
+	padding-left:365px;
+}
+.list-06H { margin:28px 0 0 20px; }
+.list-06H .last { margin-right:0; }
+.list-06H li{
+	border:solid 3px #e9e7e2;
+	margin:0 20px 20px 0;
+	height:174px;
+	width:174px;
+}
+
+/***********************************/
+.img-01H,
+.img-02H,
+.img-03H {
+	display:block;
+}
+.img-01H {
+	margin:0 auto 14px;
+}
+.img-02H {
+	margin:13px auto 15px;
+}
+.img-03H {
+	margin:6px auto 14px;
+}
+.img-04H {
+	margin:5px 0;
+}
+.img-05H{
+	margin-bottom:50px;
+}
+.list_videos	{
+	height: 600px;
+	position: relative;
+	width: 900px;
+}
+.list_videos .list-06H	{
+	height: 100%;
+	margin-left: 90px;
+	width: 810px;
+}
+.list_videos .list-06H .float-lH	{
+	margin: 0 90px 30px 0;
+}
+#videos	{
+	height: 464px;
+	left: -4444px;
+	position: absolute;
+	top: 0;
+	width: 832px;
+	z-index: 6;
+}
+#videos.ecran	{
+	left: 9px;
+}
+#videos > a	{
+	background: url(../images/picto/picto-close.gif) no-repeat right top;
+	height: 59px;
+	right: -59px;
+	position: absolute;
+	top: -59px;
+	width: 59px;
+}
+#videos > a span	{
+	left: -4444px;
+	position: absolute;
+}
+.list_videos li	{
+	background: url(../images/picto/lecture.png) no-repeat 0 0;
+}
+.list_videos img	{
+	opacity: .75;
+}
+.list_videos .remarquable	{
+	opacity: .66;
+}
+.projection #loader	{
+	background: rgba(0,0,0,.5);
+	display: block;
+}
+.msie7 .projection #loader,  /* IE 7 */
+.projection #loader div	{ /* IE 8 */
+	display: none;
+}
+.msie8 .projection #loader	{
+	background: #000;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE 8 */
+}
+
+
+
+
+/*
+V - CONSTRUCTIONS Exposition								*/
+div.exposition #sommaire,
+div.exposition #presentation {
+	height:1035px;
+	position:relative;
+}
+/***********************************/
+.title-04H {
+	font-family: "bodoni2";
+	font-size:4.4em;
+	font-weight:normal;
+	letter-spacing:-2px;
+	color:#ffa722;
+	margin:30px 0;
+}
+/***********************************/
+.txt-03H {
+	/*same as habillage .txt-01*/
+	font-family: "bodoni1";
+	font-size:2.02em;
+	
+	margin:-5px 100px 0 20px;
+	text-align:left;
+	letter-spacing:-1px;
+}
+.txt-04H {
+	color:#6b635a;
+	font-size:1.2em;
+	line-height:1.4em;
+	margin-right:80px;
+	text-align: center
+}
+/***********************************/
+.list-03H {
+	margin:25px 0 0 20px;
+	overflow:hidden;
+}
+.msie7 .list-03H {
+	margin:25px 0 20px 20px;
+}
+.list-03H li {
+	margin:0 20px 20px 0;
+}
+.list-03H li img,
+.list-04H li img {
+	display:block;
+}
+.list-04H {
+	position:relative;
+}
+.list-04H li {
+	position:absolute;
+	top:190px;
+}
+.list-04H .item-01H {
+	left:20px;
+}
+.list-04H .item-02H {
+	right:20px;
+}
+/***********************************/
+.bt-facebookH,
+.bt-05H {
+	background:#ff9700;
+	color:#fff;
+}
+.bt-facebookH {
+	padding:3px 7px 3px 6px;
+}
+/***********************************/
+.list-03H li,
+.presentationH {
+	border:solid 3px #e4e2dc;
+}
+.list-03H .valor {
+	border-color: #BEA68C;
+	background: #BEA68C;
+}
+.list-03H .valor img {
+	opacity: .66;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=66)"; /* IE 8 */
+}
+.msie7 .list-03H .valor img	{
+	filter: alpha(opacity=66);
+}
+.bt-facebookH {
+	font-family: "bodoni1";
+	font-size:1.9em;
+}
+.presentationH p {
+	font-family: "bodoni1";
+	font-size:2em;
+	letter-spacing:-1px;
+	line-height:1.4em;
+}
+.registerH {
+	/*same as habillage sup*/
+	font-size:0.7em;
+	
+	vertical-align:text-top;
+}
+.detailH {
+	margin-left: 250px;
+	text-align:left;
+	width:680px;
+}
+.bloc-interneH {
+	margin:15px auto 0;
+	text-align:center;
+	width:528px;
+}
+.presentationH {
+	margin:25px auto 35px;
+	padding:30px;
+	width:462px;
+}
+.presentationH p {
+	text-align:left;
+}
+
+/*
+V - CONSTRUCTIONS Ateliers								*/
+#sommaire.at,
+#presentation.at	{
+	height: 980px;
+}
+div.ateliers .capsule	{
+	padding: 27px 0 0 42px;
+	width: 858px;
+}
+div.ateliers .list-03H	{
+	margin-left: 0;
+}
+div.ateliers .list-03H li	{
+	height: 174px;
+	padding-left: 14px;
+	position: relative;
+	width: 160px;
+}
+div.ateliers .list-03H li > em	{
+	display: inline-block;
+	line-height: 1;
+	padding-top: 25px;
+}
+div.ateliers .list-03H em + a	{
+	height: 70px;
+	overflow: hidden;
+	position: absolute;
+	right: 8px;
+	top: 8px;
+	width: 70px;
+}
+div.ateliers .list-03H em + a img	{
+	margin: -30px 0 0 -30px;
+}
+div.ateliers .txt-04H	{
+	margin-top: 24px;
+}
+div.ateliers .list-03H a + a	{
+	display: block;
+	height: 85px;
+	position: relative;
+	top: 7px;
+}
+div.ateliers .list-03H a + a strong	{
+	display: block;
+}
+div.ateliers .list-03H .okdouceurs a + a strong	{
+	line-height: .9;
+	padding-top: 2px;
+}
+div.ateliers .list-03H a + a img	{
+	background: transparent;
+	position: absolute;
+	right: 1px;
+	top: 17px;
+}
+div.ateliers .list-03H a + a span	{
+	bottom: 1px;
+	font-size:0.9em;
+	letter-spacing: -1px;
+	position: absolute;
+	white-space: nowrap;
+	width: 160px;
+	
+}
+li.complet,
+li.passe	{
+	background: #E4E2DC;
+}
+li.complet > em + a img,
+li.passe > em + a img	{
+	display: none;
+}
+div.ateliers .list-03H li > img	{
+	display: none;
+}
+div.ateliers .list-03H li.complet > img	{
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.ouverture	{
+	margin: 9px 0;
+	font-size: 1.4em;
+}
+/***********************************/
+.title-06H {
+	font-family: "tradegothic-gr20";
+	font-size:3em;
+	font-weight:normal;
+	margin:25px 0 10px;
+	text-transform:uppercase;
+}
+.title-07H {
+	font-family: "bodoni1";
+	font-size:1.9em;
+	font-weight:normal;
+	letter-spacing:-1px;
+}
+.title-07H sup {
+	line-height:1em;
+	vertical-align:text-top;
+}
+/***********************************/
+.txt-05H {
+	font-family: "bodoni2";
+	font-weight:normal;
+	font-size:2.2em;
+	line-height:1.2em;
+	letter-spacing:-1px;
+	margin:30px 0 40px 20px;
+}
+.facebook-participeH {
+	/*background: url(../images/edito/logo-facebook2.gif) no-repeat 0 2px;*/
+	color:#888;
+	font-family: "bodoni1";
+	font-size:1.4em;
+	letter-spacing:-1px;
+	line-height:1.4em;
+	margin:10px 0;
+	/*padding-left:17px;*/
+}
+/***********************************/
+.list-05H {
+	clear:both;
+	overflow:hidden;
+	}
+.list-05H li {
+	margin-right:50px;
+	width:177px;
+}
+.list-05H li p + p,
+.list-05H li a + p {
+	font-size:1.4em;
+	line-height:1.4em;
+}
+.list-05H li .lien_pdf {
+	margin:10px 0;
+	display:block;
+	font-size:1.4em;
+	font-style:italic;
+}
+.list-05H li p strong {
+	/*same as habillage .list-01H li strong*/
+	background:#ffee4b;
+	font-weight:normal;
+}
+.list-05H li p a {
+	display:block;
+}
+.list-05H .item-04H,
+.list-05H .item-05H,
+.list-05H .item-07H {
+	margin-right:0;
+}
+.list-05H .item-06H {
+	margin:0 100px;
+}
+.list-05H .item-01H .title-07H span {
+	color:#d961be;
+}
+.list-05H .item-02H .title-07H span {
+	color:#e40056;
+}
+.list-05H .item-03H .title-07H span {
+	color:#ea8501;
+}
+.list-05H .item-04H .title-07H span {
+	color:#b55601;
+}
+.list-05H .item-05H .title-07H span,
+.list-05H .item-08H .title-07H span {
+	color:#01c1f3;
+}
+.list-05H .item-06H .title-07H span {
+	color:#ccb806;
+}
+.list-05H .item-07H .title-07H span {
+	color:#6b27c3;
+}
+/***********************************/
+.bt-likeH {
+	margin:0 0 20px 30px;
+	overflow:hidden;
+	width:60px;
+}
+.msie7 .bt-likeH {
+	margin-left:-30px;
+	position:relative;
+}
+.ateliers .bt-facebookH {
+	background:#ccb806;
+	display:inline-block;
+	margin:15px 0 65px 0;
+}
+.msie7 .ateliers .bt-facebookH  {
+	margin-left:60px;
+}
+.atelier_lien_pdf {
+	position:absolute;
+	top : 118px;
+	left: 340px;
+	display:block;
+	color: #FFFFFF;
+	font-family: "bodoni2";
+    font-size: 1.7em;
+    font-weight: normal;
+	padding: 5px 10px;
+    text-align: center;
+	cursor:pointer;
+}
+.ateliers-tricotT .atelier_lien_pdf { background:#01C1F3; }
+.ateliers-tassecomT .atelier_lien_pdf { background:#E40056;}
+.ateliers-okdouceursT .atelier_lien_pdf { background:#EA8501; top : 165px;}
+.ateliers-superchocoT .atelier_lien_pdf { background:#B55601;}
+
+#loupe.survol .content-pictureT img,
+.ateliers-contenuT .content-pictureT img + img {
+	display: none;
+}
+#loupe.survol .content-pictureT .survol	{
+	display: inline;
+}
+.titre-contenuT	{
+	float: left;
+	height: 40px;
+	padding: 18px 75px 2px 0; 
+	white-space: nowrap;
+}
+.ateliers-stickersT .titre-contenuT	{
+	background: url(../images/edito/qui-stickaz.jpg) no-repeat right 13px; 
+}
+div.niveau4 .ateliers-stickersT .titre-contenuT	{
+	background: url(../images/edito/qui-stickaz.jpg) no-repeat right 62px; 
+}
+.ateliers-tricotT .titre-contenuT	{
+	background: url(../images/edito/qui-cft.jpg) no-repeat right 2px;
+}
+div.niveau4 .ateliers-tricotT .titre-contenuT	{
+	background: url(../images/edito/qui-stickaz.jpg) no-repeat right 57px; 
+}
+.ateliers-okdouceursT .titre-contenuT	{
+	background: url(../images/edito/qui-spookmeacookie.jpg) no-repeat right bottom;
+	height:90px;
+}
+.ateliers-plateauxtvT .titre-contenuT	{
+	background: url(../images/edito/qui-griottes.jpg) no-repeat right bottom;
+}
+.ateliers-superchocoT .titre-contenuT,
+.ateliers-tassecomT .titre-contenuT	{
+	background: url(../images/edito/qui-delphinehuguet.jpg) no-repeat right bottom;
+}
+.ateliers-feutresT .titre-contenuT	{
+	background: url(../images/edito/qui-trbdsgn.jpg) no-repeat right 20px;
+	padding-right:85px;
+}
+div.niveau4 .ateliers-feutresT .titre-contenuT	{
+	background: url(../images/edito/qui-trbdsgn.jpg) no-repeat right 71px; 
+}
+/* -- */
+.ateliers-contenuT {
+	margin: 30px 0 0 232px;
+	width:717px;
+}
+.ateliers-contenuT .block-infosH {
+	margin-left:0;
+}
+.ateliers-contenuT .titre-ss-rubriqueT {
+	font-family: "bodoni2";
+	font-size:3em;
+	font-weight:normal;
+	letter-spacing:-1px;
+}
+.titre-contenuT {
+	margin:-15px 0 30px 0;
+}
+.titre-contenuT span em {
+	text-transform:none;
+	font-style:normal;
+}
+.ateliers-contenuT .titre-contenuT {
+	font-family: "tradegothic-gr20";
+	font-size:4.800em;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+.ateliers-contenuT .titre-contenuT span {
+	font-size:0.521em;
+}
+.ateliers-contenuT .titre-contenuT img {
+	margin-left: 12px;
+}
+.ateliers-contenuT .block-pictureT {
+	clear: both;
+	height:510px;
+	margin-bottom: 55px;
+	padding-top: 20px;
+	position:relative;
+	width:100%;
+}
+.ateliers-contenuT .block-pictureT .nav-pictureT {
+	bottom:0;
+	left:0;	
+	position:absolute;
+}
+.ateliers-contenuT .block-pictureT .nav-pictureT li {
+	border:3px solid #e4e2dc;
+	margin-top:35px;
+}
+.nav-pictureT img	{
+	cursor: pointer;
+}
+.ateliers-contenuT .content-pictureT {
+	float:right;
+}
+.ateliers-contenuT .block-contenuT .colonne-gaucheT {
+	float:left;
+	margin-bottom:30px;
+	width:384px;
+}
+.ateliers-contenuT .block-contenuT .colonne-gaucheT .descriptifT {
+	font-size:2.1em;
+	font-family: "bodoni1";
+	letter-spacing:-1px;
+	line-height:1.4em;
+	padding-bottom:25px;
+}
+.ateliers-contenuT .block-contenuT .colonne-gaucheT .modalitesT {
+	font-size:1.400em;
+	padding-bottom:20px;
+	line-height:1.2em;
+}
+.ateliers-contenuT .block-contenuT .colonne-droiteT {
+	float:right;
+	margin-bottom: 45px;
+	position:relative;
+	width:250px;
+}
+.ateliers-contenuT .block-contenuT .colonne-gaucheT .titreT {
+	font-size:1.5em;
+	letter-spacing:-1px;
+	padding-bottom:5px;
+	text-transform:uppercase;
+}
+.ateliers-contenuT .block-contenuT .colonne-droiteT .block-agendaT .titreT {
+	font-size:1.9em;
+	letter-spacing:-1px;
+	padding-bottom:5px;
+	text-transform:uppercase;
+	font-weight:normal;
+	font-family:"tradegothic-gr20";
+}
+.ateliers-contenuT .block-contenuT .colonne-droiteT .block-agendaT .titreT { line-height:1.3em; }
+.ateliers-contenuT .block-contenuT .colonne-gaucheT .titreT { padding-bottom:15px; }
+.ateliers-contenuT .block-contenuT .colonne-droiteT .block-agendaT .item-dateT {
+	font-family: "bodoni2";
+	font-size:1.7em;
+	font-weight:normal;
+	line-height:1.2em;
+	margin-bottom:10px;
+}
+.ateliers-contenuT .block-contenuT .colonne-droiteT .block-agendaT .borderT {	
+	border-bottom:4px solid #ccb806;
+	padding-bottom:12px;
+	width:135px;
+}
+.ateliers-contenuT .block-contenuT .colonne-droiteT .block-agendaT .bt-inscriptionT {
+	background:#e1d006;
+	color:#FFFFFF;
+	display:inline-block;
+	text-align:center;
+	font-family: "bodoni2";
+	font-size:1.7em;
+	font-weight:normal;
+	margin-bottom:12px;
+	padding:5px 12px 5px 10px;
+}
+.ateliers-stickersT .block-contenuT .colonne-droiteT .block-infosH	{
+	margin: 60px 0 0 0;
+}
+.ateliers-stickersT .block-contenuT .colonne-droiteT .title-03H	{
+	margin-bottom: 12px;
+}
+.ateliers-contenuT .block-contenuT .noteT { 
+	clear:both;
+	color:#6b635a;
+	text-align:center;
+	font-size:1.3em;
+	line-height:1.2em;
+}
+
+/* gestion des couleurs atelier sitckers */
+.ateliers-stickersT .titre-ss-rubriqueT,
+.ateliers-stickersT .block-contenuT .colonne-droiteT .block-agendaT .titreT,
+.ateliers-stickersT .block-contenuT .colonne-droiteT .block-agendaT .horaireT,
+.ateliers-contenuT .block-contenuT .colonne-gaucheT .titreT,
+.ateliers-stickersT .titre-contenuT em,
+.ateliers-stickersT .block-contenuT .colonne-droiteT .title-03H	         {
+	color:#CCB806;
+}
+.ateliers-stickersT .block-contenuT .colonne-droiteT .block-agendaT .bt-inscriptionT {
+	background:#CCB806;
+}
+.ateliers-stickersT .block-contenuT .colonne-droiteT .block-agendaT .borderT {
+	border-bottom:4px solid #CCB806;
+}
+
+/* gestion des couleurs atelier feutres */
+.ateliers-feutresT .titre-ss-rubriqueT,
+.ateliers-feutresT .block-contenuT .colonne-droiteT .block-agendaT .titreT,
+.ateliers-feutresT .block-contenuT .colonne-droiteT .block-agendaT .horaireT,
+.ateliers-feutresT .block-contenuT .colonne-gaucheT .titreT,
+.ateliers-feutresT .titre-contenuT em,
+.ateliers-feutresT .block-contenuT .colonne-droiteT .title-03H	         {
+	color:#6b27c3;
+}
+.ateliers-feutresT .block-contenuT .colonne-droiteT .block-agendaT .bt-inscriptionT {
+	background:#6b27c3;
+}
+.ateliers-feutresT .block-contenuT .colonne-droiteT .block-agendaT .borderT {
+	border-bottom:4px solid #6b27c3;
+}
+
+/* gestion des couleurs atelier tricot */
+.ateliers-tricotT .titre-ss-rubriqueT,
+.ateliers-tricotT .block-contenuT .colonne-droiteT .block-agendaT .titreT,
+.ateliers-tricotT .block-contenuT .colonne-droiteT .block-agendaT .horaireT,
+.ateliers-tricotT .block-contenuT .colonne-gaucheT .titreT,
+.ateliers-tricotT .titre-contenuT em,
+.ateliers-tricotT .block-contenuT .colonne-droiteT .title-03H	         {
+	color:#01c1f3;
+}
+.ateliers-tricotT .block-contenuT .colonne-droiteT .block-agendaT .bt-inscriptionT {
+	background:#01c1f3;
+}
+.ateliers-tricotT .block-contenuT .colonne-droiteT .block-agendaT .borderT {
+	border-bottom:4px solid #01c1f3;
+}
+
+/* gestion des couleurs atelier okdouceurs */
+.ateliers-okdouceursT .titre-ss-rubriqueT,
+.ateliers-okdouceursT .block-contenuT .colonne-droiteT .block-agendaT .titreT,
+.ateliers-okdouceursT .block-contenuT .colonne-droiteT .block-agendaT .horaireT,
+.ateliers-okdouceursT .block-contenuT .colonne-gaucheT .titreT,
+.ateliers-okdouceursT .titre-contenuT em,
+.ateliers-okdouceursT .block-contenuT .colonne-droiteT .title-03H	         {
+	color:#ea8501;
+}
+.ateliers-okdouceursT .block-contenuT .colonne-droiteT .block-agendaT .bt-inscriptionT {
+	background:#ea8501;
+}
+.ateliers-okdouceursT .block-contenuT .colonne-droiteT .block-agendaT .borderT {
+	border-bottom:4px solid #ea8501;
+}
+
+/* gestion des couleurs atelier plateaux tv */
+.ateliers-plateauxtvT .titre-ss-rubriqueT,
+.ateliers-plateauxtvT .block-contenuT .colonne-droiteT .block-agendaT .titreT,
+.ateliers-plateauxtvT .block-contenuT .colonne-droiteT .block-agendaT .horaireT,
+.ateliers-plateauxtvT .block-contenuT .colonne-gaucheT .titreT,
+.ateliers-plateauxtvT .titre-contenuT em,
+.ateliers-plateauxtvT .block-contenuT .colonne-droiteT .title-03H	         {
+	color:#d961be;
+}
+.ateliers-plateauxtvT .block-contenuT .colonne-droiteT .block-agendaT .bt-inscriptionT {
+	background:#d961be;
+}
+.ateliers-plateauxtvT .block-contenuT .colonne-droiteT .block-agendaT .borderT {
+	border-bottom:4px solid #d961be;
+}
+
+/* gestion des couleurs atelier superchoco */
+.ateliers-superchocoT .titre-ss-rubriqueT,
+.ateliers-superchocoT .block-contenuT .colonne-droiteT .block-agendaT .titreT,
+.ateliers-superchocoT .block-contenuT .colonne-droiteT .block-agendaT .horaireT,
+.ateliers-superchocoT .block-contenuT .colonne-gaucheT .titreT,
+.ateliers-superchocoT .titre-contenuT em,
+.ateliers-superchocoT .block-contenuT .colonne-droiteT .title-03H	         {
+	color:#b55601;
+}
+.ateliers-superchocoT .block-contenuT .colonne-droiteT .block-agendaT .bt-inscriptionT {
+	background:#b55601;
+}
+.ateliers-superchocoT .block-contenuT .colonne-droiteT .block-agendaT .borderT {
+	border-bottom:4px solid #b55601;
+}
+
+/* gestion des couleurs atelier tassecom */
+.ateliers-tassecomT .titre-ss-rubriqueT,
+.ateliers-tassecomT .block-contenuT .colonne-droiteT .block-agendaT .titreT,
+.ateliers-tassecomT .block-contenuT .colonne-droiteT .block-agendaT .horaireT,
+.ateliers-tassecomT .block-contenuT .colonne-gaucheT .titreT,
+.ateliers-tassecomT .titre-contenuT em,
+.ateliers-tassecomT .block-contenuT .colonne-droiteT .title-03H	         {
+	color:#e40056;
+}
+.ateliers-tassecomT .block-contenuT .colonne-droiteT .block-agendaT .bt-inscriptionT {
+	background:#e40056;
+}
+.ateliers-tassecomT .block-contenuT .colonne-droiteT .block-agendaT .borderT {
+	border-bottom:4px solid #e40056;
+}
+
+
+
+
+
+
+/*
+V - CONSTRUCTIONS Ateliers inscription								*/
+div.niveau4 .ateliers-contenuT {
+	margin-left: 289px;
+	width:602px;
+}
+div.niveau4 .titre-contenuT {
+	height: auto;
+	padding-top: 0;
+	margin-bottom: 44px;
+}
+.titre-contenuT span.title-02H	{
+	display: block;
+	padding: 0 0 20px 0;
+
+	font-size: .91em;
+	text-transform: none;
+}
+div.niveau4 .ateliers-contenuT h1 + p {
+	clear: both;
+	padding-top: 16px;
+
+	font-size: 1.6em;
+}
+div.ateliers.niveau4 form	{
+	clear: both;
+	overflow: hidden;
+	padding-bottom: 66px;
+	width: 100%
+}
+div.ateliers.niveau4 form > p,
+p.confirmation	{
+	background: #e9e2da;
+	margin-bottom: 42px;
+	padding: 24px 70px 30px 70px;
+}
+div.ateliers.niveau4 form > p label,
+div.niveau4 .ateliers-contenuT h1 + p.confirmation	{
+    font: 2.1em "bodoni1";
+    letter-spacing: -2px;
+}
+p.confirmation strong,
+strong.confirmation	{
+	color: red;
+	display: block;
+	font-weight: normal;
+	height: 44px;
+	text-align: center;
+}
+strong.confirmation	{
+	font-size: 1.5em;
+}
+div.ateliers.niveau4 form > p select,
+.seance	{
+	background: #FFF;
+	border: 1px solid #d2cdc8;
+	margin-top: 14px;
+	width: 100%;
+
+	font: 2em "tradegothic";
+}
+div.ateliers.niveau4 form > p option	{
+	padding-left: 20px;
+}
+div.ateliers.niveau4 form > div	{
+	margin: 12px 90px 0 100px;
+	overflow: hidden;
+	width: 412px;
+}
+div.ateliers.niveau4 form > div label,
+div.ateliers.niveau4 form > div p	{
+	float: left;
+	padding-right: 50px;
+	width: 142px;
+
+	font-size: 1.6em;
+}
+div.ateliers.niveau4 form > div label	{
+    padding-top: 2px;
+}
+div.ateliers.niveau4 form > div p	{
+	padding-right: 0;
+	width: 202px;
+}
+div.ateliers.niveau4 form > div input,
+div.ateliers.niveau4 form > div select	{
+	float: left;
+}
+div.ateliers.niveau4 form > div input[type="text"],
+div.ateliers.niveau4 form > div select	{
+	background: #e9e2da;
+	border: 1px solid #d2cdc8;
+
+	font: 2em "tradegothic";
+}
+div.ateliers.niveau4 form > div label + input	{
+	width: 218px;
+}
+div.ateliers.niveau4 form > div label + .naissance	{
+	width: 142px;
+}
+div.ateliers.niveau4 form > div input + label,	
+div.ateliers.niveau4 form > div p + input + label + input	{
+	margin-top: 10px;
+	width: auto;
+}
+div.ateliers.niveau4 form > div input + label	{
+	padding: 0;
+}
+div.ateliers.niveau4 form > div p + input,
+div.ateliers.niveau4 form > div p + input + label + input	{
+	margin: 13px 10px 0 50px;
+}
+#gender	{
+	width: 140px;
+}
+#optavantage, 
+#optnews	{
+	margin-right: 10px;
+}
+#optavantage + label, 
+#optnews + label	{
+	float: none;
+}
+.subment	{
+	margin-top: 7px;
+	overflow: hidden;
+	width: 100%;
+}
+.subment p	{
+	font-size: 1.3em;
+}
+div.ateliers.niveau4 form > .subment p + input	{
+	background: #b3a726;
+	float: right;
+	padding: 6px;
+	margin: 24px 0;
+
+	color: #FFF;
+	font: 3em "bodoni1";
+}
+
+
+
+
+
+/*
+V - CONSTRUCTION Openbar								*/
+#sommaire.ob	{
+	height: 745px;
+}
+/*
+//homgenite et transition autres sommaires
+.openbar #sommaire h1 {
+	padding-bottom:10px;
+}
+*/.sepH {
+	background:#000;
+	border:solid 2px #000;
+	margin:30px auto 0;
+	width:42px;
+}
+.itemsH a {
+	line-height:1.5em;
+	padding:0 14px;
+	width:auto;
+}
+.item-05H a {
+	padding:0 0 0 14px;
+}
+.item-05H a span {
+	padding: 0 14px 0 2px;
+}
+/***********************************/
+.block-bg-capsulesH {
+	height:749px;
+	position:relative;
+	width:820px;
+}
+/***********************************/
+.list-02H li {
+	height:335px;
+	left: -4444px;
+	position: absolute;
+	text-align:center;
+	top: 260px;
+	width:295px;
+}
+.list-02H .actif	{
+	left: auto;
+	right: 0;
+}
+.list-02H li img{
+	display:block;
+}
+.list-02H li a	{
+	display: inline-block;
+	margin-top: 10px;
+	padding:5px 16px 5px 13px;
+}
+/* en fait espresso... */
+.list-02H #expresso img {
+	margin:4px auto 7px auto;
+}
+.list-02H #expressoI img,
+.list-02H #cafeL img,
+.list-02H #expressoB img {
+	margin:5px auto 9px auto;
+}
+.list-02H #expressoD img {
+	margin:4px auto 16px auto;
+}
+.list-02H #cappuccino img,
+.list-02H #chococino img {
+	margin:0 auto 10px auto;
+}
+.list-02H #latteM img {
+	margin:12px auto 8px auto;
+}
+.list-02H #nesquik img {
+	margin:0 auto 2px auto;
+}
+.list-02H #chaiT img {
+	margin:5px auto;
+}
+.list-02H #expressoD a {
+	padding: 0 0 0 14px;
+}
+.list-02H #expressoD a span {
+	background:#069ce8;
+	display: inline-block;
+	margin-left:2px;
+	padding:5px 14px 4px 2px;
+}
+.moz #chococino a,
+.moz #nesquik a	{
+	padding-top: 0;
+}
+
+
+
+/*
+V - CONSTRUCTIONS Fadebook								*/
+.lucarne	{ /* fb-like */
+	left: 42px;
+	height: 27px;
+	overflow: hidden;
+	position: absolute;
+	top: 168px;
+	z-index: 2;
+	width: 62px;
+}
+div.ateliers.niveau3 .lucarne	{
+	left: 232px;
+	top: 120px;
+}
+div.ateliers.niveau3 .ateliers-okdouceursT .lucarne	{
+	top: 168px;
+}
+
+.ateliers.niveau2 .bt-facebookH	{ /* s'inscrire index bis ateliers */
+	margin-top: 38px;
+}
+
+.bt-facebookH	{ /* recommander */
+	cursor: default;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; /* IE 8 */
+	filter: alpha(opacity=0); /* IE 7 */
+}
+div.ateliers.niveau2 .bt-facebookH, /* lien vers inscription */
+div.ateliers.niveau4 .bt-facebookH, /* retour a l'agenda depuis formulaire inscription */
+.bfFB .bt-facebookH	{ /* recommander une fois logue */
+	cursor: pointer;
+	opacity: 1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; /* IE 8 */
+	filter: alpha(opacity=100); /* IE 7 */
+}
+div.ateliers.niveau4 .bt-facebookH	{
+	font-size: 2.2em;
+}
+
+
+
+/*
+V - CONSTRUCTIONS webservices								*/
+#commentaires	{
+	background: #eaeaea;
+	height: 74px;
+	left: 600px;
+	opacity: 0;
+	position: absolute;
+	top: 763px;
+	width: 580px;
+}
+#commentaires h2	{
+	background: url(../images/edito/logo-facebook3.gif) no-repeat right 26px;
+	float: left;
+	font-family: "tradegothic-gr20";
+	font-style: none;
+	font-size: 2.15em;
+	font-weight: normal;
+	height: 49px;
+	margin-right: 36px;
+	padding: 24px 30px 0 20px;
+	text-transform: uppercase;
+}
+#commentaires dl	{
+	font-family: "bodoni1";
+	font-size: 1.5em;
+	height: 46px;
+	margin-top: 16px;
+	overflow: hidden;
+	padding-right: 12px;
+}
+#commentaires dt	{
+	font-family: "bodoni2";
+}
+#commentaires dd + dt,
+#commentaires dd + dt + dd	{
+	display: none;
+}
+
+
+.participants {
+	color: #888888;
+	min-height: 19px;
+}
+div.ateliers.niveau2 .participants {
+	min-height: 21px;
+}
+div.ateliers.niveau3 .participants {
+	border-top: 2px solid #888888;
+	font-family: "bodoni1";
+	font-size:1.5em;
+	margin-top: 10px;
+	min-height: 23px;
+	padding-top: 7px;
+	width: 50%;
+}
+.participants span	{
+	left: -4444px;
+	position: absolute;
+	top: 0;
+
+}
+
+
+.commentairesH {
+	visibility: hidden;
+	overflow: hidden;
+}
+.bf .commentairesH	{
+	visibility: visible;
+}
+#total {
+	border-top:solid 3px #000;
+	min-height: 18px;
+	padding: 4px 0;
+	text-align: center;
+
+	font-family: "bodoni1";
+	font-size:1.8em;
+}
+#total span	{
+	left: -4444px;
+	position: absolute;
+	top: 0;
+}
+.bt-05H {
+	display:block;
+	padding: 2px 0 6px 0;
+	text-align: center;
+
+	font-family: "bodoni1";
+	font-size:2em;
+	letter-spacing:-1px;
+}
+div.ateliers .commentairesH + .commentairesH	{
+	margin: 18px 0 27px 0;
+}
+div.exposition .commentairesH + .commentairesH	{
+	margin: 18px 0 90px 0;
+}
+
+#extraits	{
+	border-top: 1px solid #000;
+	font-family: "bodoni2";
+	padding-bottom: 6px;
+	text-align: left;
+}
+#extraits div	{
+	min-height: 50px;
+	padding: 18px 24px 0 76px;
+	position: relative;
+}
+#extraits img	{
+	position: absolute;
+	left: 15px;
+	top: 18px;
+}
+#extraits h3	{
+	font-weight: normal;
+	font-size: 1.5em;
+	margin-bottom: 4px;
+}
+#extraits p	{
+	font-size: 1.2em;
+	line-height: 1.1;
+}
+#extraits p + p	{
+	color: #5d5d5d;
+}
+
+
+
+
+
+
+
+
+div.exposition.niveau3 .commentairesH > p	{
+	color: #FF9700;
+}
+
+/* atelier superchoco */
+.ateliers-superchocoT .bt-05H {
+	background:#B55601;
+}
+.ateliers-superchocoT .commentairesH > p {
+	color:#B55601;
+}
+
+/* atelier tricot */
+.ateliers-tricotT .bt-05H {
+	background:#01C1F3;
+}
+.ateliers-tricotT .commentairesH > p {
+	color:#01C1F3;
+}
+
+/* atelier tassecom */
+.ateliers-tassecomT .bt-05H {
+	background:#E40056;
+}
+.ateliers-tassecomT .commentairesH > p {
+	color:#E40056;
+}
+
+/* atelier stickers */
+.ateliers-stickersT .bt-05H {
+	background:#CCB806;
+}
+.ateliers-stickersT .commentairesH > p {
+	color:#CCB806;
+}
+
+/* atelier feutres */
+.ateliers-feutresT .bt-05H {
+	background:#6B27C3;
+}
+.ateliers-feutresT .commentairesH > p {
+	color:#6B27C3;
+}
+
+/* atelier ok douceur */
+.ateliers-okdouceursT .bt-05H {
+	background:#EA8501;
+}
+.ateliers-okdouceursT .commentairesH > p {
+	color:#EA8501;
+}
+
+/* atelier plateau TV */
+.ateliers-plateauxtvT .bt-05H {
+	background:#D961BE;
+}
+.ateliers-plateauxtvT .commentairesH > p {
+	color:#D961BE;
+}
+
+
+
+
+/*
+VI -SUPERBOX								*/
+/* Base Superbox Styles */
+#superbox-overlay{position:fixed;top:0;left:0;z-index:9998;width:100%;height:120%;}
+#superbox-wrapper{position:fixed;z-index:9999;top:0 !important;left:0;display:table;width:100%;height:100%;}
+#superbox-container{position:relative;display:table-cell;width:100%;height:100%;margin:0;padding:0;vertical-align:middle;}
+#superbox{margin:0 auto;padding:0; /*overflow:hidden;*/ zoom:1; position:relative !important;}
+#superbox-container .loading{margin:0;text-align:center;}
+
+/* IE7 */
+.msie7 #superbox-container{position:absolute;top:50%;left:0;display:block;height:auto;}
+/*.msie7 #superbox{position:relative;top:-50%;display:block;}
+*//* IE6 - Thanks to Thickbox for IE expressions */
+* html #superbox-container{position:absolute;top:50%;display:block;height:auto;}
+* html #superbox{position:relative;top:-50%;display:block;}
+* html #superbox-overlay{position:absolute;height:expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight + 'px' : document.body.offsetHeight + 'px');}
+* html #superbox-wrapper{position:absolute;margin-top:expression(0 - parseInt(this.offsetHeight / 2) + (document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');}
+
+/* Default Theme */
+#superbox-overlay{background:#000;opacity:.4;-ms-filter: "alpha(opacity=40)"; filter : alpha(opacity=40);}
+#superbox{ width:1024px !important; outline:none; }
+#superbox-innerbox{ position:relative; margin:235px 0 0 202px;}
+.msie8 #superbox-innerbox{ margin:100px 0 0 202px;}
+#superbox.image{text-align:center;}
+#superbox .close,
+#superbox .nextprev{overflow:hidden;margin:0;}
+#superbox .close {
+	position:absolute;
+	right:-39px;
+	top:-60px;
+}
+.msie8 #superbox .close { top:40px; }
+#superbox .close a{
+	background:url(../images/picto/picto-close.gif) 0 0 no-repeat;
+	cursor:pointer;
+	display:block;
+	height:59px;
+	width:59px;
+}
+#superbox .next,
+#superbox .prev{
+	cursor:pointer;
+	display:block;
+	height:40px;
+	position:absolute;
+	top:245px;
+	width:19px;
+}
+.msie8 #superbox .next,
+.msie8 #superbox .prev{ top:300px; }
+#superbox .next { 
+	background:url(../images/picto/picto-next.png) 0 0 no-repeat;
+	right:-20px;
+}
+#superbox .prev {
+	background:url(../images/picto/picto-prev.png) 0 0 no-repeat;
+	right:819px;
+}
+#superbox .close a span,
+#superbox .next span,
+#superbox .prev span,
+#superbox-container .loading {
+	left:-9999em;
+	position:absolute;
+}
+#superbox .disabled { left:-9999em; }
+
+
+
+
+
+/*
+VII -VIDEOJS								*/
+/*
+VideoJS Default Styles (http://videojs.com)
+Version 3.2.0
+*/
+
+/*
+REQUIRED STYLES (be careful overriding)
+================================================================================ */
+/* When loading the player, the video tag is replaced with a DIV,
+   that will hold the video tag or object tag for other playback methods.
+   The div contains the video playback element (Flash or HTML5) and controls, and sets the width and height of the video.
+
+   ** If you want to add some kind of border/padding (e.g. a frame), or special positioning, use another containing element.
+   Otherwise you risk messing up control positioning and full window mode. **
+*/
+.video-js {
+  background-color: #000; position: relative; padding: 0;
+
+  /* Start with 10px for base font size so other dimensions can be em based and easily calculable. */
+  font-size: 10px;
+
+  /* Allow poster to be vertially aligned. */
+  vertical-align: middle;
+  /*  display: table-cell; */ /*This works in Safari but not Firefox.*/
+}
+
+/* Playback technology elements expand to the width/height of the containing div. <video> or <object> */
+.video-js .vjs-tech { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+/* Fix for Firefox 9 fullscreen (only if it is enabled). Not needed when checking fullScreenEnabled. */
+.video-js:-moz-full-screen { position: absolute; }
+
+/* Fullscreen Styles */
+body.vjs-full-window {
+  padding: 0; margin: 0;
+  height: 100%; overflow-y: auto; /* Fix for IE6 full-window. http://www.cssplay.co.uk/layouts/fixed.html */
+}
+.video-js.vjs-fullscreen {
+  position: fixed; overflow: hidden; z-index: 1000; left: 0; top: 0; bottom: 0; right: 0; width: 100% !important; height: 100% !important;
+  _position: absolute; /* IE6 Full-window (underscore hack) */
+}
+.video-js:-webkit-full-screen {
+  width: 100% !important; height: 100% !important;
+}
+
+/* Poster Styles */
+.vjs-poster {
+  margin: 0 auto; padding: 0; cursor: pointer;
+
+  /* Scale with the size of the player div. Works when poster is vertically shorter, but stretches when it's less wide. */
+  position: relative; width: 100%; max-height: 100%;
+}
+
+/* Text Track Styles */
+/* Overall track holder for both captions and subtitles */
+.video-js .vjs-text-track-display { text-align: center; position: absolute; bottom: 4em; left: 1em; right: 1em; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+/* Individual tracks */
+.video-js .vjs-text-track {
+  display: none; color: #fff; font-size: 1.4em; text-align: center; margin-bottom: 0.1em;
+  /* Transparent black background, or fallback to all black (IE6) */
+  background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.50);
+}
+.video-js .vjs-subtitles { color: #fff; }
+.video-js .vjs-captions { color: #fc6; }
+.vjs-tt-cue { display: block; }
+
+/* Fading sytles, used to fade control bar. */
+.vjs-fade-in {
+  visibility: visible !important; /* Needed to make sure things hide in older browsers too. */
+  opacity: 1 !important;
+
+  -webkit-transition: visibility 0s linear 0s, opacity 0.3s linear;
+  -moz-transition: visibility 0s linear 0s, opacity 0.3s linear;
+  -ms-transition: visibility 0s linear 0s, opacity 0.3s linear;
+  -o-transition: visibility 0s linear 0s, opacity 0.3s linear;
+  transition: visibility 0s linear 0s, opacity 0.3s linear;
+}
+.vjs-fade-out {
+  visibility: hidden !important;
+  opacity: 0 !important;
+
+  -webkit-transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+  -moz-transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+  -ms-transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+  -o-transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+  transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+}
+
+/* DEFAULT SKIN (override in another file to create new skins)
+================================================================================
+Instead of editing this file, I recommend creating your own skin CSS file to be included after this file,
+so you can upgrade to newer versions easier. You can remove all these styles by removing the 'vjs-default-skin' class from the tag. */
+
+/* The default control bar. Created by bar.js */
+.vjs-default-skin .vjs-controls {
+  position: absolute;
+  bottom: 0; /* Distance from the bottom of the box/video. Keep 0. Use height to add more bottom margin. */
+  left: 0; right: 0; /* 100% width of div */
+  margin: 0; padding: 0; /* Controls are absolutely position, so no padding necessary */
+  height: 2.6em; /* Including any margin you want above or below control items */
+  color: #fff; border-top: 1px solid #404040;
+
+  /* CSS Gradient */
+  /* Can use the Ultimate CSS Gradient Generator: http://www.colorzilla.com/gradient-editor/ */
+  background: #242424; /* Old browsers */
+  background: -moz-linear-gradient(top, #242424 50%, #1f1f1f 50%, #171717 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(50%,#242424), color-stop(50%,#1f1f1f), color-stop(100%,#171717)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #242424 50%,#1f1f1f 50%,#171717 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #242424 50%,#1f1f1f 50%,#171717 100%); /* Opera11.10+ */
+  background: -ms-linear-gradient(top, #242424 50%,#1f1f1f 50%,#171717 100%); /* IE10+ */
+  /* Filter was causing a lot of weird issues in IE. Elements would stop showing up, or other styles would break. */
+  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#242424', endColorstr='#171717',GradientType=0 );*/ /* IE6-9 */
+  background: linear-gradient(top, #242424 50%,#1f1f1f 50%,#171717 100%); /* W3C */
+
+  /* Start hidden and with 0 opacity. Opacity is used to fade in modern browsers. */
+  /* Can't use display block to hide initially because widths of slider handles aren't calculated and avaialbe for positioning correctly. */
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* General styles for individual controls. */
+.vjs-default-skin .vjs-control {
+  position: relative; float: left;
+  text-align: center; margin: 0; padding: 0;
+  height: 2.6em; width: 2.6em;
+}
+
+.vjs-default-skin .vjs-control:focus {
+  outline: 0;
+/*  background-color: #555;*/
+}
+
+/* Hide control text visually, but have it available for screenreaders: h5bp.com/v */
+.vjs-default-skin .vjs-control-text { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+
+/* Play/Pause
+-------------------------------------------------------------------------------- */
+.vjs-default-skin .vjs-play-control { width: 5em; cursor: pointer !important; }
+/* Play Icon */
+.vjs-default-skin.vjs-paused .vjs-play-control div { width: 15px; height: 17px; background: url("../images/picto/video-js.png"); margin: 0.5em auto 0; }
+.vjs-default-skin.vjs-playing .vjs-play-control div { width: 15px; height: 17px; background: url("../images/picto/video-js.png") -25px 0; margin: 0.5em auto 0; }
+
+/* Rewind
+-------------------------------------------------------------------------------- */
+.vjs-default-skin .vjs-rewind-control { width: 5em; cursor: pointer !important; }
+.vjs-default-skin .vjs-rewind-control div { width: 19px; height: 16px; background: url("../images/picto/video-js.png"); margin: 0.5em auto 0; }
+
+/* Volume/Mute
+-------------------------------------------------------------------------------- */
+.vjs-default-skin .vjs-mute-control { width: 3.8em; cursor: pointer !important; float: right; }
+.vjs-default-skin .vjs-mute-control div { width: 22px; height: 16px; background: url("../images/picto/video-js.png") -75px -25px; margin: 0.5em auto 0; }
+.vjs-default-skin .vjs-mute-control.vjs-vol-0 div { background: url("../images/picto/video-js.png") 0 -25px; }
+.vjs-default-skin .vjs-mute-control.vjs-vol-1 div { background: url("../images/picto/video-js.png") -25px -25px; }
+.vjs-default-skin .vjs-mute-control.vjs-vol-2 div { background: url("../images/picto/video-js.png") -50px -25px; }
+
+
+.vjs-default-skin .vjs-volume-control { width: 5em; float: right; }
+.vjs-default-skin .vjs-volume-bar {
+  position: relative; width: 5em; height: 0.6em; margin: 1em auto 0; cursor: pointer !important;
+
+  -moz-border-radius: 0.3em; -webkit-border-radius: 0.3em; border-radius: 0.3em;
+
+  background: #666;
+  background: -moz-linear-gradient(top, #333, #666);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333), to(#666));
+  background: -webkit-linear-gradient(top, #333, #666);
+  background: -o-linear-gradient(top, #333, #666);
+  background: -ms-linear-gradient(top, #333, #666);
+  background: linear-gradient(top, #333, #666);
+}
+.vjs-default-skin .vjs-volume-level {
+  position: absolute; top: 0; left: 0; height: 0.6em;
+
+  -moz-border-radius: 0.3em; -webkit-border-radius: 0.3em; border-radius: 0.3em;
+
+  background: #fff;
+  background: -moz-linear-gradient(top, #fff, #ccc);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ccc));
+  background: -webkit-linear-gradient(top, #fff, #ccc);
+  background: -o-linear-gradient(top, #fff, #ccc);
+  background: -ms-linear-gradient(top, #fff, #ccc);
+  background: linear-gradient(top, #fff, #ccc);
+}
+.vjs-default-skin .vjs-volume-handle {
+  position: absolute; top: -0.2em; width: 0.8em; height: 0.8em; background: #ccc; left: 0;
+  border: 1px solid #fff;
+  -moz-border-radius: 0.6em; -webkit-border-radius: 0.6em; border-radius: 0.6em;
+}
+
+/* Progress
+-------------------------------------------------------------------------------- */
+.vjs-default-skin div.vjs-progress-control {
+  position: absolute;
+  left: 4.8em; right: 4.8em; /* Leave room for time displays. */
+  height: 1.0em; width: auto;
+  top: -1.3em; /* Set above the rest of the controls. And leave room for 2px of borders (progress bottom and controls top). */
+  border-bottom: 1px solid #1F1F1F;
+  border-top: 1px solid #222;
+
+  /* CSS Gradient */
+  background: #333;
+  background: -moz-linear-gradient(top, #222, #333);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#333));
+  background: -webkit-linear-gradient(top, #222, #333);
+  background: -o-linear-gradient(top, #333, #222);
+  background: -ms-linear-gradient(top, #333, #222);
+  background: linear-gradient(top, #333, #222);
+
+
+  /* 1px top shadow */
+/*  -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15); -moz-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15); box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15);*/
+}
+
+/* Box containing play and load progresses. Also acts as seek scrubber. */
+.vjs-default-skin .vjs-progress-holder {
+  position: relative; cursor: pointer !important; /*overflow: hidden;*/
+  padding: 0; margin: 0; /* Placement within the progress control item */
+  height: 1.0em;
+  -moz-border-radius: 0.6em; -webkit-border-radius: 0.6em; border-radius: 0.6em;
+
+  /* CSS Gradient */
+  background: #111;
+  background: -moz-linear-gradient(top, #111, #262626);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#111), to(#262626));
+  background: -webkit-linear-gradient(top, #111, #262626);
+  background: -o-linear-gradient(top, #111, #262626);
+  background: -ms-linear-gradient(top, #111, #262626);
+  background: linear-gradient(top, #111, #262626);
+}
+.vjs-default-skin .vjs-progress-holder .vjs-play-progress,
+.vjs-default-skin .vjs-progress-holder .vjs-load-progress { /* Progress Bars */
+  position: absolute; display: block; height: 1.0em; margin: 0; padding: 0;
+  left: 0; top: 0; /*Needed for IE6*/
+  -moz-border-radius: 0.6em; -webkit-border-radius: 0.6em; border-radius: 0.6em;
+
+  /*width: 0;*/
+}
+
+.vjs-default-skin .vjs-play-progress {
+  /* CSS Gradient. */
+  background: #fff; /* Old browsers */
+  background: -moz-linear-gradient(top, #fff 0%, #d6d6d6 50%, #fff 100%);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%,#fff), color-stop(50%,#d6d6d6), color-stop(100%,#fff));
+  background: -webkit-linear-gradient(top, #fff 0%,#d6d6d6 50%,#fff 100%);
+  background: -o-linear-gradient(top, #fff 0%,#d6d6d6 50%,#fff 100%);
+  background: -ms-linear-gradient(top, #fff 0%,#d6d6d6 50%,#fff 100%);
+  background: linear-gradient(top, #fff 0%,#d6d6d6 50%,#fff 100%);
+
+  background: #efefef;
+  background: -moz-linear-gradient(top, #efefef 0%, #f5f5f5 50%, #dbdbdb 50%, #f1f1f1 100%);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%,#efefef), color-stop(50%,#f5f5f5), color-stop(50%,#dbdbdb), color-stop(100%,#f1f1f1));
+  background: -webkit-linear-gradient(top, #efefef 0%,#f5f5f5 50%,#dbdbdb 50%,#f1f1f1 100%);
+  background: -o-linear-gradient(top, #efefef 0%,#f5f5f5 50%,#dbdbdb 50%,#f1f1f1 100%);
+  background: -ms-linear-gradient(top, #efefef 0%,#f5f5f5 50%,#dbdbdb 50%,#f1f1f1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#f1f1f1',GradientType=0 );
+  background: linear-gradient(top, #efefef 0%,#f5f5f5 50%,#dbdbdb 50%,#f1f1f1 100%);
+}
+.vjs-default-skin .vjs-load-progress {
+  opacity: 0.8;
+
+  /* CSS Gradient */
+  background: #666;
+  background: -moz-linear-gradient(top, #666, #333);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#333));
+  background: -webkit-linear-gradient(top, #666, #333);
+  background: -o-linear-gradient(top, #666, #333);
+  background: -ms-linear-gradient(top, #666, #333);
+  background: linear-gradient(top, #666, #333);
+}
+
+.vjs-default-skin div.vjs-seek-handle {
+  position: absolute;
+  width: 16px; height: 16px; /* Match img pixles */
+  margin-top: -0.3em;
+  left: 0; top: 0; /*Needed for IE6*/
+
+  background: url("../images/picto/video-js.png") 0 -50px;
+  /* CSS Curved Corners. Needed to make shadows curved. */
+  -moz-border-radius: 0.8em; -webkit-border-radius: 0.8em; border-radius: 0.8em;
+  /* CSS Shadows */
+  -webkit-box-shadow: 0 2px 4px 0 #000; -moz-box-shadow: 0 2px 4px 0 #000; box-shadow: 0 2px 4px 0 #000;
+}
+/* Time Display
+-------------------------------------------------------------------------------- */
+.vjs-default-skin .vjs-time-controls {
+  position: absolute;
+  right: 0;
+  height: 1.0em; width: 4.8em;
+  top: -1.3em;
+  border-bottom: 1px solid #1F1F1F;
+  border-top: 1px solid #222;
+  background-color: #333;
+
+  font-size: 1em; line-height: 1.0em; font-weight: normal; font-family: Helvetica, Arial, sans-serif;
+
+  background: #333;
+  background: -moz-linear-gradient(top, #222, #333);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#333));
+  background: -webkit-linear-gradient(top, #222, #333);
+  background: -o-linear-gradient(top, #333, #222);
+  background: -ms-linear-gradient(top, #333, #222);
+  background: linear-gradient(top, #333, #222);
+
+  /* 1px top shadow */
+/*  -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15); -moz-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15); box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15);*/
+}
+
+.vjs-default-skin .vjs-current-time { left: 0; }
+
+.vjs-default-skin .vjs-duration { right: 0; display: none; }
+.vjs-default-skin .vjs-remaining-time { right: 0; }
+
+.vjs-time-divider { display:none; }
+
+.vjs-default-skin .vjs-time-control { font-size: 1em; line-height: 1; font-weight: normal; font-family: Helvetica, Arial, sans-serif; }
+.vjs-default-skin .vjs-time-control span { line-height: 25px; /* Centering vertically */ }
+
+/* Fullscreen
+-------------------------------------------------------------------------------- */
+.vjs-secondary-controls { float: right; }
+
+.vjs-default-skin .vjs-fullscreen-control { width: 3.8em; cursor: pointer !important; float: right; }
+.vjs-default-skin .vjs-fullscreen-control div { width: 16px; height: 16px; background: url("../images/picto/video-js.png") -50px 0; margin: 0.5em auto 0; }
+
+.vjs-default-skin.vjs-fullscreen .vjs-fullscreen-control div { background: url("../images/picto/video-js.png") -75px 0; }
+
+
+/* Big Play Button (at start)
+---------------------------------------------------------*/
+.vjs-default-skin .vjs-big-play-button {
+  display: block; /* Start hidden */ z-index: 2;
+  position: absolute; top: 50%; left: 50%; width: 8.0em; height: 8.0em; margin: -42px 0 0 -42px; text-align: center; vertical-align: center; cursor: pointer !important;
+  border: 0.2em solid #fff; opacity: 0.95;
+  -webkit-border-radius: 25px; -moz-border-radius: 25px; border-radius: 25px;
+
+  background: #454545;
+  background: -moz-linear-gradient(top, #454545 0%, #232323 50%, #161616 50%, #3f3f3f 100%);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%,#454545), color-stop(50%,#232323), color-stop(50%,#161616), color-stop(100%,#3f3f3f));
+  background: -webkit-linear-gradient(top, #454545 0%,#232323 50%,#161616 50%,#3f3f3f 100%);
+  background: -o-linear-gradient(top, #454545 0%,#232323 50%,#161616 50%,#3f3f3f 100%);
+  background: -ms-linear-gradient(top, #454545 0%,#232323 50%,#161616 50%,#3f3f3f 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#454545', endColorstr='#3f3f3f',GradientType=0 );
+  background: linear-gradient(top, #454545 0%,#232323 50%,#161616 50%,#3f3f3f 100%);
+
+  /* CSS Shadows */
+  -webkit-box-shadow: 4px 4px 8px #000; -moz-box-shadow: 4px 4px 8px #000; box-shadow: 4px 4px 8px #000;
+}
+
+.vjs-default-skin div.vjs-big-play-button:hover {
+  -webkit-box-shadow: 0 0 80px #fff; -moz-box-shadow: 0 0 80px #fff; box-shadow: 0 0 80px #fff;
+}
+
+.vjs-default-skin div.vjs-big-play-button span {
+  position: absolute; top: 50%; left: 50%;
+  display: block; width: 35px; height: 42px;
+  margin: -20px 0 0 -15px; /* Using negative margin to center image. */
+  background: url("../images/picto/video-js.png") -100px 0;
+}
+
+/* Loading Spinner
+---------------------------------------------------------*/
+/* CSS Spinners by Kilian Valkhof - http://kilianvalkhof.com/2010/css-xhtml/css3-loading-spinners-without-images/ */
+.vjs-loading-spinner {
+  display: none;
+  position: absolute; top: 50%; left: 50%; width: 55px; height: 55px;
+  margin: -28px 0 0 -28px;
+  -webkit-animation-name: rotatethis;
+  -webkit-animation-duration:1s;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-timing-function:linear;
+  -moz-animation-name: rotatethis;
+  -moz-animation-duration:1s;
+  -moz-animation-iteration-count:infinite;
+  -moz-animation-timing-function:linear;
+}
+
+@-webkit-keyframes rotatethis {
+  0% {-webkit-transform:scale(0.6) rotate(0deg); }
+  12.5% {-webkit-transform:scale(0.6) rotate(0deg); }
+  12.51% {-webkit-transform:scale(0.6) rotate(45deg); }
+  25% {-webkit-transform:scale(0.6) rotate(45deg); }
+  25.01% {-webkit-transform:scale(0.6) rotate(90deg);}
+  37.5% {-webkit-transform:scale(0.6) rotate(90deg);}
+  37.51% {-webkit-transform:scale(0.6) rotate(135deg);}
+  50% {-webkit-transform:scale(0.6) rotate(135deg);}
+  50.01% {-webkit-transform:scale(0.6) rotate(180deg);}
+  62.5% {-webkit-transform:scale(0.6) rotate(180deg);}
+  62.51% {-webkit-transform:scale(0.6) rotate(225deg);}
+  75% {-webkit-transform:scale(0.6) rotate(225deg);}
+  75.01% {-webkit-transform:scale(0.6) rotate(270deg);}
+  87.5% {-webkit-transform:scale(0.6) rotate(270deg);}
+  87.51% {-webkit-transform:scale(0.6) rotate(315deg);}
+  100% {-webkit-transform:scale(0.6) rotate(315deg);}
+}
+
+@-moz-keyframes rotatethis {
+  0% {-moz-transform:scale(0.6) rotate(0deg);}
+  12.5% {-moz-transform:scale(0.6) rotate(0deg);}
+  12.51% {-moz-transform:scale(0.6) rotate(45deg);}
+  25% {-moz-transform:scale(0.6) rotate(45deg);}
+  25.01% {-moz-transform:scale(0.6) rotate(90deg);}
+  37.5% {-moz-transform:scale(0.6) rotate(90deg);}
+  37.51% {-moz-transform:scale(0.6) rotate(135deg);}
+  50% {-moz-transform:scale(0.6) rotate(135deg);}
+  50.01% {-moz-transform:scale(0.6) rotate(180deg);}
+  62.5% {-moz-transform:scale(0.6) rotate(180deg);}
+  62.51% {-moz-transform:scale(0.6) rotate(225deg);}
+  75% {-moz-transform:scale(0.6) rotate(225deg);}
+  75.01% {-moz-transform:scale(0.6) rotate(270deg);}
+  87.5% {-moz-transform:scale(0.6) rotate(270deg);}
+  87.51% {-moz-transform:scale(0.6) rotate(315deg);}
+  100% {-moz-transform:scale(0.6) rotate(315deg);}
+}
+/* Each circle */
+div.vjs-loading-spinner .ball1 { opacity: 0.12; position:absolute; left: 20px; top: 0px; width: 13px; height: 13px; background: #fff;
+  border-radius: 13px; -webkit-border-radius: 13px; -moz-border-radius: 13px; border: 1px solid #ccc; }
+
+div.vjs-loading-spinner .ball2 { opacity: 0.25; position:absolute; left: 34px; top: 6px; width: 13px; height: 13px; background: #fff;
+  border-radius: 13px; -webkit-border-radius: 13px; -moz-border-radius: 13px; border: 1px solid #ccc; }
+
+div.vjs-loading-spinner .ball3 { opacity: 0.37; position:absolute; left: 40px; top: 20px; width: 13px; height: 13px; background: #fff;
+  border-radius: 13px; -webkit-border-radius: 13px; -moz-border-radius: 13px; border: 1px solid #ccc; }
+
+div.vjs-loading-spinner .ball4 { opacity: 0.50; position:absolute; left: 34px; top: 34px; width: 13px; height: 13px; background: #fff;
+  border-radius: 10px; -webkit-border-radius: 10px; -moz-border-radius: 15px; border: 1px solid #ccc; }
+
+div.vjs-loading-spinner .ball5 { opacity: 0.62; position:absolute; left: 20px; top: 40px; width: 13px; height: 13px; background: #fff;
+  border-radius: 13px; -webkit-border-radius: 13px; -moz-border-radius: 13px; border: 1px solid #ccc; }
+
+div.vjs-loading-spinner .ball6 { opacity: 0.75; position:absolute; left: 6px; top: 34px; width: 13px; height: 13px; background: #fff;
+  border-radius: 13px; -webkit-border-radius: 13px; -moz-border-radius: 13px; border: 1px solid #ccc; }
+
+div.vjs-loading-spinner .ball7 { opacity: 0.87; position:absolute; left: 0px; top: 20px; width: 13px; height: 13px; background: #fff;
+  border-radius: 13px; -webkit-border-radius: 13px; -moz-border-radius: 13px; border: 1px solid #ccc; }
+
+div.vjs-loading-spinner .ball8 { opacity: 1.00; position:absolute; left: 6px; top: 6px; width: 13px; height: 13px; background: #fff;
+  border-radius: 13px; -webkit-border-radius: 13px; -moz-border-radius: 13px; border: 1px solid #ccc; }
+
+/* Menu Buttons (Captions/Subtitles/etc.)
+-------------------------------------------------------------------------------- */
+.vjs-default-skin .vjs-menu-button {
+  float: right; margin: 0.2em 0.5em 0 0; padding: 0; width: 3em; height: 2em; cursor: pointer !important;
+
+  border: 1px solid #111; -moz-border-radius: 0.3em; -webkit-border-radius: 0.3em; border-radius: 0.3em;
+
+  background: #4d4d4d;
+  background: -moz-linear-gradient(top,  #4d4d4d 0%, #3f3f3f 50%, #333333 50%, #252525 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4d4d4d), color-stop(50%,#3f3f3f), color-stop(50%,#333333), color-stop(100%,#252525));
+  background: -webkit-linear-gradient(top,  #4d4d4d 0%,#3f3f3f 50%,#333333 50%,#252525 100%);
+  background: -o-linear-gradient(top,  #4d4d4d 0%,#3f3f3f 50%,#333333 50%,#252525 100%);
+  background: -ms-linear-gradient(top,  #4d4d4d 0%,#3f3f3f 50%,#333333 50%,#252525 100%);
+  background: linear-gradient(top,  #4d4d4d 0%,#3f3f3f 50%,#333333 50%,#252525 100%);
+}
+/* Button Icon */
+.vjs-default-skin .vjs-menu-button div { background: url("../images/picto/video-js.png") 0px -75px no-repeat; width: 16px; height: 16px; margin: 0.2em auto 0; padding: 0; }
+
+/* Button Pop-up Menu */
+.vjs-default-skin .vjs-menu-button ul {
+  display: none; /* Start hidden. Hover will show. */
+  opacity: 0.8;
+  padding: 0; margin: 0;
+  position: absolute; width: 10em; bottom: 2em; max-height: 15em;
+  left: -3.5em; /* Width of menu - width of button / 2 */
+  background-color: #111;
+  border: 2px solid #333;
+  -moz-border-radius: 0.7em; -webkit-border-radius: 1em; border-radius: .5em;
+  -webkit-box-shadow: 0 2px 4px 0 #000; -moz-box-shadow: 0 2px 4px 0 #000; box-shadow: 0 2px 4px 0 #000;
+  overflow: auto;
+}
+
+.vjs-default-skin .vjs-menu-button:focus ul,
+.vjs-default-skin .vjs-menu-button:hover ul { display: block; list-style: none; }
+.vjs-default-skin .vjs-menu-button ul li { list-style: none; margin: 0; padding: 0.3em 0 0.3em 20px; line-height: 1.4em; font-size: 1.2em; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; text-align: left; }
+.vjs-default-skin .vjs-menu-button ul li.vjs-selected { text-decoration: underline; background: url("../images/picto/video-js.png") -125px -50px no-repeat; }
+.vjs-default-skin .vjs-menu-button ul li:focus,
+.vjs-default-skin .vjs-menu-button ul li:hover,
+.vjs-default-skin .vjs-menu-button ul li.vjs-selected:focus,
+.vjs-default-skin .vjs-menu-button ul li.vjs-selected:hover { background-color: #ccc; color: #111; outline: 0; }
+.vjs-default-skin .vjs-menu-button ul li.vjs-menu-title {
+  text-align: center; text-transform: uppercase; font-size: 1em; line-height: 2em; padding: 0; margin: 0 0 0.3em 0;
+
+  color: #fff; font-weight: bold;
+
+  cursor: default;
+
+  background: #4d4d4d;
+  background: -moz-linear-gradient(top,  #4d4d4d 0%, #3f3f3f 50%, #333333 50%, #252525 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4d4d4d), color-stop(50%,#3f3f3f), color-stop(50%,#333333), color-stop(100%,#252525));
+  background: -webkit-linear-gradient(top,  #4d4d4d 0%,#3f3f3f 50%,#333333 50%,#252525 100%);
+  background: -o-linear-gradient(top,  #4d4d4d 0%,#3f3f3f 50%,#333333 50%,#252525 100%);
+  background: -ms-linear-gradient(top,  #4d4d4d 0%,#3f3f3f 50%,#333333 50%,#252525 100%);
+  background: linear-gradient(top,  #4d4d4d 0%,#3f3f3f 50%,#333333 50%,#252525 100%);
+}
+
+/* Subtitles Button */
+.vjs-default-skin .vjs-captions-button div { background-position: -25px -75px; }
+.vjs-default-skin .vjs-chapters-button div { background-position: -100px -75px; }
+.vjs-default-skin .vjs-chapters-button ul { width: 20em; left: -8.5em; /* Width of menu - width of button / 2 */ }

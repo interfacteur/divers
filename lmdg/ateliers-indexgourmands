@@ -1,0 +1,33 @@
+<?php
+include("includes/_phase.php"); //seul include relatif, permet les include absolus
+
+include($inclusion."includes/inc.head1.php");
+?>
+<title>Dolce Gusto - La Machine : Ateliers Gourmands</title>
+<meta property="og:type" content="<?php echo $appns; ?>:workshop" /> 
+<meta property="og:title" content="Dolce Gusto - La Machine : Ateliers Gourmands" /> 
+<meta property="og:description" content="La Machine de Dolce Gusto : les ateliers gourmands" />
+<meta property="og:image" content="http://<?php echo $domaine; ?>/images/edito/fb-atelier-tassecom-2.jpg" /> 
+<meta property="og:url" content="http://<?php echo $domaine; ?>/ateliers-indexgourmands" />
+
+<?php
+include($inclusion."includes/inc.head2.php");
+?>
+
+<body class="ateliers niveau2">
+<?php
+include($inclusion."includes/inc.header.php");
+?>
+
+<div id="contenu">
+<?php
+include($inclusion."includes/cont.ateliers-indexgourmands.php");
+?>
+</div><!-- contenu -->
+
+<?php
+include($inclusion."includes/inc.footer.php");
+?>
+
+</body>
+</html>

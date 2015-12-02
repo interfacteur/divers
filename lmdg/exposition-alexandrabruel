@@ -1,0 +1,33 @@
+<?php
+include("includes/_phase.php"); //seul include relatif, permet les include absolus
+
+include($inclusion."includes/inc.head1.php");
+?>
+<title>Dolce Gusto - La Machine : Melody by Alexandra Bruel</title>
+<meta property="og:type" content="<?php echo $appns; ?>:artist" /> 
+<meta property="og:title" content="Dolce Gusto - La Machine : Melody by Alexandra Bruel" /> 
+<meta property="og:description" content="La Machine de Dolce Gusto : l'exposition des machines métamorphosées" />
+<meta property="og:image" content="http://<?php echo $domaine; ?>/images/edito/fb-exposition-min-01.jpg" /> 
+<meta property="og:url" content="http://<?php echo $domaine; ?>/exposition-alexandrabruel" /> 
+
+<?php
+include($inclusion."includes/inc.head2.php");
+?>
+
+<body class="exposition niveau3">
+<?php
+include($inclusion."includes/inc.header.php");
+?>
+
+<div id="contenu">
+<?php
+include($inclusion."includes/cont.exposition-alexandrabruel.php");
+?>
+</div><!-- contenu -->
+
+<?php
+include($inclusion."includes/inc.footer.php");
+?>
+
+</body>
+</html>

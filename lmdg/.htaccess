@@ -1,0 +1,55 @@
+Options +FollowSymlinks
+RewriteEngine on
+
+
+<IfModule dir_module>
+	RewriteRule !\. - [T=application/x-httpd-php]
+		#objectif : interpreter les fichiers sans extension comme .php
+
+	RewriteRule (.+)/+$ /$1 [L,R] 
+		#objectif : reduire les slash doubles en slash unique (evenement//index : evenement/index)
+		#et (comment ?) enlever les slash finaux apres pathname !
+
+	DirectoryIndex /accueil
+		#objetctif : fichier accueil est la page d'accueil par defaut
+	ErrorDocument 404 /accueil
+		#objectif : accueil est la page 404
+		#attention : en enlevant l'url eronnee au profit de /
+		#attention : pas de 404 a l'interieur de repertoire includes, est-ce possible (une erreur Ajax doit etre interpretee comme telle) ?
+	RewriteRule accueil$ / [R]
+		#objetcif : reecrire accueil en /
+
+	RewriteRule evenement/+(.+) /evenement-$1 [R]
+		#objectif : exemple : remplacement de evenement/index par evenement-index etc.
+	RewriteRule exposition/+(.+) /exposition-$1 [R]
+		#objectif : idem
+	RewriteRule ateliers/+(.+)/(.+) /ateliers-$1-$2 [R]
+		#objectif : exemple : remplacement de ateliers/superchoco/inscription par ateliers-superchoco-inscription
+	RewriteRule ateliers/+(.+) /ateliers-$1 [R]
+		#objectif : idem
+	RewriteRule openbar/+(.+) /openbar-$1 [R]
+		#objectif : idem
+
+	RewriteRule evenement$ /evenement-index [L,R]
+		#objectif : reecrire evenement en evenement-index
+	RewriteRule exposition$ /exposition-index [L,R]
+		#objectif : idem
+	RewriteRule ateliers$ /ateliers-index [L,R]
+		#objectif : idem
+	RewriteRule openbar$ /openbar-index [L,R]
+		#objectif : idem
+
+
+
+
+#rajout pr simuler requete ws
+RewriteRule .json - [T=text/plain]
+
+
+</IfModule>
+
+
+
+
+
+
