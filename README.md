@@ -5,12 +5,12 @@ Divers
 Astuces et techniques utiles, js et intégration
 
 
-* js-hoisting-tests.pdf : tableau de tests-mémo sur l'incidence du hoisting sur la val. des var.
 * js-operateurs-memo.js : aide-mémoire sur les opérateurs logiques, arithmétiques etc.
+* js-snippet.client.add.jquery.js : snippet client d'ajout de jQuery à une page en consultation
+* js-var-etats.html : variables et déclaration, affectation, exécution
+* js-var-hoisting-tests.pdf : tableau de tests-mémo sur l'incidence du hoisting sur la val. des var.
 * msie-cc.js : commentaires conditionnels en-deça de MSIE 11
 * msie.classique.html : limiter les capacités de MSIE à v. 9 sur un développement classique
-* snippet.client.add.jquery.js : snippet client d'ajout de jQuery à une page en consultation
-* variables-indefinitions.html : variables et déclaration, affectation, exécution
 
 Dossiers
 
