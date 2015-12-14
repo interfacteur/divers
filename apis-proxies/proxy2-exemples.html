@@ -144,6 +144,7 @@ output	{
 			e.preventDefault();
 			var url = $inputs[i][0].val(),
 				type = $inputs[i][1].filter(":checked").val() || (i == 0 ? 1 : -1);
+			$inputs[i][2].html("");
 			if (! reURL.test(url))
 				return;
 			$.ajax({

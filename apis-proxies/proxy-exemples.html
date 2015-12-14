@@ -104,6 +104,9 @@ output:nth-of-type(3) {
 	$("form").on("submit", function (e) {
 		e.preventDefault();
 		var url = $inputs[0].val();
+		$inputs[1].text("");
+		$inputs[2].text("");
+		$inputs[3].text("");
 		if (! reURL.test(url))
 			return;
 		$.ajax({
