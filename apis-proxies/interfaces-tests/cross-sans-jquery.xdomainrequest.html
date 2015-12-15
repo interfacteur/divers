@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>Tests de requêtes unifiées sur APIs JSON et JSON-P 2/2 \ Tests / Equatorium</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Gaëtan Langhade, interfacteur">
+
+<link rel="stylesheet" href="-media/regularize.css">
+<style>
+body	{
+	line-height: 1.3;
+	padding: 1em;
+}
+a	{
+	color: #000;
+}
+a:hover,
+a:focus	{
+	color:  #A00;
+	text-decoration: none;
+}
+h1	{
+	font-size: 1.075em;
+}
+h2	{
+	font-size: 1em;
+}
+h2 + p	{
+	height: 100px;
+}
+em	{
+	font-size: .9em;
+}
+form	{
+	margin-top: .5em;
+	padding: 1em;
+	text-align: center;
+}
+form > p	{
+	text-align: left;
+}
+form > p:not(:empty) + p	{
+	margin-top: 1em;
+}
+form > p > em	{
+	float: right;
+}
+[type='submit']	{
+	background: grey;
+	border: 1px solid #8DA;
+	color: #8DA;
+	padding: .2em .75em;
+}
+form div	{
+	float: left;
+	margin: 1.4em 3% 0 0;
+	text-align: right;
+	width: 47%;
+}
+form div:nth-of-type(2)	{
+	margin: 1.4em 0 0 3%;
+	text-align: left;
+}
+form div:nth-of-type(3)	{
+	display: none;
+}
+form div:nth-of-type(4)	{
+	margin: 1.4em 0;
+	width: 100%;
+}
+.trois div	{
+	width: 30%;
+}
+.trois div:nth-of-type(2) {
+	margin: 1.4em 2% 0 2%;
+	text-align: center;
+}
+.trois div:nth-of-type(3) {
+	display: block;
+	margin: 1.4em 0 0 3%;
+	text-align: left;
+}
+textarea	{
+	border: 1px solid grey;
+	font-size: .8em;
+	width: 100%;
+}
+#jsonE textarea	{
+	float: left;
+	height: 50px;
+	margin: .5em 1.5%;
+	width: 30%;
+	white-space: pre;
+}
+.erreur	{
+	border: 1px solid #F00;
+}
+</style>
+</head>
+
+<body>
+<h1>Tests de requêtes unifiées sur APIs JSON et JSON-P</h1>
+<p>Avec détection du type de JSON (JSON, mixte JSON-JSON-P, JSON-P), mémorisation du type détecté, gestion des erreurs,<br>
+et résolution du cross-domain via proxy si nécessaire
+<br><em>(en l'absence de la librairie <a href="https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest">jQuery-ajaxTransport-XDomainRequest</a> <strong>aucun support du CORS par IE9 - testé en vm</strong> -<br>
+cf. aussi <a href="http://www.equatorium.net/e1/+tests/cross-avec-jquery.xdomainrequest.html">ces tests avec la librairie</a>).</em></p>
+<form action="#">
+	<p id="jsonE" class="fixing-sub"></p>
+	<p class="fixing-sub">
+		<input type="submit" value="tester">
+		<span>
+			Nombre d'APIs : <output id="nApi"></output> ;
+			nombre de requêtes : <output id="nReq"></output>
+		</span>
+		<em>(*) càd sans header Access-Control-Allow-Origin de cross-domain, ou sur IE9 (machine virtuelle)</em>
+	</p>
+	</p>
+	<div id="jsonG">
+		<h2>APIs JSON ou mixte JSON/JSON-P : avec retour JSON</h2>
+		<p>JSON et JSON/JSON-P : CORS OK</p>
+	</div>
+	<div id="jsonC">
+		<h2>APIs mixte JSON/JSON-P ou JSON-P : avec retour JSON-P</h2>
+		<p>JSON/JSON-P : CORS problématique (*) ;<br>
+			JSON-P : CORS indifférent</p>
+	</div>
+	<div id="jsonD">
+		<h2>APIs JSON : avec retour JSON via proxy</h2>
+		<p>CORS problématique (*)</p>
+	</div>
+</form>
+<script src="-media/jquery-2.1.1.min.js"></script>
+<script>
+;$(function () {
+	"use strict";
+	var nApi = 0,
+		nReq = 0,
+		$nReq = $("#nReq"),
+		$form = $("form"),
+		$jsonE = $("#jsonE"),
+		$jsonG = $("#jsonG"),
+		$jsonC = $("#jsonC"),
+
+		proxies = [
+			"http://www.equatorium.net/e1/ou--outils/proxy2text.php?query=", //returns file as text/plain
+			"http://www.equatorium.net/e1/ou--outils/proxy.php?query=", //returns file as original MIME type
+			"http://www.equatorium.net/e1/ou--outils/proxy2code.php?query=" //returns HTTP code
+		],
+
+		urls = {
+			json: {
+				json: "http://www.interfacteur.net/apis/json.php",
+				corsJson: "http://www.interfacteur.net/apis/cors_json.php",
+				frozen: "http://frozen-woodland-5503.herokuapp.com/cors.json",
+				jcdecaux: "https://api.jcdecaux.com/vls/v1/stations/01001?contract=paris&apiKey=2749702fa9cc830fcdb34d9b4dcf29b39e00da89",
+				citybik: "http://api.citybik.es/v2/networks",
+			},
+			mixte: {
+				jsonMixte: "http://www.interfacteur.net/apis/json-mixte.php",
+				corsJsonMixte: "http://www.interfacteur.net/apis/cors_json-mixte.php",
+				google: "https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699",
+				github: "https://api.github.com/search/repositories?q=form+in:name&type=Repositories&per_page=10&client_id=e8ce07d7ca81454ca7ca&client_secret=58e01a1e64bc997753cf364b80f53d922468722c",
+				github409: "https://api.github.com/repos/pradeep250677/mcrouter/commits?per_page=100&client_id=e8ce07d7ca81454ca7ca&client_secret=58e01a1e64bc997753cf364b80f53d922468722c",
+				github422a: "https://api.github.com/search/repositories?q=form+in:name+user:in&type=Repositories&per_page=50&client_id=e8ce07d7ca81454ca7ca&client_secret=58e01a1e64bc997753cf364b80f53d922468722c",
+				github422b: "https://api.github.com/search/repositories?q=form+in:name+user:inininin&type=Repositories&per_page=50&client_id=e8ce07d7ca81454ca7ca&client_secret=58e01a1e64bc997753cf364b80f53d922468722c",
+				wikipedia: "https://fr.wikipedia.org/w/api.php?format=json&action=query&titles=India&prop=revisions&rvprop=content",
+				openweathermap: "http://api.openweathermap.org/data/2.5/weather?q=Paris,fr&appid=2de143494c0b295cca9337e1e96b00e0"
+			},
+			jsonp: {
+				jsonp: "http://www.interfacteur.net/apis/jsonp.php",
+				corsJsonp: "http://www.interfacteur.net/apis/cors_jsonp.php"
+			},
+			extra:	{
+				file404: "http://www.interfacteur.net/apis/jsoon.php", //without HTTP error
+				github404: "https://api.github.com/search/repositoriDDDDDDDDDDes?q=form+in:name&type=Repositories&per_page=10&client_id=e8ce07d7ca81454ca7ca&client_secret=58e01a1e64bc997753cf364b80f53d922468722c",
+				htmlCourant: "http://www.sataghen.info/buto-20151024.html",
+				htmlAvecCors: "http://www.interfacteur.net/apis/cors_html.php", //PHP header
+				htmlSansCors: "http://www.interfacteur.net/apis/html.php"
+		}	},
+
+		types = {
+			json: {},
+			mixte: {},
+			jsonp: {},
+			extra: {}
+		},
+
+		cleanJSON = function (str) {
+			return str.replace(/\/\/.*/g, "")
+				.replace(/\/\*([^\*]|\*(?!\/))*\*\//g, "")
+				.replace(/^\s*/, "")
+				.replace(/\s\s/g, "\s")
+				.replace(/[\n\r\u2028\u2029\t]/g, "");
+		},
+
+		cleanURL = function (str) {
+			return str.replace(/callback=jQuery.*/, "callback=jQuery123…")
+				.replace(/(\?|&)(apiKey|client_id|client_secret)=\w+/g, "");
+		},
+
+		sprtr = /*@cc_on" ~/~/~/~ " + @*/ "\n",
+
+		getError = function (key, type, url, message) {
+			$("#" + key).remove();
+			$jsonE.append($('<textarea cols="80" rows="4" id="' + key + '" class="erreur"></textarea>'));
+			return $("#" + key).text(key + ' (' + type + ') : ' + cleanURL(url) + sprtr + message);
+		},
+
+		ajax = function (url, type, key, pad, nocors) {
+
+			$nReq.text(++nReq); //count of requests
+
+			typeof types[type][key] != "undefined" //memorize type of API except if error
+			&& (pad = types[type][key]);
+
+			return $.ajax({
+
+				url: url + (pad ? ((/\?/.test(url) ? "&" : "?") + "callback=?") : ""),
+				dataType: "json",
+				success: function (got, status, xhr) {
+
+					var $centre = $("#" + key);
+
+					typeof types[type][key] == "undefined"
+					&& (types[type][key] = pad);
+
+					$centre.length == 0
+					&& $jsonG.append($('<textarea cols="80" rows="4" id="' + key + '">' + key + ' (' + type + ') : ' + cleanURL(url) + "\n" + JSON.stringify(got) + '</textarea>'))
+					|| $centre.text(key + ' (' + type + ') : ' + (url.indexOf(proxies[1]) > -1 ? (url.split(proxies[1])[1] + " -> ") : "") + cleanURL(this.url) + "\n" + JSON.stringify(got));
+				},
+				error: function (xhr, status, err) {
+
+					xhr.status != 200 //HTTP error
+					&& xhr.status != 0 //0 for file error without HTTP error cf. bottom
+					&& xhr.status != 500 //0 for file error without HTTP on IE9 error cf. bottom
+					&& getError(key, type, url, "Erreur " + xhr.status + " (" + err + ")")
+
+					|| status == "parsererror" //case of JSON-P only cf. jsonp.php
+					&& /^\w*\s?\(\s?\{/.test(cleanJSON(xhr.responseText)) //JSON-P
+					&& $("#" + key).remove()
+					&& $jsonC.append($('<textarea cols="80" rows="4" id="' + key + '"></textarea>'))
+					&& ajax(url, type, key, true)
+
+//IE9 on vm doesn't care about Github errors code…
+/*@cc_on
+					|| xhr.status == 0
+					&&  $.get(proxies[2] + url, function (data) {
+						$nReq.text(++nReq); //count of requests
+						var d = data.replace(/\s/g, ""),
+							n = parseInt(d.split(/status:/i)[1]);
+						! isNaN(n)
+						&& n != 200
+						&& getError(key, type, url, "Erreur " + n)
+						|| check(url, type, key);
+					})
+@*/
+
+					|| check(url, type, key); //mixt JSON with CORS problem like wikipedia, or JSON with CORS problem (my json.php, jcdecaux on IE9 vm), or file error without HTTP error
+		}	});	},
+
+		check = function (url, type, key) { //between mixt JSON with CORS problem like wikipedia, and JSON with CORS problem (my json.php, jcdecaux on IE9 vm)
+
+			$nReq.text(++nReq); //count of requests
+
+			return $.ajax({
+
+				url: proxies[0] + url + (/\?/.test(url) ? "&" : "?") + "callback=perform",
+				type: "text",
+				success: function (got, status, xhr) {
+
+					var ret = cleanJSON(xhr.responseText);
+
+					/^\{/.test(ret) //JSON without cross-domain header
+					&& $("#" + key).remove()
+					&& $form.addClass("trois")
+					&& $("#jsonD").append($('<textarea cols="80" rows="4" id="' + key + '"></textarea>'))
+					&& (urls[type][key] = proxies[1] + url)
+					&& ajax(proxies[1] + url, type, key, false)
+
+					|| /^\w*\s?\(\s?\{/.test(ret) //mixt JSON or JSON-P without cross-domain header
+					&& $("#" + key).remove()
+					&& $jsonC.append($('<textarea cols="80" rows="4" id="' + key + '"></textarea>'))
+					&& ajax(url, type, key, true)
+
+					|| getError(key, type, url, "Probable erreur 404");
+		}	})	};
+
+	$form.on("submit", function (e) {
+		e.preventDefault();
+		nReq = 0;
+		$jsonE.find("textarea").remove();
+		$("textarea").add($nReq).text("");
+		for (var k in urls) {
+			for (var c in urls[k]) {
+				ajax(urls[k][c], k, c, false);
+				nApi++;
+	}	}	}).trigger("submit");
+
+	$("#nApi").text(nApi);
+
+});
+</script>
+</body>
+</html>

@@ -23,3 +23,12 @@ APIs
 * fichiers HTML, JSON, JSON-P, JSON/JSON-P, texte et XML servis avec cross-domain via header("Access-Control-Allow-Origin: *").
 
 * fichiers HTML, JSON, JSON-P, JSON/JSON-P, texte et XML servis sans cross-domain.
+
+
+
+INTERFACES DE TESTS
+========
+
+* cross-avec-jquery.xdomainrequest.html : tests de requêtes unifiées sur APIs JSON et JSON-P, avec la librairie jQuery-ajaxTransport-XDomainRequest pour IE
+
+* cross-sans-jquery.xdomainrequest.html : tests de requêtes unifiées sur APIs JSON et JSON-P, sans la librairie jQuery-ajaxTransport-XDomainRequest pour IE
