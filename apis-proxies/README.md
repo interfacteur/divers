@@ -4,6 +4,8 @@ Proxies
 * proxy.php : retour du fichier dans son type MIME d'origine
 cf. www.equatorium.net/e1/ou--outils/proxy-exemples.html
 
+* proxy2code.php : retour du code HTTP du fichier requis
+
 * proxy2jsonp.php : retour JSON-P encapsulé par une fonction de callback manuelle ou jQuery
 cf. http://www.equatorium.net/e1/ou--outils/proxy2-exemples.html
 
