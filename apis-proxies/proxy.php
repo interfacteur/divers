@@ -13,7 +13,7 @@ if (count($m) == 1) {
 		$target = file_get_contents($url[1], false, $context);
 
 		$targetHeader = $http_response_header;
-		foreach ($targetHeader as &$value)
+		foreach ($targetHeader as $value)
 			if (strpos($value, "Content-Type:") === 0)
 				$targetHeaderCT = $value;
 }	}
