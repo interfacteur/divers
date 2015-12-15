@@ -14,7 +14,7 @@ if (count($m) == 1) {
 
 		$targetHeader = $http_response_header;
 		foreach ($targetHeader as $value)
-			if (strpos($value, "Content-Type:") === 0)
+			if (count(preg_split("/Content-Type\s*:/i", $value)) > 1)
 				$targetHeaderCT = $value;
 }	}
 
