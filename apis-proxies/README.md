@@ -18,6 +18,6 @@ cf. http://www.equatorium.net/e1/ou--outils/proxy2text-exemples.html
 APIs
 ========
 
-* fichiers JSON, JSON-P, JSON/JSON-P, texte et XML servis avec cross-domain via header("Access-Control-Allow-Origin: *").
+* fichiers HTML, JSON, JSON-P, JSON/JSON-P, texte et XML servis avec cross-domain via header("Access-Control-Allow-Origin: *").
 
-* fichiers JSON, JSON-P, JSON/JSON-P, texte et XML servis sans cross-domain.
+* fichiers HTML, JSON, JSON-P, JSON/JSON-P, texte et XML servis sans cross-domain.
