@@ -29,9 +29,6 @@ h1	{
 h2	{
 	font-size: 1em;
 }
-h2 + p	{
-	height: 100px;
-}
 em	{
 	font-size: .9em;
 }
@@ -55,34 +52,37 @@ form > p > em	{
 	color: #8DA;
 	padding: .2em .75em;
 }
-form div	{
+form > div	{
 	float: left;
 	margin: 1.4em 3% 0 0;
 	text-align: right;
 	width: 47%;
 }
-form div:nth-of-type(2)	{
+form > div:nth-of-type(2)	{
 	margin: 1.4em 0 0 3%;
 	text-align: left;
 }
-form div:nth-of-type(3)	{
+form > div:nth-of-type(3)	{
 	display: none;
 }
-form div:nth-of-type(4)	{
+form > div:nth-of-type(4)	{
 	margin: 1.4em 0;
 	width: 100%;
 }
-.trois div	{
+.trois  > div	{
 	width: 30%;
 }
-.trois div:nth-of-type(2) {
+.trois > div:nth-of-type(2) {
 	margin: 1.4em 2% 0 2%;
 	text-align: center;
 }
-.trois div:nth-of-type(3) {
+.trois > div:nth-of-type(3) {
 	display: block;
 	margin: 1.4em 0 0 3%;
 	text-align: left;
+}
+form > div > div	{
+	height: 100px;
 }
 textarea	{
 	border: 1px solid grey;
@@ -105,7 +105,7 @@ textarea	{
 <body>
 <h1>Tests de requêtes unifiées sur APIs JSON et JSON-P</h1>
 <p>Avec détection du type de JSON (JSON, mixte JSON-JSON-P, JSON-P), mémorisation du type détecté, gestion des erreurs,<br>
-et résolution du cross-domain via proxy si nécessaire
+et résolution du cross-domain via proxy si nécessaire - les proxies : <a href="http://www.equatorium.net/e1/ou--outils/proxies-tests.html">formulaires</a> et <a href="http://www.equatorium.net/e1/ou--outils/">outils</a> -
 <br><em>(en l'absence de la librairie <a href="https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest">jQuery-ajaxTransport-XDomainRequest</a> <strong>aucun support du CORS par IE9 - testé en vm</strong> -<br>
 cf. aussi <a href="http://www.equatorium.net/e1/+tests/cross-avec-jquery.xdomainrequest.html">ces tests avec la librairie</a>).</em></p>
 <form action="#">
@@ -120,17 +120,23 @@ cf. aussi <a href="http://www.equatorium.net/e1/+tests/cross-avec-jquery.xdomain
 	</p>
 	</p>
 	<div id="jsonG">
-		<h2>APIs JSON ou mixte JSON/JSON-P : avec retour JSON</h2>
-		<p>JSON et JSON/JSON-P : CORS OK</p>
+		<div>
+			<h2>APIs JSON ou mixte JSON/JSON-P : avec retour JSON</h2>
+			<p>JSON et JSON/JSON-P : CORS OK</p>
+		</div>
 	</div>
 	<div id="jsonC">
-		<h2>APIs mixte JSON/JSON-P ou JSON-P : avec retour JSON-P</h2>
-		<p>JSON/JSON-P : CORS problématique (*) ;<br>
-			JSON-P : CORS indifférent</p>
+		<div>
+			<h2>APIs mixte JSON/JSON-P ou JSON-P : avec retour JSON-P</h2>
+			<p>JSON/JSON-P : CORS problématique (*) ;<br>
+				JSON-P : CORS indifférent</p>
+		</div>
 	</div>
 	<div id="jsonD">
-		<h2>APIs JSON : avec retour JSON via proxy</h2>
-		<p>CORS problématique (*)</p>
+		<div>
+			<h2>APIs JSON : avec retour JSON via proxy</h2>
+			<p>CORS problématique (*)</p>
+		</div>
 	</div>
 </form>
 <script src="-media/jquery-2.1.1.min.js"></script>
@@ -175,9 +181,11 @@ cf. aussi <a href="http://www.equatorium.net/e1/+tests/cross-avec-jquery.xdomain
 				corsJsonp: "http://www.interfacteur.net/apis/cors_jsonp.php"
 			},
 			extra:	{
+				domain0: "http://www.interfcteur.net/apis/jsoon.php", //no domain
 				file404: "http://www.interfacteur.net/apis/jsoon.php", //without HTTP error
 				github404: "https://api.github.com/search/repositoriDDDDDDDDDDes?q=form+in:name&type=Repositories&per_page=10&client_id=e8ce07d7ca81454ca7ca&client_secret=58e01a1e64bc997753cf364b80f53d922468722c",
-				htmlCourant: "http://www.sataghen.info/buto-20151024.html",
+				web: "http://www.sataghen.info/buto-20151024.html",
+				web404: "http://www.sataghen.info/buto-2015.html",
 				htmlAvecCors: "http://www.interfacteur.net/apis/cors_html.php", //PHP header
 				htmlSansCors: "http://www.interfacteur.net/apis/html.php"
 		}	},
@@ -236,7 +244,7 @@ cf. aussi <a href="http://www.equatorium.net/e1/+tests/cross-avec-jquery.xdomain
 
 					xhr.status != 200 //HTTP error
 					&& xhr.status != 0 //0 for file error without HTTP error cf. bottom
-					&& xhr.status != 500 //0 for file error without HTTP on IE9 error cf. bottom
+					&& xhr.status != 500 //500 for file error without HTTP on IE9 error cf. bottom
 					&& getError(key, type, url, "Erreur " + xhr.status + " (" + err + ")")
 
 					|| status == "parsererror" //case of JSON-P only cf. jsonp.php
@@ -246,18 +254,17 @@ cf. aussi <a href="http://www.equatorium.net/e1/+tests/cross-avec-jquery.xdomain
 					&& ajax(url, type, key, true)
 
 //IE9 on vm doesn't care about Github errors code…
-/*@cc_on
-					|| xhr.status == 0
-					&&  $.get(proxies[2] + url, function (data) {
-						$nReq.text(++nReq); //count of requests
-						var d = data.replace(/\s/g, ""),
-							n = parseInt(d.split(/status:/i)[1]);
-						! isNaN(n)
-						&& n != 200
-						&& getError(key, type, url, "Erreur " + n)
+/*@cc_on @*/
+	//and now (151218) after changing PHP version on clarahost (5.2 -> 5.5): http://www.interfacteur.net/apis/jsoon.php get xhr.status == 0, like jsonMixte
+	//but changing PHP is also modify Apache settings? but interfacteur is on Hiwit! and this page is HTML only, without PHP: so????
+					|| (xhr.status == 0 || xhr.status == 500)
+					&& $nReq.text(++nReq) //count of requests
+					&& $.getJSON(proxies[2] + url, function (data) {
+						var code = parseInt(data.statut.replace(/^HTTP\/\d\.\d\s+/i, ""));
+						code != 200
+						&& getError(key, type, url, "Erreur " + data.statut)
 						|| check(url, type, key);
 					})
-@*/
 
 					|| check(url, type, key); //mixt JSON with CORS problem like wikipedia, or JSON with CORS problem (my json.php, jcdecaux on IE9 vm), or file error without HTTP error
 		}	});	},
@@ -286,7 +293,7 @@ cf. aussi <a href="http://www.equatorium.net/e1/+tests/cross-avec-jquery.xdomain
 					&& $jsonC.append($('<textarea cols="80" rows="4" id="' + key + '"></textarea>'))
 					&& ajax(url, type, key, true)
 
-					|| getError(key, type, url, "Probable erreur 404");
+					|| getError(key, type, url, "Probable erreur 404 ou de format");
 		}	})	};
 
 	$form.on("submit", function (e) {
