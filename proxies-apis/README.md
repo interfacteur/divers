@@ -1,6 +1,8 @@
 Proxies
 ========
 
+Ensemble de proxies initialement destinés à tester des APIs - cf http://www.equatorium.net/e1/ou--outils
+
 Les proxies sont servis (à usage privé) sur http://www.equatorium.net/e1/ou--outils et testables sur http://www.equatorium.net/e1/ou--outils/proxies-tests.html
 
 * Page de test proxies-tests.html et -media/proxies-tests.js : tester tous les proxies cf. http://www.equatorium.net/e1/ou--outils/proxies-tests.html
