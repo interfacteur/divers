@@ -26,6 +26,9 @@ h1	{
 h2	{
 	font-size: 1em;
 }
+em	{
+	font-size: .85em;
+}
 li	{
 	margin-bottom: .5em;
 }
@@ -40,13 +43,18 @@ form	{
 output	{
 	display: block;
 	font-size: .75em;
-	min-height: 24px;
+	height: 40px;
+	overflow: auto;
 }
-output:nth-of-type(3) {
-	height: 60px;
-	overflow: hidden;
+.out2 {
+	font-weight: bold;
+	height: 20px;
 }
-[type='submit']	{
+.out3 {
+	height: 100px;
+	overflow: scroll;
+}
+[[type='submit']	{
 	background: grey;
 	border: 1px solid #8DA;
 	color: #8DA;
@@ -58,7 +66,7 @@ output:nth-of-type(3) {
 
 <body>
 <h1>Proxy textuel, outil perso</h1>
-<p>Le proxy <a href="proxy2text.php">proxy2text.php</a> renvoie le fichier en "text/plain" quelque soit son type MIME d'origine&nbsp;:</p>
+<p>Le proxy <a href="proxy2text.php">proxy2text.php</a> <em>(<a href="http://www.equatorium.net/e1/ou--outils/proxies-tests.html#proxy2T">formulaire de test</a>)</em> renvoie le fichier en "text/plain" quelque soit son type MIME d'origine&nbsp;:</p>
 <ul>
 	<li>text/plain :<br>
 		<a href="proxy2text.php?query=http://www.interfacteur.net/apis/text.php">
@@ -92,41 +100,16 @@ output:nth-of-type(3) {
 		http://www.interfacteur.net/apis/json-mixte.php?callback=perform</a></li>
 	</li>
 </ul>
-<form action="#">
-	<label for="test">Test localisé :</label>
-	<input type="text" id="test" />
+<form action="#" id="proxyP2T">
+	<label for="testP2T">Test localisé :</label>
+	<input type="text" id="testP2T" />
 	<input type="submit" value="Tester" />
 	<br>
-	<output id="resultat1"></output>
-	<output id="resultat2"></output>
+	<br>
+	<output id="resultat1P2T"></output>
+	<output id="resultat2P2T" class="out3"></output>
 </form>
 <script src="-media/jquery-2.1.1.min.js"></script>
-<script>
-;$(function () {
-	"use strict";
-	var reURL = /^(?:(?:https?):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?$/i, //https://gist.github.com/dperini/729294
-		$inputs = [$("#test"), $("#resultat1"), $("#resultat2"), $("#resultat3")];
-	$("form").on("submit", function (e) {
-		e.preventDefault();
-		var url = $inputs[0].val();
-		$inputs[1].text("");
-		$inputs[2].text("");
-		if (! reURL.test(url))
-			return;
-		$.ajax({
-			url: "http://www.equatorium.net/e1/ou--outils/proxy2text.php?query=" + url,
-			dataType: "text",
-			success: function (got, status, xhr) {
-				$inputs[1].text(this.url);
-				$inputs[2].text(xhr.responseText.substring(0, 400));
-			},
-			error: function (xhr, status, err) {
-				console.log(err);
-				try{
-					$inputs[1].text(this.url);
-					$inputs[2].text(xhr.responseText.substring(0, 400));
-				} catch (e) { console.log(e); }
-}	});	});	});
-</script>
+<script src="-media/proxies-tests.js"></script>
 </body>
 </html>

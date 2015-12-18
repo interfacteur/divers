@@ -26,6 +26,9 @@ h1	{
 h2	{
 	font-size: 1em;
 }
+em	{
+	font-size: .85em;
+}
 li	{
 	margin-bottom: .5em;
 }
@@ -38,9 +41,18 @@ form	{
 	width: 44em;
 }
 output	{
-	font-size: .75em;
-	height: 60px;
 	display: block;
+	font-size: .75em;
+	height: 40px;
+	overflow: auto;
+}
+.out2 {
+	font-weight: bold;
+	height: 20px;
+}
+.out3 {
+	height: 100px;
+	overflow: scroll;
 }
 [type='submit']	{
 	background: grey;
@@ -56,8 +68,8 @@ output	{
 <p>Autres outils : <a href="http://jsonpwrapper.com/">jsonpwrapper.com</a>, <a href="https://jsonp.afeld.me/">jsonp.afeld.me</a>, http://anyorigin.com/</p>
 <h1>Proxies JSON, outils perso</h1>
 <p><em>Sur API servant du JSON :</em></p>
-<h2>Proxy <a href="proxy2jsonp.php">proxy2jsonp.php</a></h2>
-<p>Retour JSON-P encapsulé par une fonction de callback manuelle ou jQuery :</p>
+<h2>1) Proxy <a href="proxy2jsonp.php">proxy2jsonp.php</a></h2>
+<p>Retour JSON-P encapsulé par une fonction de callback manuelle ou jQuery <em>(<a href="http://www.equatorium.net/e1/ou--outils/proxies-tests.html#proxy2J1">formulaire de test</a>)</em> :</p>
 <ul>
 	<li>À ne pas faire sans callback :<br>
 		<a href="proxy2jsonp.php?query=http://www.interfacteur.net/apis/json.php">
@@ -82,18 +94,20 @@ output	{
 		</ul>
 	</li>
 </ul>
-<form action="#">
-	<label for="test1">Test localisé :</label>
-	<input type="text" id="test1" />
+<form action="#" class="formJson">
+	<label for="testPTJ1">Test localisé :</label>
+	<input type="text" id="testPTJ1" />
 	Callback :
-	<input type="radio" id="cb11" name="cb1" value="0" /><label for="cb11">manuel</label>
-	<input type="radio" id="cb12" name="cb1" value="1" checked /><label for="cb12">jQuery</label>
+	<input type="radio" id="cbPTJ11" name="cbPTJ1" value="0" /><label for="cbPTJ11">manuel</label>
+	<input type="radio" id="cbPTJ12" name="cbPTJ1" value="1" checked /><label for="cbPTJ12">jQuery</label>
 	<input type="submit" value="Tester" />
 	<br>
-	<output id="resultat1"></output>
+	<br>
+	<output id="resultatPTJ1A"></output>
+	<output id="resultatPTJ1B" class="out3"></output>
 </form>
-<h2>Proxy <a href="proxy2json-.php">proxy2json-.php</a></h2>
-<p>Retour JSON, ou JSON-P encapsulé par une fonction de callback manuelle ou jQuery :</p>
+<h2>2) Proxy <a href="proxy2json-.php">proxy2json-.php</a></h2>
+<p>Retour JSON, ou JSON-P encapsulé par une fonction de callback manuelle ou jQuery <em>(<a href="http://www.equatorium.net/e1/ou--outils/proxies-tests.html#proxy2J2">formulaire de test</a>)</em>:</p>
 <ul>
 	<li>Retour JSON :<br>
 		<a href="proxy2json-.php?query=http://www.interfacteur.net/apis/json.php">
@@ -118,46 +132,20 @@ output	{
 		</ul>
 	</li>
 </ul>
-<form action="#">
-	<label for="test2">Test localisé :</label>
-	<input type="text" id="test2" />
+<form action="#" class="formJson">
+	<label for="testPTJ2">Test localisé :</label>
+	<input type="text" id="testPTJ2" />
 	Callback :
-	<input type="radio" id="cb23" name="cb2" value="-1" checked /><label for="cb23">aucun</label>
-	<input type="radio" id="cb21" name="cb2" value="0" /><label for="cb21">manuel</label>
-	<input type="radio" id="cb22" name="cb2" value="1" /><label for="cb22">jQuery</label>
+	<input type="radio" id="cbPTJ23" name="cbPTJ2" value="-1" checked /><label for="cbPTJ23">aucun</label>
+	<input type="radio" id="cbPTJ21" name="cbPTJ2" value="0" /><label for="cbPTJ21">manuel</label>
+	<input type="radio" id="cbPTJ22" name="cbPTJ2" value="1" /><label for="cbPTJ22">jQuery</label>
 	<input type="submit" value="Tester" />
 	<br>
-	<output id="resultat2"></output>
+	<br>
+	<output id="resultatPTJ2A"></output>
+	<output id="resultatPTJ2B" class="out3"></output>
 </form>
 <script src="-media/jquery-2.1.1.min.js"></script>
-<script>
-;$(function () {
-	"use strict";
-	var reURL = /^(?:(?:https?):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?$/i, //https://gist.github.com/dperini/729294
-		$inputs = [
-			[$("#test1"), $("[name='cb1']"), $("#resultat1")],
-			[$("#test2"), $("[name='cb2']"), $("#resultat2")]
-		],
-		proxies = ["p", "-"];
-	$("form").each(function (i) {
-		$(this).on("submit", function (e) {
-			e.preventDefault();
-			var url = $inputs[i][0].val(),
-				type = $inputs[i][1].filter(":checked").val() || (i == 0 ? 1 : -1);
-			$inputs[i][2].html("");
-			if (! reURL.test(url))
-				return;
-			$.ajax({
-				url: "http://www.equatorium.net/e1/ou--outils/proxy2json" + proxies[i] + ".php?query=" + url,
-				dataType: type == -1 ? "json" : "jsonp",
-				jsonp: type == 0 ? "cb" : this.jsponp,
-				jsonpCallback: type == 0 ? "perform" : this.jsonpCallback,
-				success: function (got, status, xhr) {
-					$inputs[i][2].html(this.url + "<br>" + xhr.responseText.substring(0, 200));
-				},
-				error: function (xhr, status, err) {
-					console.log(err);
-}	});	});	});	});
-</script>
+<script src="-media/proxies-tests.js"></script>
 </body>
 </html>
