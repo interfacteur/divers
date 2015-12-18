@@ -61,4 +61,8 @@ if (count($m) == 1) {
 		print "\n}";
 }	}
 
+/* http://www.equatorium.net/e1/ou--outils/proxy2info.php :
+exemples sur http://www.equatorium.net/e1/ou--outils/proxy2info-exemples.html
+*/
+
 ?>

@@ -33,8 +33,8 @@ if (count($m) == 1) {
 		}
 }	}
 
-/* http://www.equatorium.net/e1/ou--outils/proxy.php :
-exemples sur http://www.equatorium.net/e1/ou--outils/proxy-exemples.html
+/* http://www.equatorium.net/e1/ou--outils/proxy2entetes.php :
+exemples sur http://www.equatorium.net/e1/ou--outils/proxy2entetes-exemples.html
 */
 
 ?>

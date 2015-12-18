@@ -42,6 +42,8 @@ if (count($m) == 1) {
 }	}
 
 /* http://www.equatorium.net/e1/ou--outils/proxy2json-.php :
+exemples sur http://www.equatorium.net/e1/ou--outils/proxy2json-exemples.html
+
 http://www.equatorium.net/e1/ou--outils/proxy2json-.php?query=http://www.interfacteur.net/apis/json.php
 http://www.equatorium.net/e1/ou--outils/proxy2json-.php?cb=do&query=http://www.interfacteur.net/apis/json.php
 http://www.equatorium.net/e1/ou--outils/proxy2json-.php?query=http://www.interfacteur.net/apis/json.php&callback=jQuery956_123&_=124

@@ -32,8 +32,8 @@ if (count($m) == 1) {
 		print "}";
 }	}
 
-/* http://www.equatorium.net/e1/ou--outils/proxy2code.php :
-exemples sur http://www.equatorium.net/e1/ou--outils/proxy2code-exemples.html
+/* http://www.equatorium.net/e1/ou--outils/proxy2mime.php :
+exemples sur http://www.equatorium.net/e1/ou--outils/proxy2mime-exemples.html
 */
 
 ?>
