@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Proxy d'en-têtes HTTP, outil perso \ Canopée ~ outils / Equatorium</title>
+<meta name="author" content="Gaëtan Langhade, interfacteur">
+
+<style type="text/css">
+body	{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 120%;
+	margin-top: 4px;
+}
+a	{
+	color: #000;
+}
+a:hover,
+a:focus	{
+	color:  #A00;
+	text-decoration: none;
+}
+h1	{
+	font-size: 1.075em;
+}
+h2	{
+	font-size: 1em;
+}
+em	{
+	font-size: .85em;
+}
+li	{
+	margin-bottom: .5em;
+}
+form	{
+	position: absolute;
+	left: -4444em;
+	top: 0;
+}
+[type="text"]	{
+	width: 44em;
+}
+output	{
+	display: block;
+	font-size: .75em;
+	height: 40px;
+	overflow: auto;
+}
+.out2 {
+	font-weight: bold;
+	height: 20px;
+}
+.out3 {
+	height: 100px;
+	overflow: scroll;
+}
+[type='submit']	{
+	background: grey;
+	border: 1px solid #8DA;
+	color: #8DA;
+	cursor: pointer;
+	padding: .2em .75em;
+}
+</style>
+</head>
+
+<body>
+<h1>Proxy d'en-têtes HTTP, outil perso</h1>
+<p>Le proxy <a href="proxy2entetes.php">proxy2entetes.php</a> <em>(<a href="http://www.equatorium.net/e1/ou--outils/proxies-tests.html#proxy2E">formulaire de test</a>)</em> renvoie les en-têtes HTTP reçues avec le fichier&nbsp;:</p>
+<ul>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.interfacteur.net/apis/text.php">text/plain</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://gaetan.langhade.net">text/html</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.velib.paris/service/stationdetails/paris/1001">text/xml</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699">application/json</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.interfacteur.net/apis/json-mixte.php">application/json</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699&callback=perform">text/javascript</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=https://api.github.com/search/repositories?q=form+in:name&type=Repositories&per_page=10&client_id=e8ce07d7ca81454ca7ca&callback=perform">application/javascript</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.interfacteur.net/apis/json-mixte.php?callback=perform">application/javascript</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=https://api.github.com/repos/pradeep250677/mcrouter/commits?per_page=100&client_id=e8ce07d7ca81454ca7ca&client_secret=58e01a1e64bc997753cf364b80f53d922468722c">"github409"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=https://api.github.com/search/repositories?q=form+in:name+user:in&type=Repositories&per_page=50&client_id=e8ce07d7ca81454ca7ca&client_secret=58e01a1e64bc997753cf364b80f53d922468722c">"github422a"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=https://api.github.com/search/repositories?q=form+in:name+user:inininin&type=Repositories&per_page=50&client_id=e8ce07d7ca81454ca7ca&client_secret=58e01a1e64bc997753cf364b80f53d922468722c">"github422b"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=https://fr.wikipedia.org/w/api.php?format=json&action=query&titles=India&prop=revisions&rvprop=content">"wikipedia"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.interfcteur.net/apis/jsoon.php">"domain0"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.interfacteur.net/apis/jsoon.php">"file404"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=https://api.github.com/search/repositoriDDDDDDDDDDes?q=form+in:name&type=Repositories&per_page=10&client_id=e8ce07d7ca81454ca7ca&client_secret=58e01a1e64bc997753cf364b80f53d922468722c">"github404"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.langhade.net">"1web"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.langhade.net/gaetan">"2web"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.sataghen.info">"3web"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.interfacteur.net">"4web"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.equatorium.net">"5web"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.equatorium.net/e1">"6web"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.avelib.com">"7web"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.avelib.com/a1">"9web"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.interfacteur.net/apis/cors_html.php">"htmlAvecCors"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.interfacteur.net/apis/html.php">"htmlSansCors"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.langhade.net/buto-2015.html">"1web404"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.langhade.net/gaetan/buto-2015.html">"2web404"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.sataghen.info/buto-2015.html">"3web404"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.interfacteur.net/buto-2015.html">"4web404"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.equatorium.net/buto-2015.html">"5web404"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.equatorium.net/e1/buto-2015.html">"6web404"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.equatorium.net/a1/buto-2015.html">"7web404"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.equatorium.net/a2/buto-2015.html">"8web404"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.avelib.com/buto-2015.html">"9web404"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.avelib.com/e1/buto-2015.html">"10web404"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.avelib.com/a1/buto-2015.html">"11web404"</a>
+	</li>
+	<li>
+		<a href="proxy2entetes.php?query=http://www.avelib.com/a2/buto-2015.html">"12web404"</a>
+	</li>
+</ul>
+<form action="#" id="proxyP2E">
+	<label for="test">Test localisé :</label>
+	<input type="text" id="testP2E" />
+	<input type="submit" value="Tester" />
+	<br>
+	<br>
+	<output id="resultat1P2E"></output>
+	<output id="resultat2P2E" class="out3" style="height: auto; white-space: pre"></output>
+</form>
+<script src="-media/jquery-2.1.1.min.js"></script>
+<script src="-media/proxies-tests.js"></script>
+</body>
+</html>
