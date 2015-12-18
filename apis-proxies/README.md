@@ -17,7 +17,7 @@ cf. http://www.equatorium.net/e1/ou--outils/proxy2json-exemples.html
 * Proxy JSON ou JSON-P proxy2json-.php : retour JSON, ou JSON-P encapsulé par une fonction de callback manuelle ou jQuery
 cf. http://www.equatorium.net/e1/ou--outils/proxy2json-exemples.html
 
-* Proxy de prospection proxy2info.php : retour en JSON du type MIME et du code HTTP reçus avec le fichier (-1 pour un domaine inexistant), ainsi que la mention des formats JSON et JSON-P le cas échéant
+* Proxy de prospection proxy2info.php : retour en JSON du type MIME et du code HTTP reçus avec le fichier (-1 pour un domaine inexistant), ainsi que de la mention des formats JSON et JSON-P le cas échéant
 cf. http://www.equatorium.net/e1/ou--outils/proxy2info.php
 
 * Proxy de type MIME proxy2mime.php : retour en JSON du type MIME et du code HTTP reçus avec le fichier (-1 pour un domaine inexistant)
