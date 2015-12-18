@@ -1,4 +1,4 @@
-<?
+<?php
 $pad = (count($_GET) > 0 && ! empty($_GET["callback"])) ? true : false;
 if ($pad)
 	header("Content-Type: application/javascript; charset=utf-8");

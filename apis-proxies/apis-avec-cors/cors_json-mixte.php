@@ -1,4 +1,4 @@
-<?
+<?php
 header("Access-Control-Allow-Origin: *");
 
 $pad = (count($_GET) > 0 && ! empty($_GET["callback"])) ? true : false;

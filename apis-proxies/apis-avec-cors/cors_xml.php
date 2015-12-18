@@ -1,4 +1,4 @@
-<?
+<?php
 header("Access-Control-Allow-Origin: *");
 
 header("Content-Type: text/xml; charset=utf-8");
