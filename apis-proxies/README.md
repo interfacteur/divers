@@ -1,19 +1,33 @@
 Proxies
 ========
 
-* proxy.php : retour du fichier dans son type MIME d'origine
+Tous les proxies sont servis (à usage privé) sur http://www.equatorium.net/e1/ou--outils et testables sur http://www.equatorium.net/e1/ou--outils/proxies-tests.html
+
+* Page de test proxies-tests.html : tester tous les proxies
+
+* Proxy proxy.php : retour du fichier dans son type MIME d'origine
 cf. www.equatorium.net/e1/ou--outils/proxy-exemples.html
 
-* proxy2code.php : retour du code HTTP du fichier requis
-
-* proxy2jsonp.php : retour JSON-P encapsulé par une fonction de callback manuelle ou jQuery
-cf. http://www.equatorium.net/e1/ou--outils/proxy2-exemples.html
-
-* proxy2json-.php : retour JSON, ou JSON-P encapsulé par une fonction de callback manuelle ou jQuery
-cf. http://www.equatorium.net/e1/ou--outils/proxy2-exemples.html
-
-* proxy2text.php : retour du fichier en "text/plain" quelque soit son type MIME d'origine
+* Proxy textuel proxy2text.php : retour du fichier en "text/plain" quelque soit son type MIME d'origine
 cf. http://www.equatorium.net/e1/ou--outils/proxy2text-exemples.html
+
+* Proxy JSON-P proxy2jsonp.php : retour JSON-P encapsulé par une fonction de callback manuelle ou jQuery
+cf. http://www.equatorium.net/e1/ou--outils/proxy2json-exemples.html
+
+* Proxy JSON ou JSON-P proxy2json-.php : retour JSON, ou JSON-P encapsulé par une fonction de callback manuelle ou jQuery
+cf. http://www.equatorium.net/e1/ou--outils/proxy2json-exemples.html
+
+* Proxy de prospection proxy2info.php : retour en JSON du type MIME et du code HTTP reçus avec le fichier (-1 pour un domaine inexistant), ainsi que la mention des formats JSON et JSON-P le cas échéant
+cf. http://www.equatorium.net/e1/ou--outils/proxy2info.php
+
+* Proxy de type MIME proxy2mime.php : retour en JSON du type MIME et dy code HTTP reçus avec le fichier (-1 pour un domaine inexistant)
+cf. http://www.equatorium.net/e1/ou--outils/proxy2mime-exemples.html
+
+* Proxy de code HTTP proxy2code.php : retour en JSON l'en-tête de statut HTTP reçue avec le fichier, ainsi que l'en-tête "Status" (API de Github) ; ou -1 pour un domaine inexistant
+cf. http://www.equatorium.net/e1/ou--outils/proxy2code-exemples.html
+
+*  Proxy d'en-têtes HTTP proxy2entetes.php : retour des en-têtes HTTP reçues avec le fichier
+cf. http://www.equatorium.net/e1/ou--outils/proxy2entetes-exemples.html
 
 
 
