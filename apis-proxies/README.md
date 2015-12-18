@@ -3,7 +3,7 @@ Proxies
 
 Les proxies sont servis (à usage privé) sur http://www.equatorium.net/e1/ou--outils et testables sur http://www.equatorium.net/e1/ou--outils/proxies-tests.html
 
-* Page de test proxies-tests.html : tester tous les proxies cf. http://www.equatorium.net/e1/ou--outils/proxies-tests.html
+* Page de test proxies-tests.html et -media/proxies-tests.js : tester tous les proxies cf. http://www.equatorium.net/e1/ou--outils/proxies-tests.html
 
 * Proxy proxy.php : retour du fichier dans son type MIME d'origine
 cf. www.equatorium.net/e1/ou--outils/proxy-exemples.html
