@@ -20,10 +20,10 @@ cf. http://www.equatorium.net/e1/ou--outils/proxy2json-exemples.html
 * Proxy de prospection proxy2info.php : retour en JSON du type MIME et du code HTTP reçus avec le fichier (-1 pour un domaine inexistant), ainsi que la mention des formats JSON et JSON-P le cas échéant
 cf. http://www.equatorium.net/e1/ou--outils/proxy2info.php
 
-* Proxy de type MIME proxy2mime.php : retour en JSON du type MIME et dy code HTTP reçus avec le fichier (-1 pour un domaine inexistant)
+* Proxy de type MIME proxy2mime.php : retour en JSON du type MIME et du code HTTP reçus avec le fichier (-1 pour un domaine inexistant)
 cf. http://www.equatorium.net/e1/ou--outils/proxy2mime-exemples.html
 
-* Proxy de code HTTP proxy2code.php : retour en JSON l'en-tête de statut HTTP reçue avec le fichier, ainsi que l'en-tête "Status" (API de Github) ; ou -1 pour un domaine inexistant
+* Proxy de code HTTP proxy2code.php : retour en JSON de l'en-tête de statut HTTP reçue avec le fichier, ainsi que de l'en-tête "Status" (API de Github) ; ou -1 pour un domaine inexistant
 cf. http://www.equatorium.net/e1/ou--outils/proxy2code-exemples.html
 
 *  Proxy d'en-têtes HTTP proxy2entetes.php : retour des en-têtes HTTP reçues avec le fichier
