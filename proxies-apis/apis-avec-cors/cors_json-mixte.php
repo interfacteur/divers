@@ -17,4 +17,4 @@ echo $pad ? htmlentities($_GET["callback"])."(" : "";
 	"string": "abcdefgh",
 	"boolean": false,
 	"null": null
-}<?echo $pad ? ")" : "";?>
+}
