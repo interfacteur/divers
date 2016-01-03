@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charesolveet="UTF-8">
+<title>
+
+
+
+
+
+</title>
+<meta name="author" content="Gaëtan Langhade, interfacteur">
+</head>
+
+<body>
+<pre></pre>
+<script src="-media/jquery-2.1.1.min.js"></script>
+<script>
+// http://www.html5rocks.com/fr/tutorials/es6/promises/
+;(function () {
+	"use strict";
+
+	var cases = 0;
+	// var cases = 1;
+	// var cases = 2;
+	// var cases = 3;
+
+	switch (cases) {
+		case 0:
+			[0,1,2,3].map(function (row) {
+				return new Promise(function (resolve) {
+					setTimeout(function () {
+						resolve(row)
+					}, Math.floor(Math.random() * 500) + 500);
+				});
+			})
+			.reduce(function (sequence, rowPromise) {
+				return sequence.then(function (value) {
+					console.log(value);
+					return rowPromise;
+				});
+			})
+			.then(function (value) {
+				console.log(value);
+			});
+			break;
+		case 1:
+			[0,1,2,3].map(function (row) {
+				return new Promise(function (resolve) {
+					setTimeout(function () {
+						resolve(row)
+					}, 750);
+				});
+			})
+			.reduce(function (sequence, rowPromise) {
+				return sequence.then(function (value) {
+					console.log(value);
+					return rowPromise;
+				});
+			})
+			.then(function (value) {
+				console.log(value);
+			});
+			break;
+		case 2:
+			[0,1,2,3].map(function (row) {
+				return new Promise(function (resolve) {
+					setTimeout(function () {
+						resolve(row)
+					}, 750);
+				});
+			})
+			.reduce(function (sequence, rowPromise) {
+				return sequence.then(function (value) {
+					console.log(value);
+					return rowPromise;
+				});
+			}, Promise.resolve(10))
+			.then(function (value) {
+				console.log(value);
+			});
+			break;
+		case 3:
+			[0,1,2,3].map(function (row) {
+				return new Promise(function (resolve) {
+					setTimeout(function () {
+						resolve(row)
+					}, 750);
+				}).then(function (value) {
+					console.log(value);
+					return value;
+				});
+			})
+			.reduce(function (sequence, rowPromise) {
+				return sequence.then(function (value) {
+					console.log(value);
+					return rowPromise;
+				});
+			}, Promise.resolve(10))
+			.then(function (value) {
+				console.log(value);
+			});
+	}
+
+
+
+
+
+
+return;
+
+
+
+	var all = false;
+
+	[0,1,2,3].map(function (row) {
+		return new Promise(function (resolve) {
+			setTimeout(function () {
+				resolve(row)
+			}, Math.floor(Math.random() * 500) + 500);
+		});
+	})
+	.reduce(function (sequence, rowPromise) {
+		return sequence.then(function (value) {
+			console.log(value);
+			return rowPromise;
+		});
+	})
+	.then(function (value) {
+		console.log(value);
+	});
+
+	if (all != true)
+		return;
+
+
+	[0,1,2,3].map(function (row) {
+		return new Promise(function (resolve) {
+			setTimeout(function () {
+				resolve(row)
+			}, 750);
+		});
+	})
+	.reduce(function (sequence, rowPromise) {
+		return sequence.then(function (value) {
+			console.log(value);
+			return rowPromise;
+		});
+	})
+	.then(function (value) {
+		console.log(value);
+	});
+
+	if (all != true)
+		return;
+
+
+	[0,1,2,3].map(function (row) {
+		return new Promise(function (resolve) {
+			setTimeout(function () {
+				resolve(row)
+			}, 750);
+		});
+	})
+	.reduce(function (sequence, rowPromise) {
+		return sequence.then(function (value) {
+			console.log(value);
+			return rowPromise;
+		});
+	}, Promise.resolve(10))
+	.then(function (value) {
+		console.log(value);
+	});
+
+	if (all != true)
+		return;
+
+
+	[0,1,2,3].map(function (row) {
+		return new Promise(function (resolve) {
+			setTimeout(function () {
+				resolve(row)
+			}, 750);
+		}).then(function (value) {
+			console.log(value);
+			return value;
+		});
+	})
+	.reduce(function (sequence, rowPromise) {
+		return sequence.then(function (value) {
+			console.log(value);
+			return rowPromise;
+		});
+	}, Promise.resolve(10))
+	.then(function (value) {
+		console.log(value);
+	});
+
+}) ();
+</script>
+</body>
+</html>

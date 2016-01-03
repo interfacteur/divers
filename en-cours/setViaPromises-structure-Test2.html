@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>Set without order dependant properties via Promises \ Tests / Equatorium</title>
+<meta name="author" content="Gaëtan Langhade, interfacteur">
+</head>
+
+<body>
+<pre></pre>
+<script src="-media/jquery-2.1.1.min.js"></script>
+<script>
+;(function () {
+	"use strict";
+
+	var $pre = $("pre"),
+		iter = 0;
+
+	console.time("a");
+
+	var o = {
+			calculs: {
+//generation 1
+				_A: function () {
+					return "A";
+				},
+				_B: function () {
+					return "B";
+				},
+				_C: function () {
+					return "C";
+				},
+//generaton 2
+				_un: function () {
+					return o.datas._A ? "(" + o.datas._A + " > un)" : false;
+				},
+				_deux: function () {
+					return o.datas._B && o.datas._B ? "(" + o.datas._A + " + " + o.datas._B + " > deux)" : false;
+				},
+				_trois: function () {
+					return o.datas._B ? "(" + o.datas._B + " > trois)" : false;
+				},
+				_quatre: function () {
+					return o.datas._C ? "(" + o.datas._C + " > quatre)" : false;
+				},
+//generation 3
+				_alpha: function () {
+					return o.datas._un ? "(" + o.datas._un + " > alpha)" : false;
+				},
+				_beta: function () {
+					return o.datas._un && o.datas._deux ? "(" + o.datas._un + " + " + o.datas._deux + " > beta)" : false;
+				},
+				_gamma: function () {
+					return o.datas._deux && o.datas._trois ? "(" + o.datas._deux + " + " + o.datas._trois + " > gamma)" : false;
+				},
+				_delta: function () {
+					return o.datas._trois ? "(" + o.datas._trois + " > delta)" : false;
+				},
+				_epsilon: function () {
+					return o.datas._quatre ? "(" + o.datas._quatre + " > epsilon)" : false;
+				},
+//generation 4
+				_I: function () {
+					return o.datas._alpha ? "(" + o.datas._alpha + " > I)" : false;
+				},
+				_II: function () {
+					return o.datas._alpha && o.datas._beta ? "(" + o.datas._alpha + " + " + o.datas._beta + " > II)" : false;
+				},
+				_III: function () {
+					return o.datas._beta ? "(" + o.datas._beta + " > III)" : false;
+				},
+				_IV: function () {
+					return o.datas._gamma ? "(" + o.datas._gamma + " > IV)" : false;
+				},
+				_V: function () {
+					return o.datas._delta ? "(" + o.datas._delta + " > V)" : false;
+				},
+				_VI: function () {
+					return o.datas._epsilon ? "(" + o.datas._epsilon + " > VI)" : false;
+			}	},
+			datas: {}
+		},
+		promNode = function (resolve) {
+			++ iter;
+			for (var key in o.datas)
+				if (o.datas[key] == false)
+					o.datas[key] = o.calculs[key]();
+			resolve();
+		},
+		promThen = function () {
+			for (var key in o.datas)
+				if (o.datas[key] == false)
+					return new Promise(promNode).then(promThen);
+		};
+
+	o.datas._VI = o.calculs["_VI"]();
+	o.datas._V = o.calculs["_V"]();
+	o.datas._IV = o.calculs["_IV"]();
+	o.datas._III = o.calculs["_III"]();
+	o.datas._II = o.calculs["_II"]();
+	o.datas._I = o.calculs["_I"]();
+	o.datas._epsilon = o.calculs["_epsilon"]();
+	o.datas._delta = o.calculs["_delta"]();
+	o.datas._gamma = o.calculs["_gamma"]();
+	o.datas._beta = o.calculs["_beta"]();
+	o.datas._alpha = o.calculs["_alpha"]();
+	o.datas._quatre = o.calculs["_quatre"]();
+	o.datas._trois = o.calculs["_trois"]();
+	o.datas._deux = o.calculs["_deux"]();
+	o.datas._un = o.calculs["_un"]();
+	o.datas._C = o.calculs["_C"]();
+	o.datas._B = o.calculs["_B"]();
+	o.datas._A = o.calculs["_A"]()
+
+	new Promise(promNode)
+	.then(promThen)
+	.then(function () {
+		$pre.append(console.timeEnd("a") + " millisecondes<br><br>");
+		$pre.append(iter + " itérations<br><br>");
+		$pre.append("o.datas._VI : " + o.datas._VI + "<br><br>");
+		$pre.append(JSON.stringify(o.datas) + "<br><br>");
+		$pre.append(Object.keys(o.datas).reduce(function (codeAccu, code) {
+			return codeAccu += code + " : " + o.datas[code] + "<br>";
+		}, ""));
+	});
+
+}) ();
+</script>
+</body>
+</html>

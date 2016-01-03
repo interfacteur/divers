@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>Set without order dependant properties via Promises \ Tests / Equatorium</title>
+<meta name="author" content="Gaëtan Langhade, interfacteur">
+</head>
+
+<body>
+<pre></pre>
+<script src="-media/jquery-2.1.1.min.js"></script>
+<script>
+//polyfill ?
+;(function () {
+	"use strict";
+
+	var $pre = $("pre");
+
+	var datas = [1, 1, 1, 1, 1, 1],
+		numb,
+		promNode = function (resolve) {
+			var leng = datas.length;
+			for (var i = leng; i >= 0; --i) {
+				numb = Math.round(Math.random());
+				numb == 0
+				&& datas.splice(i, 1);
+			}
+			if (datas.length > 0) {
+				$pre.append(datas + "\n");
+				return promNode(resolve);
+			}
+			$pre.append("fin");
+			resolve();
+		};
+
+	new Promise(promNode)
+	.then(function () {
+		$pre.append(".");
+	});
+
+}) ();
+</script>
+</body>
+</html>

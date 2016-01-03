@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>Set without order dependant properties via Promises \ Tests / Equatorium</title>
+<meta name="author" content="Gaëtan Langhade, interfacteur">
+</head>
+
+<body>
+<pre></pre>
+<script src="-media/jquery-2.1.1.min.js"></script>
+<script>
+;(function () {
+	"use strict";
+
+	var $pre = $("pre"),
+		iter = 0;
+
+	console.time("a");
+
+	var o = {
+			calculs: {
+				quatre: function () {
+					return o.datas.trois ? o.datas.trois + "4" : false;
+				},
+				trois: function () {
+					return o.datas.deux ? o.datas.deux + "3" : false;
+				},
+				deux: function () {
+					return o.datas.un ? o.datas.un + "2" : false;
+				},
+				un: function () {
+					return "1";
+			}	},
+			datas: {}
+		},
+		promNode = function (resolve) {
+			++ iter;
+			for (var key in o.datas)
+				if (o.datas[key] == false)
+					o.datas[key] = o.calculs[key]();
+			resolve();
+		},
+		promThen = function () {
+			for (var key in o.datas)
+				if (o.datas[key] == false)
+					return new Promise(promNode).then(promThen);
+		};
+
+	o.datas.quatre = o.calculs["quatre"]();
+	o.datas.trois = o.calculs["trois"]();
+	o.datas.deux = o.calculs["deux"]();
+	o.datas.un = o.calculs["un"]();
+
+	new Promise(promNode)
+	.then(promThen)
+	.then(function () {
+		console.timeEnd("a");
+		console.log(iter);
+		console.log(o.datas.quatre);
+		$pre.text(JSON.stringify(o.datas));
+	});
+
+}) ();
+</script>
+</body>
+</html>

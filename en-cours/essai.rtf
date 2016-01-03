@@ -1,0 +1,67 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww14100\viewh14300\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 Promesses en boucle quand des ex\'e9cutions sont d\'e9pendantes\
+ITERATION DANS L'INVOCATION D'UNE PROMESSE\
+Invocation it\'e9rative d'une promesse regroupant un flux de promesses d\'e9pendantes les unes des autres\
+\
+\
+
+\b It\'e9ration d'un flux de promesses d\'e9pendantes les unes des autres
+\b0 \
+\
+\
+une ex\'e9cution finale d\'e9pendant d'un lot d'instructions\
+en g\'e9n\'e9ral, l'ex\'e9cution des instruction du lot se fait de mani\'e8re ind\'e9pendante.\
+Exemple : requ\'eates Ajax.\
+C'est le traitement final qui d\'e9pend de l'ex\'e9cution de chacune des instructions, du t\'e9l\'e9chargement de chacun des fichiers.\
+\
+Imaginons maintenant une \'e9tape suppl\'e9mentaire entre t\'e9l\'e9chargements et traitement final : une \'e9tape d'interpr\'e9tation des donn\'e9es t\'e9l\'e9charg\'e9es. Certaines interpr\'e9tations seraient autonomes, ne d\'e9pendant d'aucune autre donn\'e9e que celles t\'e9l\'e9charg\'e9es avec le fichier. D'autres, par contre, n\'e9cessiteraient l'interpr\'e9tation de donn\'e9es comprises en d'autres fichiers - elles-m\'eames susceptibles d'\'eatre soumises \'e0 la m\'eame n\'e9cessit\'e9 etc. Ces autres fichiers pourraient \'eatre d\'e9j\'e0 t\'e9l\'e9charg\'e9s \'e0 l'instant de l'interpr\'e9tation, ou ne pas l'\'eatre.\
+\
+Il faudrait donc retarder cette interpr\'e9tation : en la liant en tant que nouvelle promesse \'e0 l'it\'e9ration de promesses dont elle est partie constituante, mais dans laquelle elle n'a pu s'achever.\
+\
+\
+L'ordre r\'e9gissant les promesse dans chaque it\'e9ration n'est pas assur\'e9 de faire passer d'abord les interpr\'e9tations les moins d\'e9pendantes. C'est toujours le cas en cas de t\'e9l\'e9chargement. Si nous travaillons avec un objet, une boucle sur les cl\'e9s peut fournir les propri\'e9t\'e9s dans un ordre impr\'e9visible. Si les donn\'e9es sont t\'e9l\'e9charg\'e9es, l'ordre\
+\
+\
+\
+\
+\
+\
+\
+Le nombre de conditions liant certaines interpr\'e9tation \'e0 d'autres est variable, et peut cr\'e9er des formes de g\'e9n\'e9alogie irr\'e9guli\'e8re quand une interpr\'e9tation d\'e9pend de l'interpr\'e9tation de donn\'e9es ("parentes") qui d\'e9pendent elles-m\'eames de l'interpr\'e9tation de donn\'e9es ("grand-parentes") etc.\
+\
+L'exemple expos\'e9 ci-dessous s'appuie sur les nombres :\
+- une cat\'e9gorie de nombres de base constitu\'e9e de quelques nombres premiers : 2, 3, 5, 7, 11, 13, 17, 19 ;\
+- une cat\'e9gorie de nombres ou blocs num\'e9riques de "deuxi\'e8me g\'e9n\'e9ration", \'e0 savoir le produit de deux nombres premiers (incluant la possibilit\'e9 de carr\'e9s) : 4, 6, 9, 10, 14, 15 ;\
+- des blocs num\'e9riques de "troisi\'e8me g\'e9n\'e9ration" compos\'e9s du produit de trois ou quatre nombres premiers (carr\'e9s compris) : 12, 16, 18, 20 ;\
+- des blocs num\'e9riques g\'e9n\'e9r\'e9s par le produit de nombres extraits des trois premi\'e8res cat\'e9gorie : 54, 76, 234, 340, 532, 540, 780, 1386, 2660, 4212, 4500, 4680, 4800, 5040, 5760, 6080, 8208, 9000.\
+\
+Ainsi, l'interpr\'e9tation du 16 (de la cat\'e9gorie de "troisi\'e8me g\'e9n\'e9ration") est soumise \'e0 celles du 2 (interpr\'e9tation autonome), du 4 (soumise \'e0 celle du 2), et du 8 (soumise \'e0 celle du 2 et du 4).\
+\'c0 cet instant est donc v\'e9rifi\'e9e la disponibilit\'e9 de l'interpr\'e9tation du 2, du 4, et du 8. S'il se trouve seul le 4 a \'e9t\'e9 t\'e9l\'e9charg\'e9, son interpr\'e9tation se trouvera en attente de celle du 2, et le 16 sera inform\'e9, sans plus de d\'e9tail, que le 4 n'est pas disponible, pas plus que le 2 et le 8.\
+Son interpr\'e9tation se verra alors remise \'e0 la fin la premi\'e8re it\'e9ration des promesses. Les interpr\'e9tations en attente passeront dans une nouvelle it\'e9ration de promesses li\'e9e \'e0 la premi\'e8re, nouvelle it\'e9ration plus l\'e9g\'e8re car au moins tous les nombres premiers auront \'e9t\'e9 interpr\'e9t\'e9s.\
+\
+\
+\
+Il y aura donc autant d'it\'e9rations que n\'e9cessaire \'e0 l'interpr\'e9tation de toutes les donn\'e9es.\
+\
+L'objectif reste de ne pas avoir \'e0 g\'e9rer les niveaux de d\'e9pendance au-del\'e0 d'une d\'e9pendance au parent. Il est beaucoup plus simple d'it\'e9rer plusieurs fois, que de pr\'e9voir \'e0 l'avance le sch\'e9ma g\'e9n\'e9alogique des d\'e9pendances.\
+\
+\
+\
+https://api.jquery.com/jquery.when/\
+\
+In the case where multiple Deferred objects are passed to jQuery.when(), the method returns the Promise from a new "
+\b master
+\b0 " Deferred object that tracks the aggregate state of all the Deferreds it has been passed. The method will resolve its 
+\b master
+\b0  Deferred as soon as all the Deferreds resolve, or reject the 
+\b master
+\b0  Deferred as soon as one of the Deferreds is rejected. If the 
+\b master
+\b0  Deferred is resolved, the doneCallbacks for the 
+\b master
+\b0  Deferred are executed. The arguments passed to the doneCallbacks provide the resolved values for each of the Deferreds, and matches the order the Deferreds were passed to jQuery.when().}
