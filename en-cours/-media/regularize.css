@@ -1,8 +1,8 @@
 /*
 	BASE */
 *,
-.sizing-pseudo::before,
-.sizing-pseudo::after	{
+*:before,
+*:after	{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -11,28 +11,28 @@ html	{
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 	font-family: sans-serif;
-	height: 100%;
 }
 body	{
 	background: #FFF;
 	color: #000;
 	line-height: 1;
-	height: 100%;
 }
-body::before,
-.fixing::before,
-.fixing-sup::before	{
-	content: "\8";
-	display: block;
-	height: 0;
-	text-indent: -4444px;
-}
-body::after,
-.fixing::after,
-.fixing-sub::after	{
-	clear: both;
+body:before,
+.round:before,
+.ceil:before,
+.floor:after	{
 	content: " ";
-	display: block;
+	display: table;
+}
+body:after,
+.round:after,
+.floor:after	{
+	clear: both;
+}
+
+html,
+body	{
+	height: 100%;
 }
 
 /*

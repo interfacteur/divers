@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>Set without order dependant properties via Promises \ Tests / Equatorium</title>
+<meta name="author" content="Gaëtan Langhade, interfacteur">
+<link rel="stylesheet" href="-media/regularize.css">
+<style>
+body:before	{
+	border: 1px solid #679;
+	border-radius: .75em;
+	content: "+";
+	font-size: 6em;
+	left: 50%;
+	margin-left: -.75em;
+	margin-top: 1em;
+	opacity: .5;
+	padding: .25em;
+	position: absolute;
+	text-align: center;
+	width: 1.5em;
+
+	background: -webkit-radial-gradient(center, circle contain, #FFF 0%, #FFF 5%, #679 5%, #FFF 100%);
+	background: -moz-radial-gradient(center, circle contain, #FFF 0%, #FFF 5%, #679 5%, #FFF 100%);
+	background: -ms-radial-gradient(center, circle contain, #FFF 0%, #FFF 5%, #679 5%, #FFF 100%);
+	background: -o-radial-gradient(center, circle contain, #FFF 0%, #FFF 5%, #679 5%, #FFF 100%);
+	background: radial-gradient(circle at center, #FFF 0%, #FFF 5%, #679 5%, #FFF 100%);
+
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+
+	-webkit-animation: loader 2.8s cubic-bezier(0.645, 0.045, 0.355, 1) 0s normal infinite;
+	-moz-animation: loader 2.8s cubic-bezier(0.645, 0.045, 0.355, 1) 0s normal infinite;
+	animation: loader 2.8s cubic-bezier(0.645, 0.045, 0.355, 1) 0s normal infinite;
+}
+@-webkit-keyframes loader {
+	0% {
+		color: rgba(255, 255, 255, .66);
+		-webkit-transform: scale(.5) rotate(0deg);
+		transform: scale(.5) rotate(0deg);
+	}
+	50% {
+		color: rgba(0, 0, 0, .25);
+		-webkit-transform: scale(1) rotate(180deg);
+		transform: scale(1) rotate(180deg);
+	}
+	100% {
+		color: rgba(255, 255, 255, .66);
+		-webkit-transform: scale(.5) rotate(360deg);
+		transform: scale(.5) rotate(360deg);
+	}
+}
+@-moz-keyframes loader {
+	0% {
+		color: rgba(255, 255, 255, .66);
+		-moz-transform: scale(.5) rotate(0deg);
+	}
+	50% {
+		color: rgba(0, 0, 0, .25);
+		-moz-transform: scale(1) rotate(180deg);
+	}
+	100% {
+		color: rgba(255, 255, 255, .66);
+		-moz-transform: scale(.5) rotate(360deg);
+	}
+}
+@keyframes loader {
+	0% {
+		color: rgba(255, 255, 255, .66);
+		-webkit-transform: scale(.5) rotate(0deg);
+		transform: scale(.5) rotate(0deg);
+	}
+	50% {
+		color: rgba(0, 0, 0, .25);
+		-webkit-transform: scale(1) rotate(180deg);
+		transform: scale(1) rotate(180deg);
+	}
+	100% {
+		color: rgba(255, 255, 255, .66);
+		-webkit-transform: scale(.5) rotate(360deg);
+		transform: scale(.5) rotate(360deg);
+	}
+}
+body.settled:before	{
+	display: none;
+}
+body > dl	{
+	min-width: 36em;
+	width: 50%;
+}
+body > dl > dt,
+body > dl > dd	{
+	margin-bottom: 1em;
+}
+dt,
+dd	{
+	margin-bottom: .2em;
+}
+dl	{
+	background-color: rgba(0, 51, 25, .07);
+	clear: both;
+	margin-left: 3.6em;
+}
+dt	{
+	float: left;
+	padding-right: 2.4em;
+}
+</style>
+</head>
+
+<body>
+<dl class="floor"></dl>
+<script src="-media/jquery-2.1.1.min.js"></script>
+<script>
+/*
+changer le titre de la page
+tester le support des Promise
+attention à console.time sur les autres pages
+*/
+;(function () {
+	"use strict";
+	var datas = {
+			brut: [2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 54, 76, 234,
+				340, 532, 540, 780, 1386, 2660, 4212, 4500, 4680, 4800, 5040, 5760, 6080, 8208, 9000],
+			net: {},
+			setDatasNetBegin: function (v) {
+				datas.net[v] = "<dl><dt>" + v + "</dt>";
+			},
+			setDatasNet: function (v, f) {
+				datas.net[v] += "<dd>" + datas.net[f] + "</dd>";
+			},
+			setDatasNetFinish: function (v, i) {
+				datas.net[v] != false
+				&& (datas.net[v] += "</dl>")
+				&& treatments.purge.push(i);
+		}	},
+		treatments = {
+			purge: [],
+			checkProcessing: function (resolve) {
+				treatments.purge.sort(function (a, b) { return b - a; });
+				for (var i = 0, len = treatments.purge.length; i < len; ++i)
+					datas.proxy.splice(treatments.purge[i], 1);
+				for (var i in datas.net)
+					if (datas.net[i] == false)
+						return treatments.treatFactors(resolve);
+				resolve();
+			},
+			treatFactors: function (resolve) {
+				treatments.purge = [];
+				datas.proxy.forEach(function (values, ind) {
+					var value = values[0],
+						factors = values[1],
+						len = factors.length;
+					datas.setDatasNetBegin(value);
+					for (var i = 0; i < len; ++i) {
+						if (datas.net[factors[i]] != false)
+							datas.setDatasNet(value, factors[i]);
+						else {
+							datas.net[value] = false;
+							break
+					}	}
+					datas.setDatasNetFinish(value, ind);
+				});
+				treatments.checkProcessing(resolve);
+		}	};
+
+	datas.proxy = datas.brut.map(function (value) {
+		datas.net[value] = false;
+		return value;
+	})
+	.sort(function () { return Math.random() - .5; });
+
+	new Promise(function (resolve) {
+		Promise.all(
+			datas.proxy.map(function (value, ind) {
+				return $.getJSON("http://www.equatorium.net/e1/ou--outils/-nombres.php?callback=?&nombre=" + value)
+					.then(function (factors) {
+						var len = factors.length;
+						datas.setDatasNetBegin(value);
+						if (len == 0)
+							datas.net[value] += "<dd>Ø</dd>";
+						else
+							for (var i = 0; i < len; ++i) {
+								if (datas.net[factors[i]] != false)
+									datas.setDatasNet(value, factors[i]);
+								else {
+									datas.proxy[ind] = [value, factors];
+									datas.net[value] = false;
+									break
+							}	}
+						datas.setDatasNetFinish(value, ind);
+		});	})	)
+		.then(function () {
+			treatments.checkProcessing(resolve);
+	});	})
+	.then(function () {
+		$("body").addClass("settled");
+		$("dl").html(
+			Object.keys(datas.net).map(function (code) {
+				return datas.net[code].replace(/(^<dl>)|(<\/dl>)$/g, "");
+			})
+			.join("")
+			.replace(/<\/dl><\/dd><dd><dl>/g, "")
+	);	});
+
+}) ();
+</script>
+</body>
+</html>
