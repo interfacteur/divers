@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -32,9 +32,6 @@ h2	{
 h2:target::before	{
 	content: "=> ";
 }
-li	{
-	margin-bottom: .5em;
-}
 [type="text"]	{
 	width: 44em;
 }
@@ -62,6 +59,88 @@ output	{
 p strong	{
 	font-size: .85em;
 }
+#proxies,
+#proxies input	{
+	font-style: italic;
+}
+.out2.outanim:before	{
+	font-size: 2em;
+}
+.outanim:before	{
+	border: 1px solid #679;
+	border-radius: 1.5em;
+	content: "+";
+	font-size: 3em;
+	left: 50%;
+	margin-left: -.75em;
+	opacity: .5;
+	padding: .25em;
+	position: absolute;
+	text-align: center;
+	width: 1em;
+
+	background: -webkit-radial-gradient(center, circle contain, #FFF 0%, #FFF 5%, #679 5%, #FFF 100%);
+	background: -moz-radial-gradient(center, circle contain, #FFF 0%, #FFF 5%, #679 5%, #FFF 100%);
+	background: -ms-radial-gradient(center, circle contain, #FFF 0%, #FFF 5%, #679 5%, #FFF 100%);
+	background: -o-radial-gradient(center, circle contain, #FFF 0%, #FFF 5%, #679 5%, #FFF 100%);
+	background: radial-gradient(circle at center, #FFF 0%, #FFF 5%, #679 5%, #FFF 100%);
+
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+
+	-webkit-animation: loader 2.8s cubic-bezier(0.645, 0.045, 0.355, 1) 0s normal infinite;
+	-moz-animation: loader 2.8s cubic-bezier(0.645, 0.045, 0.355, 1) 0s normal infinite;
+	animation: loader 2.8s cubic-bezier(0.645, 0.045, 0.355, 1) 0s normal infinite;
+}
+@-webkit-keyframes loader {
+	0% {
+		color: rgba(255, 255, 255, .66);
+		-webkit-transform: scale(.5) rotate(0deg);
+		transform: scale(.5) rotate(0deg);
+	}
+	50% {
+		color: rgba(0, 0, 0, .25);
+		-webkit-transform: scale(1) rotate(180deg);
+		transform: scale(1) rotate(180deg);
+	}
+	100% {
+		color: rgba(255, 255, 255, .66);
+		-webkit-transform: scale(.5) rotate(360deg);
+		transform: scale(.5) rotate(360deg);
+	}
+}
+@-moz-keyframes loader {
+	0% {
+		color: rgba(255, 255, 255, .66);
+		-moz-transform: scale(.5) rotate(0deg);
+	}
+	50% {
+		color: rgba(0, 0, 0, .25);
+		-moz-transform: scale(1) rotate(180deg);
+	}
+	100% {
+		color: rgba(255, 255, 255, .66);
+		-moz-transform: scale(.5) rotate(360deg);
+	}
+}
+@keyframes loader {
+	0% {
+		color: rgba(255, 255, 255, .66);
+		-webkit-transform: scale(.5) rotate(0deg);
+		transform: scale(.5) rotate(0deg);
+	}
+	50% {
+		color: rgba(0, 0, 0, .25);
+		-webkit-transform: scale(1) rotate(180deg);
+		transform: scale(1) rotate(180deg);
+	}
+	100% {
+		color: rgba(255, 255, 255, .66);
+		-webkit-transform: scale(.5) rotate(360deg);
+		transform: scale(.5) rotate(360deg);
+	}
+}
 </style>
 </head>
 
@@ -71,6 +150,12 @@ p strong	{
 
 <p><strong>Cette interface de tests affiche en format textuel des données retournées de facto en format propre par <a href="http://www.equatorium.net/e1/ou--outils/">les proxies</a>&nbsp;;<br>
 <a href="https://github.com/interfacteur/divers/tree/master/proxies-apis">dépôt sur Github</a>.</strong></p>
+
+<form action="#" id="proxies">
+	<label for="testProxies">Tous les proxies :</label>
+	<input type="text" value="http://" id="testProxies" />
+	<input type="submit" value="Afficher" />
+</form>
 
 <h2 id="proxyS">&nbsp;Proxy</h2>
 <p>Le proxy <a href="proxy.php">proxy.php</a> renvoie le fichier dans son type MIME d'origine,<br>
@@ -100,8 +185,8 @@ et <a href="http://www.equatorium.net/e1/+tests/cross-avec-jquery.xdomainrequest
 </form>
 
 <h2 id="proxy2J1">&nbsp;Proxy JSON-P</h2>
-<p>Sur API servant du JSON, le proxy <a href="proxy2jsonp.php">proxy2jsonp.php</a> renvoie du JSON-P encapsulé par une fonction de callback manuelle ou jQuery, ou une erreur<br>
-cf. <a href="http://www.equatorium.net/e1/ou--outils/proxy2json-exemples.html">proxy2json-exemples</a> :</p>
+<p>Sur API servant du JSON, le proxy <a href="proxy2jsonp.php">proxy2jsonp.php</a> renvoie du JSON-P encapsulé par une fonction de callback manuelle ou jQuery, ou une erreur,<br>
+cf. <a href="http://www.equatorium.net/e1/ou--outils/proxy2json-exemples.html">proxy2json-exemples</a>&nbsp;:</p>
 <form action="#" class="formJson">
 	<input type="text" value="http://" id="testPTJ1" />
 	Callback :
@@ -116,7 +201,7 @@ cf. <a href="http://www.equatorium.net/e1/ou--outils/proxy2json-exemples.html">p
 
 <h2 id="proxy2J2">&nbsp;Proxy JSON ou JSON-P</h2>
 <p>Sur API servant du JSON, le proxy <a href="proxy2json-.php">proxy2json-.php</a> renvoie du JSON, ou JSON-P encapsulé par une fonction de callback manuelle ou jQuery, ou une erreur,<br>
-cf. <a href="http://www.equatorium.net/e1/ou--outils/proxy2json-exemples.html">proxy2json-exemples</a> :</p>
+cf. <a href="http://www.equatorium.net/e1/ou--outils/proxy2json-exemples.html">proxy2json-exemples</a>&nbsp;:</p>
 <form action="#" class="formJson">
 	<input type="text" value="http://" id="testPTJ2" />
 	Callback :
@@ -131,7 +216,8 @@ cf. <a href="http://www.equatorium.net/e1/ou--outils/proxy2json-exemples.html">p
 </form>
 
 <h2 id="proxy2I">Proxy de prospection</h2>
-<p>Le proxy <a href="proxy2info.php">proxy2info.php</a> renvoie en JSON le type MIME et le code HTTP reçus avec le fichier (-1 pour un domaine inexistant), ainsi que la mention des formats JSON et JSON-P le cas échéant&nbsp;:</p>
+<p>Le proxy <a href="proxy2info.php">proxy2info.php</a> renvoie en JSON le type MIME et le code HTTP reçus avec le fichier (-1 pour un domaine inexistant), ainsi que la mention des formats JSON et JSON-P le cas échéant,<br>
+cf. <a href="http://www.equatorium.net/e1/ou--outils/proxy2info-exemples.html">proxy2info-exemples</a>&nbsp;:</p>
 <form action="#" id="proxyP2I">
 	<input type="text" id="testP2I" />
 	<input type="submit" value="Afficher" />
@@ -142,7 +228,7 @@ cf. <a href="http://www.equatorium.net/e1/ou--outils/proxy2json-exemples.html">p
 </form>
 
 <h2 id="proxy2M">Proxy de type MIME</h2>
-<p>Le proxy <a href="proxy2mime.php">proxy2mime.php</a> renvoie en JSON le type MIME et le code HTTP reçus avec le fichier (-1 pour un domaine inexistant)<br>
+<p>Le proxy <a href="proxy2mime.php">proxy2mime.php</a> renvoie en JSON le type MIME et le code HTTP reçus avec le fichier (-1 pour un domaine inexistant),<br>
 cf. <a href="http://www.equatorium.net/e1/ou--outils/proxy2mime-exemples.html">proxy2mime-exemples</a>&nbsp;:</p>
 <form action="#" id="proxyP2M">
 	<input type="text" id="testP2M" />
@@ -167,7 +253,7 @@ et <a href="http://www.equatorium.net/e1/+tests/cross-avec-jquery.xdomainrequest
 </form>
 
 <h2 id="proxy2E">&nbsp;Proxy d'en-têtes HTTP</h2>
-<p>Le proxy <a href="proxy2entetes.php">proxy2entetes.php</a> renvoie les en-têtes HTTP reçues avec le fichier<br>
+<p>Le proxy <a href="proxy2entetes.php">proxy2entetes.php</a> renvoie les en-têtes HTTP reçues avec le fichier,<br>
 cf. <a href="http://www.equatorium.net/e1/ou--outils/proxy2entetes-exemples.html">proxy2entetes-exemples</a>&nbsp;:</p>
 <form action="#" id="proxyP2E">
 	<input type="text" value="http://" id="testP2E" />

@@ -7,6 +7,20 @@
 
 
 
+	//Tester tous les proxies d'un seul coup
+
+	$("#proxies").on("submit", function (e) {
+		e.preventDefault();
+		var url = $("#testProxies").val();
+		if (! reURL.test(url))
+			return;
+		$("form ~ form input:first-of-type").val(url);
+		$("form ~ form").trigger("submit");
+	});
+
+
+
+
 	//proxy-exemples.html
 
 	$("#proxy").on("submit", function (e) {
@@ -18,9 +32,10 @@
 		url = url.replace(/(&callback=\w+)|(\?callback=\w+$)|(callback=\w+&)/, "");
 		$inputs[1].text("");
 		$inputs[2].text("");
-		$inputs[3].text("");
+		$inputs[3].text("")
+		.addClass("outanim");
 		if (! reURL.test(url))
-			return;
+			return $inputs[3].removeClass("outanim");
 		$.ajax({
 			url: "http://www.equatorium.net/e1/ou--outils/proxy.php?query=" + url,
 			dataType : fctn ? "jsonp" : this.dataType,
@@ -28,11 +43,13 @@
 			success: function (got, status, xhr) {
 				$inputs[1].text(this.url);
 				$inputs[2].text(xhr.getResponseHeader("content-type") || ""); //http://marcgrabanski.com/jquery-ajax-content-type/
-				$inputs[3].text(xhr.responseText);
+				$inputs[3].text(xhr.responseText)
+				.removeClass("outanim");
 			},
 			error: function (xhr, status, err) {
 				$inputs[1].text(xhr.responseText + " : " + url);
 				$inputs[2].text(err);
+				$inputs[3].removeClass("outanim");
 	}	});	});
 
 
@@ -45,19 +62,22 @@
 			url = $inputs[0].val();
 		e.preventDefault();
 		$inputs[1].text("");
-		$inputs[2].text("");
+		$inputs[2].text("")
+		.addClass("outanim");
 		if (! reURL.test(url))
-			return;
+			return $inputs[2].removeClass("outanim");
 		$.ajax({
 			url: "http://www.equatorium.net/e1/ou--outils/proxy2code.php?query=" + url,
 			dataType: "text",
 			success: function (got, status, xhr) {
 				$inputs[1].text(this.url);
-				$inputs[2].text(xhr.responseText);
+				$inputs[2].text(xhr.responseText)
+				.removeClass("outanim");
 			},
 			error: function (xhr, status, err) {
 				$inputs[1].text(this.url);
-				$inputs[2].text(err);
+				$inputs[2].text(err)
+				.removeClass("outanim");
 	}	});	});
 
 
@@ -76,9 +96,10 @@
 			var url = $inputs[i][0].val(),
 				type = $inputs[i][1].filter(":checked").val() || (i == 0 ? 1 : -1);
 			$inputs[i][2].html("");
-			$inputs[i][3].html("");
+			$inputs[i][3].html("")
+			.addClass("outanim");
 			if (! reURL.test(url))
-				return;
+				return $inputs[3].removeClass("outanim");
 			$.ajax({
 				url: "http://www.equatorium.net/e1/ou--outils/proxy2json" + proxies[i] + ".php?query=" + url,
 				dataType: type == -1 ? "json" : "jsonp",
@@ -86,10 +107,12 @@
 				jsonpCallback: type == 0 ? "perform" : this.jsonpCallback,
 				success: function (got, status, xhr) {
 					$inputs[i][2].text(this.url);
-					$inputs[i][3].text(xhr.responseText);
+					$inputs[i][3].text(xhr.responseText)
+					.removeClass("outanim");
 				},
 				error: function (xhr, status, err) {
 					$inputs[i][2].text((xhr.status != 200 ? "(" + xhr.status + ") ": "") + err + ", " + url);
+					$inputs[i][3].removeClass("outanim");
 	}	});	});	});
 
 
@@ -102,18 +125,21 @@
 			url = $inputs[0].val();
 		e.preventDefault();
 		$inputs[1].text("");
-		$inputs[2].text("");
+		$inputs[2].text("")
+		.addClass("outanim");
 		if (! reURL.test(url))
-			return;
+			return $inputs[2].removeClass("outanim");
 		$.ajax({
 			url: "http://www.equatorium.net/e1/ou--outils/proxy2text.php?query=" + url,
 			dataType: "text",
 			success: function (got, status, xhr) {
 				$inputs[1].text(this.url);
-				$inputs[2].text(xhr.responseText);
+				$inputs[2].text(xhr.responseText)
+				.removeClass("outanim");
 			},
 			error: function (xhr, status, err) {
 				$inputs[1].text(xhr.responseText + " : " + url);
+				$inputs[2].removeClass("outanim");
 	}	});	});
 
 
@@ -126,19 +152,22 @@
 			url = $inputs[0].val();
 		e.preventDefault();
 		$inputs[1].text("");
-		$inputs[2].text("");
+		$inputs[2].text("")
+		.addClass("outanim");
 		if (! reURL.test(url))
-			return;
+			return $inputs[2].removeClass("outanim");
 		$.ajax({
 			url: "http://www.equatorium.net/e1/ou--outils/proxy2entetes.php?query=" + url,
 			dataType: "text",
 			success: function (got, status, xhr) {
 				$inputs[1].text(this.url);
-				$inputs[2].text(xhr.responseText);
+				$inputs[2].text(xhr.responseText)
+				.removeClass("outanim");
 			},
 			error: function (xhr, status, err) {
 				$inputs[1].text(this.url);
-				$inputs[2].text(err);
+				$inputs[2].text(err)
+				.removeClass("outanim");
 	}	});	});
 
 
@@ -151,19 +180,22 @@
 			url = $inputs[0].val();
 		e.preventDefault();
 		$inputs[1].text("");
-		$inputs[2].text("");
+		$inputs[2].text("")
+		.addClass("outanim");
 		if (! reURL.test(url))
-			return;
+			return $inputs[2].removeClass("outanim");
 		$.ajax({
 			url: "http://www.equatorium.net/e1/ou--outils/proxy2mime.php?query=" + url,
 			dataType: "text",
 			success: function (got, status, xhr) {
 				$inputs[1].text(this.url);
-				$inputs[2].text(xhr.responseText);
+				$inputs[2].text(xhr.responseText)
+				.removeClass("outanim");
 			},
 			error: function (xhr, status, err) {
 				$inputs[1].text(this.url);
-				$inputs[2].text(err);
+				$inputs[2].text(err)
+				.removeClass("outanim");
 	}	});	});
 
 
@@ -176,19 +208,22 @@
 			url = $inputs[0].val();
 		e.preventDefault();
 		$inputs[1].text("");
-		$inputs[2].text("");
+		$inputs[2].text("")
+		.addClass("outanim");
 		if (! reURL.test(url))
-			return;
+			return $inputs[2].removeClass("outanim");
 		$.ajax({
 			url: "http://www.equatorium.net/e1/ou--outils/proxy2info.php?query=" + url,
 			dataType: "text",
 			success: function (got, status, xhr) {
 				$inputs[1].text(this.url);
-				$inputs[2].text(xhr.responseText);
+				$inputs[2].text(xhr.responseText)
+				.removeClass("outanim");
 			},
 			error: function (xhr, status, err) {
 				$inputs[1].text(this.url);
-				$inputs[2].text(err);
+				$inputs[2].text(err)
+				.removeClass("outanim");
 	}	});	});
 });
 
