@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+<title>Loaders \ Bambous ~ exemples / Equatorium</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="-media/regularize.css">
+<style>
+@font-face	{ /* got form Github https://octicons.github.com/ */
+	font-family: 'octicons';
+	src:	url("-media/fonts/octicons.eot?#iefix") format("embedded-opentype"),
+			url("-media/fonts/octicons.woff") format("woff"),
+			url("-media/fonts/octicons.ttf") format("truetype"),
+			url("-media/fonts/octicons.svg#octicons") format("svg");
+}
+section	{
+	height: 14em;
+	position: relative;
+}
+section:before	{
+	left: 33%;
+	position: absolute;
+	top: 1em;
+}
+
+
+
+
+
+
+.loader-circleCross:before	{
+	border: 1px solid #679;
+	border-radius: .75em;
+	content: "\2727"; /* ✧ */
+	font-size: 6em;
+	opacity: .66;
+	text-align: center;
+	width: 1em;
+
+	background: -webkit-radial-gradient(center, circle contain, #FFF 0%, #FFF 2%, #679 2%, #FFF 100%);
+	background: -moz-radial-gradient(center, circle contain, #FFF 0%, #FFF 2%, #679 2%, #FFF 100%);
+	background: -ms-radial-gradient(center, circle contain, #FFF 0%, #FFF 2%, #679 2%, #FFF 100%);
+	background: -o-radial-gradient(center, circle contain, #FFF 0%, #FFF 2%, #679 2%, #FFF 100%);
+	background: radial-gradient(circle at center, #FFF 0%, #FFF 2%, #679 2%, #FFF 100%);
+
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+
+	-webkit-animation: loader 2.8s cubic-bezier(0.645, 0.045, 0.355, 1) 0s normal infinite;
+	-moz-animation: loader 2.8s cubic-bezier(0.645, 0.045, 0.355, 1) 0s normal infinite;
+	animation: loader 2.8s cubic-bezier(0.645, 0.045, 0.355, 1) 0s normal infinite;
+}
+@-webkit-keyframes loader {
+	0% {
+		color: rgba(255, 255, 255, .66);
+		-webkit-transform: scale(.4) rotate(0deg);
+		transform: scale(.4) rotate(0deg);
+	}
+	50% {
+		color: rgba(0, 0, 0, .25);
+		-webkit-transform: scale(1) rotate(180deg);
+		transform: scale(1) rotate(180deg);
+	}
+	100% {
+		color: rgba(255, 255, 255, .66);
+		-webkit-transform: scale(.4) rotate(360deg);
+		transform: scale(.4) rotate(360deg);
+	}
+}
+@-moz-keyframes loader {
+	0% {
+		color: rgba(255, 255, 255, .66);
+		-moz-transform: scale(.4) rotate(0deg);
+	}
+	50% {
+		color: rgba(0, 0, 0, .25);
+		-moz-transform: scale(1) rotate(180deg);
+	}
+	100% {
+		color: rgba(255, 255, 255, .66);
+		-moz-transform: scale(.4) rotate(360deg);
+	}
+}
+@keyframes loader {
+	0% {
+		color: rgba(255, 255, 255, .66);
+		-webkit-transform: scale(.4) rotate(0deg);
+		transform: scale(.4) rotate(0deg);
+	}
+	50% {
+		color: rgba(0, 0, 0, .25);
+		-webkit-transform: scale(1) rotate(180deg);
+		transform: scale(1) rotate(180deg);
+	}
+	100% {
+		color: rgba(255, 255, 255, .66);
+		-webkit-transform: scale(.4) rotate(360deg);
+		transform: scale(.4) rotate(360deg);
+	}
+}
+
+
+
+
+.loader-github:before	{
+	content: "\F087";
+	color: #8ADD6D;
+	font-family: octicons;
+	font-size: 5em;
+	height: 1em;
+	text-align: center;
+	width: 1.2em;
+	-webkit-animation: rotation 2.4s linear 0s infinite;
+	-moz-animation: rotation 2.4s linear 0s infinite;
+	animation: rotation 2.4s linear 0s infinite;
+}
+@-webkit-keyframes rotation {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+}	}
+@-moz-keyframes rotation {
+	0% {
+		-moz-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-moz-transform: rotate(360deg);
+		transform: rotate(360deg);
+}	}
+@keyframes rotation {
+	0% {
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		transform: rotate(360deg);
+}	}
+
+
+</style>
+</head>
+
+<body>
+<section class="loader-circleCross"><a href="http://www.equatorium.net/e1/ex--exemples/promises-recursion/promises-recursion.test-full.3.html">loader-circleCross</a></section>
+<section class="loader-github"><a href="http://www.equatorium.net/e1/in--interfaces/githubapi/">loader-github</a></section>
+</body>
+</html>
