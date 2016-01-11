@@ -2,7 +2,10 @@
 Interfacteur
 
 plugin pour simplifier le trigger d'un événement "mouse" par un événement "touch"
+
+test sur http://www.equatorium.net/e1/+tests/touchable-onEvent.html
 */
+
 
 $;"use strict";
 
