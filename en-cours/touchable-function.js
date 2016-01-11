@@ -4,8 +4,6 @@ Interfacteur
 simplifier le trigger d'un événement "mouse" par un événement "touch"
 
 test sur http://www.equatorium.net/e1/+tests/touchable-function.html
-
-	test qui était en mode invisible au 160111 - pourquoi ?
 */
 
 
