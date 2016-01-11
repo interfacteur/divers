@@ -1,1 +1,0 @@
-javascript:(function(){loadscript=document.createElement("script");loadscript.src="//code.jquery.com/jquery-1.11.0.min.js?t="+new%20Date().getTime();document.getElementsByTagName("head")[0].insertBefore(loadscript,document.getElementsByTagName("title")[0]);void(0);})();
