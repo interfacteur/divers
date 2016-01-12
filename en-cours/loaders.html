@@ -157,6 +157,62 @@ section:before	{
 }	}
 
 
+
+
+
+/* https://gist.github.com/xieranmaya/5467fcc6dbd7243ac6be */
+.xieranmaya:before {
+	content: "\2026";
+	font-family: serif;
+	font-size: 4em;
+	overflow: hidden;
+	-webkit-animation: xieranmaya 1.2s infinite;
+	-moz-animation: xieranmaya 1.2s infinite;
+	animation: xieranmaya 1.2s infinite;
+}
+
+@-webkit-keyframes xieranmaya {
+	0%, 25% {
+		width: 0;
+	}
+	26%, 50% {
+		width: 0.333em;
+	}
+	51%, 75% {
+		width: 0.666em;
+	}
+	76%, 100% {
+		width: 1em;
+	}
+}
+@-moz-keyframes xieranmaya {
+	0%, 25% {
+		width: 0;
+	}
+	26%, 50% {
+		width: 0.333em;
+	}
+	51%, 75% {
+		width: 0.666em;
+	}
+	76%, 100% {
+		width: 1em;
+	}
+}
+@keyframes xieranmaya {
+	0%, 25% {
+		width: 0;
+	}
+	26%, 50% {
+		width: 0.333em;
+	}
+	51%, 75% {
+		width: 0.666em;
+	}
+	76%, 100% {
+		width: 1em;
+	}
+}
 </style>
 </head>
 
@@ -164,5 +220,6 @@ section:before	{
 <a href="https://github.com/interfacteur/divers/blob/master/en-cours/loaders.html">Sur Github</a><br><br>
 <section class="loader-circleCross"><a href="http://www.equatorium.net/e1/ex--exemples/promises-recursion/promises-recursion.test-full.3.html">loader-circleCross</a></section>
 <section class="loader-github"><a href="http://www.equatorium.net/e1/in--interfaces/githubapi/">loader-github</a></section>
+<section class="xieranmaya"><a href="https://gist.github.com/xieranmaya/5467fcc6dbd7243ac6be">xieranmaya</a></section>
 </body>
 </html>
