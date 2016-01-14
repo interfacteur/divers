@@ -25,6 +25,11 @@ http://codemug.com/html/css-hacks-for-ie6ie7ie8ie9-and-ie10/
 
 
 
+http://jsbeautifier.org/
+
+
+
+
 IMPORTANT :
 http://mathiasbynens.be/notes/minimal-html
 
