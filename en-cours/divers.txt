@@ -1,0 +1,31 @@
+.classe	{
+	avec: tout;
+}
+.classe:not(.ie8)	{
+	sans: IE8 et alii;
+}
+
+
+
+<!-- <form action=""> -->
+<form action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES); ?>">
+
+
+
+
+
+http://keithclark.co.uk/articles/pure-css-parallax-websites/
+
+scale(1 - translateZ / perspective)
+1 + (translateZ * -1) / perspective
+
+
+
+
+vérifier le nom des variables
+https://mothereff.in/js-variables
+
+
+
+CSS Hacks for IE6,IE7,IE8,IE9 and IE10 - Code Mug
+http://codemug.com/html/css-hacks-for-ie6ie7ie8ie9-and-ie10/
