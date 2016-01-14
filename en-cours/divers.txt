@@ -6,12 +6,8 @@
 }
 
 
-
 <!-- <form action=""> -->
 <form action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES); ?>">
-
-
-
 
 
 http://keithclark.co.uk/articles/pure-css-parallax-websites/
@@ -20,12 +16,157 @@ scale(1 - translateZ / perspective)
 1 + (translateZ * -1) / perspective
 
 
-
-
 vérifier le nom des variables
 https://mothereff.in/js-variables
 
 
-
 CSS Hacks for IE6,IE7,IE8,IE9 and IE10 - Code Mug
 http://codemug.com/html/css-hacks-for-ie6ie7ie8ie9-and-ie10/
+
+
+
+IMPORTANT :
+http://mathiasbynens.be/notes/minimal-html
+
+
+http://www.interfacteur.net/coder/
+
+
+
+http://www.js-attitude.fr/2013/03/12/sublime-text-dev-web-config-trucs-astuces/
+
+https://github.com/raphaelgoetter/sublime-snippets
+
+
+
+
+http://scrollsample.appspot.com/items
+
+
+http://www.vanseodesign.com/css/vertical-centering/
+
+
+img[src="#"]	{
+	background-color: grey;
+}
+http://lorempixel.com/
+http://dummyimage.com/
+http://www.queness.com/post/12898/8-dummy-image-generators-for-quick-layout
+http://www.queness.com/post/9327/13-funny-and-useful-lorem-ipsum-generators
+
+
+http://youmightnotneedjquery.com/
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js
+
+
+http://entity-lookup.leftlogic.com/
+
+http://mothereff.in/
+	http://mothereff.in/byte-counter
+	etc.
+
+UNICODE
+http://macchiato.com/unicode/convert.html
+http://macchiato.com/picker/MyApplication.html
+http://www.unicode.org/charts/nameslist/
+
+http://codepoints.net/
+
+http://www.fileformat.info/info/unicode/char/1f404/index.htm
+?? http://www.fileformat.info/info/emoji/list.htm
+http://graphemica.com/
+http://graphemica.com/characters/tags/animal
+	attention connerie JavaScript and JSON 	\u1F405  ???
+? http://www.ascii.cl/htmlcodes.htm
+
+CREATION DE FAMILLE ET DE SES FORMATS A PARTIR SVG
+pour glyphes iconiques ou symboliques SVG vers font face :
+http://icomoon.io/app/#/select
+
+	http://css.mammouthland.net/css3/font-face.php :
+	(.otf (OpenType Font) Firefox, Chrome, Safari, Opéra. En revanche il n'est reconnu ni par MSIE, ni par certains navigateurs de smartphones.)
+	.eot (Embedded OpenType) MSIE
+	.svg
+	.ttf (TrueType Font) très répandu
+	.woff (Web Open Format Font) qui est le petit format qui monte, qui monte
+	140624 note :
+		apparemment .otf n'est plus proposé par icomoon
+	mes essais :
+		en data uri sur Mac GC et FF prennent woff aussi bien que ttf (mais pas svg)
+
+ps : de icomoon ttf passe en font squirrel (GC mais pas FF sur Mac)
+
+possibilité du précédent en base 64
+http://sosweetcreative.com/2613/font-face-and-base64-data-uri
+http://jonraasch.com/blog/css-data-uris-in-all-browsers
+
+CREATION DE FORMATS DANS UN FAMILLE A PARTIR TTF…
+pour font face à partir d'un ttf par ex :
+http://www.fontsquirrel.com/tools/webfont-generator
+cf. aussi l'article de Marie CleverAge sur son blog perso
+
+
+
+
+
+caniuse
+	dans certains cas : quirksmode.org
+shouldiprefix
+
+http://kangax.github.io/compat-table/es5/
+http://kangax.github.io/compat-table/es6/
+
+
+
+http://validator.w3.org/dev/tests/ The W3C Markup Validation Service: Tests
+
+
+--
+http://browserhacks.com/
+--
+
+https://fr.wikipedia.org/wiki/Moteur_de_rendu_HTML
+	dont tableau des navigateurs à la fin
+https://fr.wikipedia.org/wiki/Liste_de_navigateurs_web
+
+
+https://fr.wikipedia.org/wiki/Acid2 : http://www.webstandards.org/files/acid2/guide.html
+https://fr.wikipedia.org/wiki/Acid3 : http://acid3.acidtests.org/
+https://fr.wikipedia.org/wiki/Acid4
+
+
+spéc. et états de H5
+cf. introduction de l'ouvrage Introduction à HTML5 de Bruce Lawson et Remy Sharp
+soit ce .webloc pour Mac :
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<string>http://www.google.fr/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=0CCIQFjAA&amp;url=http%3A%2F%2Fwww.pearson.fr%2Fresources%2Fdownload.cfm%3FGCOI%3D27440100273450%26thefile%3D2530_intro.pdf&amp;ei=jt63U7r_L8Kk0QWs7YHwDQ&amp;usg=AFQjCNFkrS6XoU6UL1bp-9veh09TB-jySw</string>
+</dict>
+</plist>
+
+
+http://www.w3.org/TR/html-markup/elements.html#elements
+http://www.w3.org/TR/html-markup/Overview.html#toc
+http://www.w3.org/TR/html-markup/syntax.html
+
+
+http://www.w3.org/wiki/Open_Web_Platform
+https://en.wikipedia.org/wiki/Open_Web_Platform
+http://www.webplatform.org/
+
+
+https://github.com/AurelioDeRosa/HTML5-API-demos
+http://slides.html5rocks.com
+	voir sans doute clé usb
+
+
+http://ref.openweb.io/CSS/ CSS Reference
+
+http://specificity.keegan.st/ Specificity Calculator
+http://dev.opera.com/blog/style-profiler-preview/ Dev.Opera — Style profiler preview
+https://github.com/flexbox/CSS-Guidelines/blob/master/README.md#convention-de-nommage

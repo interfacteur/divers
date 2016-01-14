@@ -1,0 +1,178 @@
+<snippet>
+	<content><![CDATA[
+
+
+
+
+schéma data URI :
+
+uuencode -m image xx
+	dans le Terminal
+	pour un fichier en entrée
+	pour du base64 en sortie
+btoa("chaine");
+	en JavaScript
+	pour une chaîne en entrée
+	pour du base64 en sortie
+encodeURIComponent();
+	en JavaScript
+	pour une chaîne en entrée
+	pour une url en sortie
+il y a aussi atob();
+
+
+
+
+
+pour commentaires voir snippet commentaires
+
+
+@media only screen and (min-width: 801px)	{
+
+}
+
+
+	-webkit-
+	-moz-
+	-ms-
+	-o-
+
+	-webkit-
+	-moz-
+	-o-
+
+
+-webkit-transform: translateZ(0);
+-moz-transform: translateZ(0);
+-o-transform: translateZ(0);
+transform: translateZ(0);
+
+
+@-webkit-keyframes loupe
+{	0%		{	;
+			}
+	100%	{	;
+}			}
+@-moz-keyframes loupe
+{	0%		{	;
+			}
+	100%	{	;
+}			}
+@-o-keyframes loupe
+{	0%		{	;
+			}
+	100%	{	;
+}			}
+@keyframes loupe
+{	0%		{	;
+			}
+	100%	{	;
+}			}
+
+@-webkit-keyframes loupe
+{	0%		{	-webkit-transform: scale(3) translateZ(0);
+			}
+	100%	{	-webkit-transform: scale(3) translateZ(0);
+}			}
+@-moz-keyframes loupe
+{	0%		{	-moz-transform: scale(3) translateZ(0);
+			}
+	100%	{	-moz-transform: scale(3) translateZ(0);
+}			}
+@-o-keyframes loupe
+{	0%		{	-o-transform: scale(3) translateZ(0);
+			}
+	100%	{	-o-transform: scale(3) translateZ(0);
+}			}
+@keyframes loupe
+{	0%		{	transform: scale(3) translateZ(0);
+			}
+	100%	{	transform: scale(3) translateZ(0);
+}			}
+
+
+
+
+
+
+
+pour ne pas bloquer chargement :
+
+<html lang="fr">
+<!--[if IE]> <![endif]-->
+
+cf. http://openweb.eu.org/articles/performances_avancees_sites_internet
+Il a toutefois été constaté que ces commentaires conditionnels bloquaient pendant un certain temps le téléchargement des fichiers.
+
+mais s'agit-il des fichiers de la page en général ou de ceux commentés ?
+si besoin d'info voir
+http://www.phpied.com/conditional-comments-block-downloads/
+
+
+
+
+
+<!--[if IE]>					xx <![endif]-->
+<!--[if lte IE 8]>				xx <![endif]-->
+<!--[if (lt IE 6)|(IE 8)]>		xx <![endif]-->
+<!--[if (gt IE 5)&(lt IE 7)]>	xx <![endif]-->
+
+
+
+<!--[if !IE]><!-->				xx <!--<![endif]-->
+
+
+
+http://msdn.microsoft.com/fr-FR/library/ms537512.aspx
+
+<!--[if lte IE 7]>    <link type="text/css" rel="stylesheet"
+          href="fixes.css" />
+  <![endif]-->
+
+<!--[if !IE]> <!-- <![endif]-->
+
+
+*-*-*-*
+
+
+
+
+http://openweb.eu.org/articles/les-commentaires-conditionnels-passe-present-et-futur
+
+
+*-*-*-*
+
+
+en attendant
+@supports (display:flex) {
+  section { display: flex }
+  …
+}
+Modernizr
+
+
+*-*-*-*
+
+
+si besoin d'inclure MSIE10 dans les commentaires conditionnels :
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+mais voir mes tests d'où commentaires sur github
+
+
+*-*-*-*
+
+
+en js jusqu'à MSIE 10
+http://msdn.microsoft.com/fr-fr/library/8ka90k2e%28v=vs.94%29.aspx
+http://msdn.microsoft.com/en-us/library/ie/8ka90k2e%28v=vs.94%29.aspx
+
+/*@cc_on
+@*/
+
+http://dascritch.net/post/2013/04/08/Dirty-Hacky-I-%3A-Commentaires-conditionnels#jscript
+
+
+
+]]></content>
+	<tabTrigger>syntaxe</tabTrigger>
+</snippet>
