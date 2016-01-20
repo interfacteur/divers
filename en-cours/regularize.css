@@ -18,15 +18,17 @@ body	{
 	line-height: 1;
 }
 body:before,
-.round:before,
+body:after,
 .ceil:before,
-.floor:after	{
+.floor:after,
+.round:before,
+.round:after	{
 	content: " ";
 	display: table;
 }
 body:after,
-.round:after,
-.floor:after	{
+.floor:after,
+.round:after	{
 	clear: both;
 }
 
