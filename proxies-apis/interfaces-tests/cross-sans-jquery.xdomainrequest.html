@@ -201,8 +201,8 @@ cf. aussi <a href="http://www.equatorium.net/e1/+tests/cross-avec-jquery.xdomain
 			return str.replace(/\/\/.*/g, "")
 				.replace(/\/\*([^\*]|\*(?!\/))*\*\//g, "")
 				.replace(/^\s*/, "")
-				.replace(/\s\s/g, " ")
-				.replace(/[\n\r\u2028\u2029\t]/g, "");
+				.replace(/[\n\r\u2028\u2029\t]/g, "")
+				.replace(/\s\s/g, " ");
 		},
 
 		cleanURL = function (str) {
