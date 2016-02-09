@@ -161,9 +161,6 @@ sup	{
 sub	{
 	top: .5ex;
 }
-optgroup	{
-	font-weight: bold;
-}
 
 /*
 	FORM (melting) */
@@ -172,14 +169,15 @@ button, input, keygen, optgroup, output, select, textarea	{
 	font: inherit;
 	font-size: 100%;
 }
+optgroup	{
+	font-weight: bold;
+}
 textarea	{
 	overflow: auto;
 	resize: vertical;
 }
 button	{
 	overflow: visible;
-	padding: 0 !important;
-	margin: 0 !important;
 }
 button, select	{
 	text-transform: none;
