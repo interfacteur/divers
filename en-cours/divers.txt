@@ -34,6 +34,16 @@ http://designmodo.com/geometric-sans-serif-fonts/
 http://disic.github.io/guide-contribuer_accessible/
 
 
+ancien :
+http://blog.pascal-martin.fr/post/JSON-format-donnees-retour-requete-Ajax
+Pour vous assurer de la validité d'une chaîne JSON avant de l'évaluer, vous pouvez utiliser le code suivant :
+var monObjet = !(/[^,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t]/|>.test(
+             text.replace(/"(\\.|[^"\\])*"/g, ''))) &&
+         eval('(' + text + ')');    
+
+et http://jsonlint.com/
+
+
 
 
 
