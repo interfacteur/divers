@@ -27,6 +27,8 @@ http://codemug.com/html/css-hacks-for-ie6ie7ie8ie9-and-ie10/
 
 
 
+http://putaindecode.io/fr/articles/js/de-jquery-a-vanillajs/
+
 http://jsbeautifier.org/
 
 http://designmodo.com/geometric-sans-serif-fonts/
