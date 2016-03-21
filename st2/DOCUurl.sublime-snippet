@@ -1,19 +1,5 @@
-.classe	{
-	avec: tout;
-}
-.classe:not(.ie8)	{
-	sans: IE8 et alii;
-}
-
-
-<!-- <form action=""> -->
-<form action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES); ?>">
-
-
-http://keithclark.co.uk/articles/pure-css-parallax-websites/
-
-scale(1 - translateZ / perspective)
-1 + (translateZ * -1) / perspective
+<snippet>
+	<content><![CDATA[
 
 
 vérifier le nom des variables
@@ -22,7 +8,6 @@ https://mothereff.in/js-variables
 
 CSS Hacks for IE6,IE7,IE8,IE9 and IE10 - Code Mug
 http://codemug.com/html/css-hacks-for-ie6ie7ie8ie9-and-ie10/
-
 
 
 
@@ -36,12 +21,13 @@ http://designmodo.com/geometric-sans-serif-fonts/
 http://disic.github.io/guide-contribuer_accessible/
 
 
+
 ancien :
 http://blog.pascal-martin.fr/post/JSON-format-donnees-retour-requete-Ajax
 Pour vous assurer de la validité d'une chaîne JSON avant de l'évaluer, vous pouvez utiliser le code suivant :
 var monObjet = !(/[^,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t]/|>.test(
              text.replace(/"(\\.|[^"\\])*"/g, ''))) &&
-         eval('(' + text + ')');    
+         eval('(' + text + ')');
 
 et http://jsonlint.com/
 
@@ -194,3 +180,13 @@ http://ref.openweb.io/CSS/ CSS Reference
 http://specificity.keegan.st/ Specificity Calculator
 http://dev.opera.com/blog/style-profiler-preview/ Dev.Opera — Style profiler preview
 https://github.com/flexbox/CSS-Guidelines/blob/master/README.md#convention-de-nommage
+
+
+]]></content>
+	<tabTrigger>url</tabTrigger>
+</snippet>
+
+
+
+
+
