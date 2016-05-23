@@ -1,0 +1,71 @@
+<snippet>
+	<content><![CDATA[
+
+
+https://css-tricks.com/using-svg/
+https://css-tricks.com/probably-dont-base64-svg/
+http://www.mobilefish.com/services/base64/base64.php
+cf. aussi http://www.equatorium.net/e1/in-croisement-ens-donnees.html
+
+
+-----
+
+Namespaces · d3/d3 Wiki
+https://github.com/d3/d3/wiki/Namespaces
+
+SVG attribute namespaces · Issue #291 · d3/d3
+https://github.com/d3/d3/issues/291
+
+How can I specify a custom XML/SVG namespace with D3.js? - Stack Overflow
+http://stackoverflow.com/questions/20264697/how-can-i-specify-a-custom-xml-svg-namespace-with-d3-js
+d'où test cf. xlink.html
+
+javascript - d3 doesn't append namespace attributes to svg element - Stack Overflow
+http://stackoverflow.com/questions/24612067/d3-doesnt-append-namespace-attributes-to-svg-element
+namespace attributes are only relevant when documents are served as some XML mime type e.g. image/svg+xml.
+----------
+d3 :
+		<svg height="300" width="500">
+
+jeux :
+		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000">
+
+quand on passe en base 64 un fichier svg,
+il faut que celui-ci ait un doctype ?
+càd, en fait :
+STRUCTURE D'UN FICHIER SVG INDÉPENDANT ?
+
+cf. aussi ce qui précède : namespace attributes are only relevant when documents are served as some XML mime type e.g. image/svg+xml.
+
+NOTE SUR L'EXEMPLE QUI SUIT
+	A PRIORI PAR BESOIN DE xlink
+il y a par exemple aussi
+https://raw.githubusercontent.com/interfacteur/ludwik/master/pages/jeux/css/filtres/filtres.svg
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+	"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+	<defs>
+		<filter id="shadow">
+			<feGaussianBlur in="SourceAlpha" stdDeviation="9" result="flou" />
+			<feMerge>
+				<feMergeNode in="flou" />
+				<feMergeNode in="SourceGraphic" />
+			</feMerge>
+		</filter>
+	</defs>
+
+</svg>
+
+
+]]></content>
+	<tabTrigger>svg</tabTrigger>
+</snippet>
+
+
+
+
+

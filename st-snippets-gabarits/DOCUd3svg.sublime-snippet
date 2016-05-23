@@ -1,0 +1,37 @@
+<snippet>
+	<content><![CDATA[<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>Titrepage</title>
+<link rel="stylesheet" href="-media/regularize.css">
+<style>
+body	{
+	background: rgba(0,0,0,.1);
+}
+svg	{
+	background: white;
+	box-shadow: 0 0 0 1px black inset, 0 0 0 3px grey inset;
+}
+</style>
+</head>
+
+<body>
+<svg version="1.1" height="100%" width="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+	<g>
+		
+	</g>
+</svg>
+<script src="-media/d3-3.5.17.min.js"></script>
+<script src="-media/jquery-2.2.3.min.js"></script>
+<script>
+;(function () {
+	"use strict";
+	var svg = d3.select("g");
+}) ();
+</script>
+</body>
+</html>]]></content>
+	<tabTrigger>d3svg</tabTrigger>
+</snippet>

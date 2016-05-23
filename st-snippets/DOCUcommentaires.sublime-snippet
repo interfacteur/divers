@@ -1,0 +1,91 @@
+<snippet>
+	<content><![CDATA[
+
+
+pour ne pas bloquer chargement :
+
+<html lang="fr">
+<!--[if IE]> <![endif]-->
+
+
+<!--[if IE]>					xx <![endif]-->
+<!--[if lte IE 8]>				xx <![endif]-->
+<!--[if (lt IE 6)|(IE 8)]>		xx <![endif]-->
+<!--[if (gt IE 5)&(lt IE 7)]>	xx <![endif]-->
+
+
+
+<!--[if !IE]><!-->				xx <!--<![endif]-->
+
+
+
+
+http://msdn.microsoft.com/fr-FR/library/ms537512.aspx
+
+<!--[if lte IE 7]>    <link type="text/css" rel="stylesheet"
+          href="fixes.css" />
+  <![endif]-->
+
+<!--[if !IE]> <!-- <![endif]-->
+
+
+*-*-*-*
+
+
+pour ne pas bloquer chargement :
+
+<html lang="fr">
+<!--[if IE ]><![endif]-->
+
+cf. http://openweb.eu.org/articles/performances_avancees_sites_internet
+Il a toutefois été constaté que ces commentaires conditionnels bloquaient pendant un certain temps le téléchargement des fichiers.
+
+mais s'agit-il des fichiers de la page en général ou de ceux commentés ?
+si besoin d'info voir
+http://www.phpied.com/conditional-comments-block-downloads/
+
+
+
+http://openweb.eu.org/articles/les-commentaires-conditionnels-passe-present-et-futur
+
+
+*-*-*-*
+
+
+en attendant
+@supports (display:flex) {
+  section { display: flex }
+  …
+}
+Modernizr
+
+
+*-*-*-*
+
+
+si besoin d'inclure MSIE10 dans les commentaires conditionnels :
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+mais voir mes tests d'où commentaires sur github
+
+
+*-*-*-*
+
+
+en js jusqu'à MSIE 10
+http://msdn.microsoft.com/fr-fr/library/8ka90k2e%28v=vs.94%29.aspx
+http://msdn.microsoft.com/en-us/library/ie/8ka90k2e%28v=vs.94%29.aspx
+
+/*@cc_on
+@*/
+
+http://dascritch.net/post/2013/04/08/Dirty-Hacky-I-%3A-Commentaires-conditionnels#jscript
+
+
+VOIR GITHUB
+POUR GARDER TOUS COMMENTAIRES CONDITIONNELS SUR MSIE
+
+
+
+]]></content>
+	<tabTrigger>commentaires</tabTrigger>
+</snippet>

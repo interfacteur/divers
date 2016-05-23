@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>Titrepage</title>
+</head>
+
+<body>
+</body>
+</html>]]></content>
+	<tabTrigger>h5</tabTrigger>
+</snippet>
