@@ -1,12 +1,31 @@
 /*
 	BASE */
-*,
-*:before,
-*:after	{
+html {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+*:not(svg),
+*::before,
+*::after	{
+	box-sizing: inherit;
+}
+
+body::before,
+body::after,
+.ceil-right::before,
+.floor-right::after,
+.built-right::before,
+.built-right::after	{
+	content: " ";
+	display: table;
+}
+body::after,
+.floor-right::after,
+.built-right::after	{
+	clear: both;
+}
+
 html	{
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
@@ -17,21 +36,6 @@ body	{
 	color: #000;
 	line-height: 1;
 }
-body:before,
-body:after,
-.ceil:before,
-.floor:after,
-.round:before,
-.round:after	{
-	content: " ";
-	display: table;
-}
-body:after,
-.floor:after,
-.round:after	{
-	clear: both;
-}
-
 html,
 body	{
 	height: 100%;
@@ -141,10 +145,10 @@ blockquote, q	{
 :lang(fr) q	{
 	quotes: "\22" "\22" "\27" "\27";
 }
-blockquote:before, q:before	{
+blockquote::before, q::before	{
 	content: open-quote;
 }
-blockquote:after, q:after	{
+blockquote::after, q::after	{
 	content: close-quote;
 }
 small	{
