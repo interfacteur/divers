@@ -1,0 +1,101 @@
+<snippet>
+	<content><![CDATA[
+durant codacademy 1606
+
+le unless en début de ligne ?
+https://www.ruby-forum.com/topic/465509
+
+
+nombre d'argument indéterminé ? cf. Etoile ?
+
+
+
+
+
+\$, @, or @@? This helps mark them as global, instance, and class variables
+
+il y a les constantes
+
+fonction, modules et classes peuvent-elles accueillir variables, méthodes, constantes ?
+
+une constante locale ?
+
+un symbole : comme valeur ? comme identifiant ?
+a = :a
+:a => 4
+mais ne pas oublier qu'une string peut aussi être un identifiant de clé…
+
+
+
+
+
+
+dans le Terminal : irb
+
+
+
+until formalise la condition d'un état univoque à éviter
+
+while formalise la condition d'états dans lesquels se maintenir
+
+
+
+
+
+
+>> gets.chomp
+voila
+=> "voila"
+>> gets
+voila
+=> "voila\n"
+
+
+
+
+
+
+
+
+
+{} == {}
+
+
+
+
+x = :a
+y = :a
+x.object_id == y.object_id
+true
+x == y
+true
+:a == :a
+true
+:a.object_id == :a.object_id
+true
+
+x = "a"
+y = "a"
+x.object_id == y.object_id
+false
+x == y
+true
+"a" == "a"
+true
+"a".object_id == "a".object_id
+false
+
+
+
+
+
+x = ["a", "b", "c", "d"]
+x
+["a", "b", "c", "d"]
+x[1..-1]
+["b", "c", "d"]
+
+
+]]></content>
+	<tabTrigger>rbnotes</tabTrigger>
+</snippet>

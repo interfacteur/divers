@@ -1,0 +1,80 @@
+<snippet>
+	<content><![CDATA[
+#durant codacademy 1606
+
+
+def double (n)
+    yield(n)
+end
+double(4) { |n| puts n * 2 }
+
+#DIFFERENCE ENTRE PROC ET LAMBDA VOIR CI-DESSOUS
+=begin
+	pour résumer :
+		lambda sensible au nombre d'arguments
+		un return dans proc arrête la fonction parente
+=end
+
+
+y = Proc.new { |n| n * 2 }
+double(4, &y)
+(1..10).to_a.map(&y) # (*)
+
+z = lambda { |n| n * 2 }
+double(4, &z)
+(1..10).to_a.map(&z)
+
+double(4, &lambda { |n| puts n * 3 })
+
+
+["1", "2"].map(&:to_i) # (*)
+
+#########################################
+
+def redouble(l)
+	l.call
+end
+
+x = Proc.new { puts "ok" }
+x.call
+redouble(x)
+
+x = lambda { puts "ok" }
+x.call
+redouble(x)
+
+redouble(lambda { puts "ok" })
+
+#########################################
+
+def redouble(l, p)
+	l.call(p)
+end
+
+x = Proc.new { |p| puts p }
+x.call("test")
+redouble(x, "test")
+
+x = lambda { |p| puts p }
+x.call("test")
+redouble(x, "test")
+
+redouble(lambda { |p| puts p }, "test")
+
+#ni redouble({ |p| puts p }, "test")
+#ni redouble(&{ |p| puts p }, "test")
+
+
+=begin
+https://www.codecademy.com/courses/ruby-beginner-en-L3ZCI/2/3?curriculum_id=5059f8619189a5000201fbcb
+
+First, a lambda checks the number of arguments passed to it, while a proc does not. This means that a lambda will throw an error if you pass it the wrong number of arguments, whereas a proc will ignore unexpected arguments and assign nil to any that are missing.
+
+Second, when a lambda returns, it passes control back to the calling method; when a proc returns, it does so immediately, without going back to the calling method.
+=end
+
+
+]]></content>
+	<tabTrigger>rbyield</tabTrigger>
+</snippet>
+
