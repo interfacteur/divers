@@ -1,0 +1,4 @@
+<snippet>
+	<content><![CDATA[return console.log(Date.now());]]></content>
+	<tabTrigger>rcd</tabTrigger>
+</snippet>
