@@ -1,4 +1,4 @@
 <snippet>
 	<content><![CDATA[return console.log();]]></content>
-	<tabTrigger>rc</tabTrigger>
+	<tabTrigger>rrc</tabTrigger>
 </snippet>
