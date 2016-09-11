@@ -1,0 +1,4 @@
+<snippet>
+	<content><![CDATA[d3.selectAll()]]></content>
+	<tabTrigger>d3sza(</tabTrigger>
+</snippet>
