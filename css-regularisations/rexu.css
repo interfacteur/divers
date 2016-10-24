@@ -11,7 +11,7 @@
 
 	2- RÉGULARISANTS
 
-	3- RESET LÉGER				*/
+	3- RESET				*/
 
 
 /*
@@ -328,14 +328,16 @@ textarea	{
 
 
 /*
-	RESET LÉGER ****	****	****	****	****	*/
+	RESET ****	****	****	****	****	*/
 
-article, aside, audio, body, canvas, caption, dd, details,
-div, dl, dt, embed, fieldset, figcaption, figure, form,
-h1, h2, h3, h4, h5, h6, header, html, iframe, legend, li,
-main, math, nav, object, ol, optgroup, p, pre, ruby, section,
-select, summary, table, tbody, td, tfoot, th, thead, tr, ul, video	{
+abbr, acronym, address, applet, article, aside, audio, b, big,
+blockquote, body, canvas, caption, center, cite, code, dd, del,
+details, dfn, div, dl, dt, em, embed, fieldset, figcaption,
+figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup,
+html, i, iframe, img, ins, kbd, label, legend, li, main, mark,
+math, menu, nav, object, ol, output, p, pre, q, ruby, s, samp,
+section, small, span, strike, strong, sub, summary, sup, table,
+tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video	{
 	margin: 0;
 	padding: 0;
 }
-
