@@ -1,0 +1,182 @@
+/* Gaëtan Langhade, Interfacteur, octobre 2016
+	sources diverses dont principalement
+		https://necolas.github.io/normalize.css/5.0.0/normalize.css
+	et aussi
+		http://meyerweb.com/eric/tools/css/reset/
+		http://html5doctor.com/html-5-reset-stylesheet/
+		http://jaydenseric.com/blog/forget-normalize-or-resets-lay-your-own-css-foundation
+
+
+	1- PARAMÉTRABLES
+
+	2- RÉGULARISANTS
+
+	3- RESET BASIQUE				*/
+
+
+/*
+	PARAMÉTRABLES ****	****	****	****	****	*/
+
+/* modèle */
+html	{
+	box-sizing: border-box;
+}
+*, *::before, *::after	{
+	box-sizing: inherit;
+}
+img, svg, hr, input[type="search"]	{
+	box-sizing: content-box;
+}
+
+/* options */
+img {
+	max-width: 100%;
+	height: auto;
+	border: 0;
+}
+ol, ul, li	{
+	list-style: none;
+}
+
+/* gestion des marges supérieures et des flottants */
+body::before,
+body::after,
+.ceil::before,
+.floor::after,
+.ceilFloor::before,
+.ceilFloor::after	{
+	content: " ";
+	display: table;
+}
+body::after,
+.floor::after,
+.ceilFloor::after	{
+	clear: both;
+}
+
+
+
+
+/*
+	RÉGULARISANTS ****	****	****	****	****	*/
+
+/* racine */
+html	{
+	font-family: sans-serif;
+	line-height: 1.15;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+body	{
+	background: #FFF;
+	color: #000;
+	margin: 0;
+	min-height: 100vh;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* liens */
+a	{
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+}
+a:focus	{
+	outline: thin dotted;
+}
+a:active, a:hover	{
+	outline-width: 0;
+}
+
+/* images */
+img	{
+	border-style: none;
+}
+img, a img, img[usemap]	{
+	border: 0;
+}
+
+/* normalisation */
+article, aside, details, figcaption, figure,
+footer, header, main, menu, nav, section	{ /* to do : hgroup ? */
+	display: block;
+}
+
+/* divers dont scripting et AV */
+hr	{
+	height: 0;
+	overflow: visible;
+}
+svg:not(:root)	{
+	overflow: hidden;
+}
+canvas	{
+	display: inline-block;
+}
+template	{
+	display: none;
+}
+audio, video	{
+	display: inline-block;
+}
+audio:not([controls])	{
+	display: none;
+	height: 0;
+}
+summary	{
+	display: list-item;
+}
+
+/* mise en forme */
+b, strong	{
+	font-weight: inherit;
+}
+b, strong	{
+	font-weight: bolder;
+}
+pre	{
+	overflow: auto;
+}
+small	{
+	font-size: 80%;
+}
+sub, sup	{
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sub	{
+	bottom: -0.25em;
+}
+sup	{
+	top: -0.5em;
+}
+
+/* alignement vertical */
+iframe	{
+	vertical-align: top;
+}
+img,
+audio, canvas, embed, math, object, svg, video	{
+	vertical-align: middle;
+}
+span, a, small, strong, b, u, i	{
+	vertical-align: baseline;
+}
+
+
+
+
+/*
+	RESET BASIQUE ****	****	****	****	****	*/
+
+article, aside, audio, body, canvas, dd,
+div, dl, dt, embed, figcaption, figure,
+h1, h2, h3, h4, h5, h6, header, html, iframe, li,
+main, math, nav, object, ol, p, pre, section,
+select, ul, video	{
+	margin: 0;
+	padding: 0;
+}
+
