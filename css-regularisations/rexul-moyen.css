@@ -1,21 +1,22 @@
 /* Gaëtan Langhade, Interfacteur, octobre 2016
-	sources diverses dont principalement
+	sources diverses dont principalement :
 		https://necolas.github.io/normalize.css/5.0.0/normalize.css
-	et aussi
+	aussi :
 		http://meyerweb.com/eric/tools/css/reset/
 		http://html5doctor.com/html-5-reset-stylesheet/
+	regard sur :
 		http://jaydenseric.com/blog/forget-normalize-or-resets-lay-your-own-css-foundation
 
 
-	1- PARAMÉTRABLES
+	1- RÈGLES PARAMÉTRABLES
 
-	2- RÉGULARISANTS
+	2- RÉGULARISANTES
 
-	3- RESET MOYEN				*/
+	3- RESET				*/
 
 
-/*
-	PARAMÉTRABLES ****	****	****	****	****	*/
+
+/*	RÈGLES PARAMÉTRABLES ****	****	****	****	****	*/
 
 /* modèle */
 html	{
@@ -60,7 +61,7 @@ mark	{
 	color: #000;
 }
 
-/* gestion des marges supérieures et des flottants */
+/* encadrement des marges supérieures et des flottants */
 body::before,
 body::after,
 .ceil::before,
@@ -96,35 +97,37 @@ blockquote::after, q::after	{
 
 
 
-/*
-	RÉGULARISANTS ****	****	****	****	****	*/
+
+/*	RÉGULARISANTES ****	****	****	****	****	*/
 
 /* racine */
 html	{
 	font-family: sans-serif;
-	line-height: 1.15;
+	line-height: 1.15; /* to do : pourquoi 1.15 sur html ? brouille la typo en <h1 sur FF Mac */
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }
 body	{
 	background: #FFF;
 	color: #000;
+	line-height: 1; /* to do : pourquoi 1.15 sur html ? brouille la typo en <h1 sur FF Mac */
 	margin: 0;
 	min-height: 100vh;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
 }
 
 /* liens */
 a	{
 	background-color: transparent;
+	text-decoration: underline;
 	-webkit-text-decoration-skip: objects;
 }
 a:focus	{
+	text-decoration: none;
 	outline: thin dotted;
 }
 a:active, a:hover	{
 	outline-width: 0;
+	text-decoration: none;
 }
 
 /* images */
@@ -166,7 +169,7 @@ summary	{
 	display: list-item;
 }
 
-/* mise en forme */
+/* homogénéisation du formatage */
 b, strong	{
 	font-weight: inherit;
 }
@@ -183,7 +186,7 @@ dfn[title]	{
 	text-decoration: underline dotted;
 }
 code, kbd, samp, pre	{
-	font-family: monospace, monospace;
+	font-family: monospace, monospace; /* http://code.stephenmorley.org/html-and-css/fixing-browsers-broken-monospace-font-handling/ */
 	font-size: 1em;
 }
 dfn	{
@@ -255,7 +258,7 @@ input,
 optgroup,
 select,
 textarea	{
-	font-family: sans-serif;
+	font-family: "-apple-system", sans-serif; /* to do : vérifier exhaustivement */
 	line-height: 1.15;
 	margin: 0;
 }
@@ -269,7 +272,6 @@ select	{
 }
 button	{
 	letter-spacing: inherit;
-	-webkit-font-smoothing: inherit;
 }
 button,
 html [type="button"],
@@ -327,8 +329,8 @@ textarea	{
 
 
 
-/*
-	RESET MOYEN ****	****	****	****	****	*/
+
+/*	RESET MOYEN ****	****	****	****	****	*/
 
 article, aside, audio, body, canvas, caption, dd, details,
 div, dl, dt, embed, fieldset, figcaption, figure, form,

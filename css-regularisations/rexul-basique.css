@@ -1,21 +1,21 @@
 /* Gaëtan Langhade, Interfacteur, octobre 2016
-	sources diverses dont principalement
+	sources diverses dont principalement :
 		https://necolas.github.io/normalize.css/5.0.0/normalize.css
-	et aussi
+	aussi :
 		http://meyerweb.com/eric/tools/css/reset/
 		http://html5doctor.com/html-5-reset-stylesheet/
+	regard sur :
 		http://jaydenseric.com/blog/forget-normalize-or-resets-lay-your-own-css-foundation
 
 
-	1- PARAMÉTRABLES
+	1- RÈGLES PARAMÉTRABLES
 
-	2- RÉGULARISANTS
+	2- RÉGULARISANTES
 
 	3- RESET BASIQUE				*/
 
 
-/*
-	PARAMÉTRABLES ****	****	****	****	****	*/
+/*	RÈGLES PARAMÉTRABLES ****	****	****	****	****	*/
 
 /* modèle */
 html	{
@@ -38,7 +38,7 @@ ol, ul, li	{
 	list-style: none;
 }
 
-/* gestion des marges supérieures et des flottants */
+/* encadrement des marges supérieures et des flottants */
 body::before,
 body::after,
 .ceil::before,
@@ -57,35 +57,37 @@ body::after,
 
 
 
-/*
-	RÉGULARISANTS ****	****	****	****	****	*/
+
+/*	RÉGULARISANTES ****	****	****	****	****	*/
 
 /* racine */
 html	{
 	font-family: sans-serif;
-	line-height: 1.15;
+	line-height: 1.15; /* to do : pourquoi 1.15 sur html ? brouille la typo en <h1 sur FF Mac */
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }
 body	{
 	background: #FFF;
 	color: #000;
+	line-height: 1; /* to do : pourquoi 1.15 sur html ? brouille la typo en <h1 sur FF Mac */
 	margin: 0;
 	min-height: 100vh;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
 }
 
 /* liens */
 a	{
 	background-color: transparent;
+	text-decoration: underline;
 	-webkit-text-decoration-skip: objects;
 }
 a:focus	{
+	text-decoration: none;
 	outline: thin dotted;
 }
 a:active, a:hover	{
 	outline-width: 0;
+	text-decoration: none;
 }
 
 /* images */
@@ -127,7 +129,7 @@ summary	{
 	display: list-item;
 }
 
-/* mise en forme */
+/* homogénéisation du formatage */
 b, strong	{
 	font-weight: inherit;
 }
@@ -168,8 +170,8 @@ span, a, small, strong, b, u, i	{
 
 
 
-/*
-	RESET BASIQUE ****	****	****	****	****	*/
+
+/*	RESET BASIQUE ****	****	****	****	****	*/
 
 article, aside, audio, body, canvas, dd,
 div, dl, dt, embed, figcaption, figure,
