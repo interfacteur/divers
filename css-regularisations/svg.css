@@ -1,7 +1,8 @@
 /* Gaëtan Langhade, Interfacteur, octobre 2016 */
 
 
-/* cf. rexul-svg.css */
+/* cf. rexul-svg.css
+	càd d'après http://slides.iamvdo.me/kiwiparty16/#/ */
 text	{
 	dominant-baseline: central;
 }
@@ -13,7 +14,7 @@ text	{
 }
 
 
-/* dans rexul.css */
+/* cf. rexul.css */
 svg	{
 	box-sizing: content-box;
 	vertical-align: middle;
