@@ -1,60 +1,23 @@
-/* Gaëtan Langhade
-
-dans rexul.css :
-
-img, svg…	{
-	box-sizing: content-box;
-}
-svg:not(:root)	{
-	overflow: hidden;
-}
-button…, svg…	{
-	vertical-align: middle;
-}				*/
+/* Gaëtan Langhade, Interfacteur, octobre 2016 */
 
 
-/* centrage vertial du texte
-	http://slides.iamvdo.me/kiwiparty16/#/20
-	http://bl.ocks.org/eweitnauer/7325338
-	https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dominant-baseline (to do)
-*/
+/* cf. rexul-svg.css */
 text	{
 	dominant-baseline: central;
 }
-
-
-/* PARTIELLEMENT */
-
-/* origine des transformations CSS
-	http://slides.iamvdo.me/kiwiparty16/#/22
-		Firefox supporte transform-box: border-box | fill-box | view-box
-		Et donc, Firefox est OK, c'est un bug Chrome
-		Quoique, pour l’instant il faut activer un flag dans Firefox
-		Donc on est pas encore sorti d’affaire
-		Alors, on fait comment ?
-		IE n’aurait-il pas la solution ?
-		Je crois bien…
-*/
-svg *	{
-	transform-box: border-box;
+.nettete	{ /* dont bordures, mais pas de support IE/Edge */
+	shape-rendering: crispEdges;
 }
-
-/* largeur absolue des bordures
-	slides.iamvdo.me/kiwiparty16/#/35Avec
-		vector-effect: non-scaling-stroke (mais pas de support IE/Edge)
-	IE n'aurait pas implémenté SVG 1.2 tiny (mobile) dont cette propriété fait partie
-*/
-svg *	{
+.bordure-largeur-absolue	{ /* pas de support IE/Edge */
 	vector-effect: non-scaling-stroke;
 }
 
 
-/* PLUS TARD */
-
-/* position des bordures
-	http://slides.iamvdo.me/kiwiparty16/#/32
-		stroke-alignment prévu pour SVG2 (pas de support actuellement)
-*/
-svg *	{
-	stroke-alignment: ;
+/* dans rexul.css */
+svg	{
+	box-sizing: content-box;
+	vertical-align: middle;
+}
+svg:not(:root)	{
+	overflow: hidden;
 }
