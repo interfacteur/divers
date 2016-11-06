@@ -20,6 +20,12 @@ il y a aussi atob();
 
 
 
+quantificateurs réticents vs gourmands
+https://regex101.com/r/967yqK/1
+d'après http://www.js-attitude.fr/2012/08/13/enfin-maitriser-les-expressions-rationnelles/
+
+
+
 
 scroll : cf. DOCUscroll.sublime-snippet
 commentaires cond. : cf. DOCUcommentaires.sublime-snippet
