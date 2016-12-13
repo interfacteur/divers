@@ -1,0 +1,115 @@
+/* Gaëtan Langhade, novembre-décembre 2016
+	ratios responsives 1/1, 3/4 et 4/3
+	dimensions pleine, demi, tiers
+	positionnement de l'élément non compris
+	exemples sur http://www.equatorium.net/e1/+tests/ratios-responsives/_SOMMAIRE.html */
+
+/* RATIOS */
+.ratio11::after,
+.pivots.ratio11 > .loggia	{
+	margin-top: -50%;
+	padding-bottom: 100%;
+}
+.ratio34::after,
+.pivots.ratio34 > .loggia	{
+	margin-top: -66.66%;
+	padding-bottom: 133.33%;
+}
+.ratio43::after,
+.pivots.ratio43 > .loggia	{
+	margin-top: -37.5%;
+	padding-bottom: 75%;
+}
+
+/* RATIOS largeur maximale du viewport */
+.entier	{
+	width: 100vw;
+}
+.entier.ratio11	{
+	max-width: 100vh;
+}
+.entier.ratio34	{
+	max-width: 75vh;
+}
+.entier.ratio43	{
+	max-width: 133.33vh;
+}
+/* RATIOS largeur maximale de la moitié du viewport */
+.demi	{
+	width: 50vw;
+}
+.demi.ratio11	{
+	max-width: 50vh;
+}
+.demi.ratio34	{
+	max-width: 37.5vh;
+}
+.demi.ratio43	{
+	max-width: 66.66vh;
+}
+
+/* RATIOS largeur maximale d'un tiers du viewport */
+.tiers	{
+	width: 33.33vw;
+}
+.tiers.ratio11	{
+	max-width: 33.33vh;
+}
+.tiers.ratio34	{
+	max-width: 24.99vh;
+}
+.tiers.ratio43	{
+	max-width: 44.44vh;
+}
+
+
+/* STRUCTURES
+	.piliers : avec ::after et incluant conteneur (a une hauteur)
+		::after : dimensionnement vertical
+		conteneur inclus : apparence, réception de contenu
+
+	.pivots : plusieurs au même endroit (n'ont pas de hauteur), sans ::after et incluant conteneurs
+		conteneur inclus : dimensionnement vertical et apparence
+			=> le conteneur inclus ne peut recevoir directement du contenu
+
+	.portique : avec ::after et sans inclure de conteneur
+		::after : dimensionnement vertical et apparence
+
+	.quartier .portique : plusieurs au même endroit (n'ont pas de hauteur), idem pour le reste	*/
+
+.piliers,
+.pivots,
+.portique	{
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	z-index: 1;
+}
+.piliers::after,
+.portique::after	{
+	content: " ";
+	display: block;
+}
+.piliers::after	{
+	position: relative;
+	z-index: -1;
+}
+.quartier .portique	{
+	height: 0; /* superpostion sans besoin de position absolue (à 0 par défaut partout et toujours ?) */
+}
+.quartier .portique::before	{
+	content: " ";
+	display: table;
+}
+.loggia	{
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+:not(.pivots) > .loggia	{
+	display: flex;
+		flex-direction: column;
+		justify-content: center;
+	height: 100%;
+}
