@@ -3,5 +3,5 @@
 	delete this.xx;
 	return this.xx = ;
 }]]></content>
-	<tabTrigger>gz</tabTrigger>
+	<tabTrigger>get</tabTrigger>
 </snippet>

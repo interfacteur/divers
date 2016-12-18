@@ -1,4 +1,4 @@
 <snippet>
 	<content><![CDATA[console.log(Date.now());]]></content>
-	<tabTrigger>cdz</tabTrigger>
+	<tabTrigger>cld</tabTrigger>
 </snippet>

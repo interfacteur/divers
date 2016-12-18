@@ -1,4 +1,4 @@
 <snippet>
 	<content><![CDATA[d3.select()]]></content>
-	<tabTrigger>d3sz(</tabTrigger>
+	<tabTrigger>d3sll</tabTrigger>
 </snippet>

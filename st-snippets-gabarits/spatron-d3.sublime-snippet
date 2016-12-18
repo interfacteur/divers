@@ -1,0 +1,26 @@
+<snippet>
+	<content><![CDATA[<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>Titrepage</title>
+<link rel="stylesheet" href="-media/rexul.css">
+</head>
+
+<body>
+<script src="-media/d3.min.js"></script>
+<script>
+;(function () {
+	"use strict";
+	var svg = d3.select("body").insert("svg", ":first-child")
+		.attr("version", "1.1")
+		.attr("width", "100%")
+		.attr("height", "100%");
+//		.append("g");
+}) ();
+</script>
+</body>
+</html>]]></content>
+	<tabTrigger>d3</tabTrigger>
+</snippet>

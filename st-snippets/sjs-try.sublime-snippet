@@ -2,5 +2,5 @@
 	<content><![CDATA[try {
 	console.log();
 } catch(e) { console.log(); }]]></content>
-	<tabTrigger>tz</tabTrigger>
+	<tabTrigger>try</tabTrigger>
 </snippet>

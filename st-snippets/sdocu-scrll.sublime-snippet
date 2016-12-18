@@ -75,7 +75,7 @@ scrollant.animate({ scrollTop : n },delai * \$w.scrollTop() / \$w.innerHeight(),
 
 
 ]]></content>
-	<tabTrigger>scroll</tabTrigger>
+	<tabTrigger>scrll</tabTrigger>
 </snippet>
 
 
