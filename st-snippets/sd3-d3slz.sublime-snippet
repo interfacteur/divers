@@ -1,0 +1,4 @@
+<snippet>
+	<content><![CDATA[d3.select().selectAll()]]></content>
+	<tabTrigger>d3slz</tabTrigger>
+</snippet>
