@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+CTRL + SHIFT + I
+	mettre à jour la taille de l'image
+cf. http://docs.emmet.io/actions/update-image-size/
+mais http://stackoverflow.com/questions/36901457/how-to-disable-sublime-text-automatically-inserting-width-and-height-when-adding
+]]></content>
+	<tabTrigger>racc</tabTrigger>
+</snippet>
