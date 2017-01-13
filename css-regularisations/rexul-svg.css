@@ -354,6 +354,10 @@ tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video	{
 
 /*	SVG ****	****	****	****	****	*/
 
+svg	{
+	font-family: Menlo, Consolas, "Ubuntu Mono", "Lucida Console", Monaco, monospace; /* to do… */
+	font-size: 16px; /* important pour emploi des em */
+}
 text	{
 	dominant-baseline: central;
 }

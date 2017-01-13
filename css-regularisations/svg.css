@@ -22,3 +22,10 @@ svg	{
 svg:not(:root)	{
 	overflow: hidden;
 }
+
+/* ne pas oublier */
+svg	{
+	/*font-family: Tahoma;*/
+	font-family: Menlo, Consolas, "Ubuntu Mono", "Lucida Console", Monaco, monospace; /* to do… */
+	font-size: 16px; /* important pour emploi des em */
+}
