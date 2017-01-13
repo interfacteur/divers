@@ -1,0 +1,13 @@
+/* Gaëtan Langhade, Interfacteur, janvier 2017 */
+
+
+
+/* iframe à contenus variés */
+
+html{box-sizing:border-box;font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}*,*::before,*::after{box-sizing:inherit;}img,svg,hr,input[type="search"]{box-sizing:content-box;}body::after{clear:both;}body{background:#FFF;color:#000;line-height:1;margin:0;min-height:100vh;}a{background-color:transparent;text-decoration:underline;-webkit-text-decoration-skip:objects;}a:focus{text-decoration:none;outline:thin dotted;}a:active,a:hover{outline-width:0;text-decoration:none;}img{border-style:none;}img,a img,img[usemap]{border:0;}abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,main,mark,math,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;}
+
+
+
+/* iframe à contenu textuel surtout */
+
+html{box-sizing:border-box;font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}*,*::before,*::after{box-sizing:inherit;}body{background:#FFF;color:#000;line-height:1;margin:0;min-height:100vh;}body::before,body::after{content:" ";display:table;}body::after{clear:both;}a{background-color:transparent;text-decoration:underline;-webkit-text-decoration-skip:objects;}a:focus{text-decoration:none;outline:thin dotted;}a:active,a:hover{outline-width:0;text-decoration:none;}
