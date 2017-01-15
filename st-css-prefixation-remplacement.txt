@@ -1,0 +1,49 @@
+préfixer les CSS sur Sublime Text (3)
+en cherchant remplaçant
+avec expressions régulières
+
+
+
+TRANSITION
+
+\n(	+)transition:([^;]+);
+
+\n$1-webkit-transition:$2;
+$1-moz-transition:$2;
+$1-o-transition:$2;
+$1transition:$2;
+
+
+
+TRANSFORM
+
+\n(	+)transform((?:-origin)?):([^;]+);
+
+\n$1-webkit-transform$2:$3;
+$1-moz-transform$2:$3;
+$1-ms-transform$2:$3;
+$1-o-transform$2:$3;
+$1transform$2:$3;
+
+si sans MSIE :
+
+\n$1-webkit-transform$2:$3;
+$1-moz-transform$2:$3;
+$1-o-transform$2:$3;
+$1transform$2:$3;
+
+
+
+
+À FAIRE :
+ANIMATION
+GRADIENTS
+
+
+
+CALC ??
+
+attention ST3 ne comprend pas le quantificateur réticent ?
+\n(.+?)calc\((.+?)\).+?;
+
+en outre, possibilité de plusieurs calc() dans une valeur
