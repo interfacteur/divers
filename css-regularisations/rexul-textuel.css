@@ -1,0 +1,189 @@
+/* Gaëtan Langhade, Interfacteur, octobre 2016
+	sources diverses dont principalement :
+		https://necolas.github.io/normalize.css/5.0.0/normalize.css
+	aussi :
+		http://meyerweb.com/eric/tools/css/reset/
+		http://html5doctor.com/html-5-reset-stylesheet/
+	regard sur :
+		http://jaydenseric.com/blog/forget-normalize-or-resets-lay-your-own-css-foundation
+
+
+Styles couvrant du contenu textuel
+
+	1- RÈGLES PARAMÉTRABLES
+
+	2- RÉGULARISANTES
+
+	3- RESET BASIQUE				*/
+
+
+/*	RÈGLES PARAMÉTRABLES ****	****	****	****	****	*/
+
+/* modèle */
+html	{
+	box-sizing: border-box;
+}
+*, *::before, *::after	{
+	box-sizing: inherit;
+}
+img, svg, hr, input[type="search"]	{
+	box-sizing: content-box;
+}
+
+/* options */
+img {
+	max-width: 100%;
+	height: auto;
+	border: 0;
+}
+ol, ul, li	{
+	list-style: none;
+}
+
+/* encadrement des marges supérieures et des flottants */
+body::before,
+body::after,
+.ceil::before,
+.floor::after,
+.ceilFloor::before,
+.ceilFloor::after	{
+	content: " ";
+	display: table;
+}
+body::after,
+.floor::after,
+.ceilFloor::after	{
+	clear: both;
+}
+
+
+
+
+
+/*	RÉGULARISANTES ****	****	****	****	****	*/
+
+/* racine */
+html	{
+	font-family: sans-serif;
+	line-height: 1.15; /* to do : pourquoi 1.15 sur html ? brouille la typo en <h1 sur FF Mac */
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+body	{
+	background: #FFF;
+	color: #000;
+	line-height: 1; /* to do : pourquoi 1.15 sur html ? brouille la typo en <h1 sur FF Mac */
+	margin: 0;
+	min-height: 100vh;
+}
+
+/* liens */
+a	{
+	background-color: transparent;
+	text-decoration: underline;
+	-webkit-text-decoration-skip: objects;
+}
+a:focus	{
+	text-decoration: none;
+	outline: thin dotted;
+}
+a:active, a:hover	{
+	outline-width: 0;
+	text-decoration: none;
+}
+
+/* images */
+img	{
+	border-style: none;
+}
+img, a img, img[usemap]	{
+	border: 0;
+}
+
+/* normalisation */
+article, aside, details, figcaption, figure,
+footer, header, main, menu, nav, section	{ /* to do : hgroup ? */
+	display: block;
+}
+
+/* divers dont scripting et AV */
+hr	{
+	height: 0;
+	overflow: visible;
+}
+svg:not(:root)	{
+	overflow: hidden;
+}
+iframe	{
+	border : 0;
+}
+canvas	{
+	display: inline-block;
+}
+template	{
+	display: none;
+}
+audio, video	{
+	display: inline-block;
+}
+audio:not([controls])	{
+	display: none;
+	height: 0;
+}
+summary	{
+	display: list-item;
+}
+
+/* homogénéisation du formatage */
+b, strong	{
+	font-weight: inherit;
+}
+b, strong	{
+	font-weight: bolder;
+}
+pre	{
+	overflow: auto;
+}
+small	{
+	font-size: 80%;
+}
+sub, sup	{
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sub	{
+	bottom: -0.25em;
+}
+sup	{
+	top: -0.5em;
+}
+
+/* alignement vertical */
+iframe	{
+	vertical-align: top;
+}
+img,
+audio, canvas, embed, math, object, svg, video	{
+	vertical-align: middle;
+}
+span, a, small, strong, b, u, i	{
+	vertical-align: baseline;
+}
+
+
+
+
+
+/*	RESET BASIQUE ****	****	****	****	****	*/
+
+article, aside, audio, body, canvas, dd,
+div, dl, dt, embed, figcaption, figure,
+h1, h2, h3, h4, h5, h6, header, html, iframe, li,
+main, math, nav, object, ol, p, pre, section,
+select, ul, video	{
+	margin: 0;
+	padding: 0;
+}
+
