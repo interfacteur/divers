@@ -21,9 +21,34 @@ il y a aussi atob();
 
 
 quantificateurs réticents vs gourmands
+	nb : https://jsperf.com/operateur-reticent-expressions-regulieres
 https://regex101.com/r/967yqK/1
 d'après http://www.js-attitude.fr/2012/08/13/enfin-maitriser-les-expressions-rationnelles/
 
+
+
+http://stackoverflow.com/questions/1760126/how-do-i-choose-between-innertext-or-nodevalue
+	How do I choose between innerText or nodeValue?
+http://stackoverflow.com/questions/21311299/nodevalue-vs-innerhtml-and-textcontent-how-to-choose
+	nodeValue vs innerHTML and textContent. How to choose?
+	d'où :
+	nodeValue is a little more confusing to use, but faster than innerHTML.
+	innerHTML parses content as HTML and takes longer.
+	textContent uses straight text, does not parse HTML, and is faster.
+https://developer.mozilla.org/fr/docs/Web/API/Node/nodeValue
+https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeValue
+	assez complexe (cf. "more confusing to use") :
+	let sortie = document.querySelector("pre");
+		sortie.firstChild.nodeValue = "<p>x</p>"; // erreur pour <pre></pre> ok avec <pre> </pre>
+		pour
+		sortie.textContent = "<p>X</p>";
+en tout cas, ni nodeValue ni textContent ne parsent le HTML
+	un jsperf à faire ?
+
+
+vs innerText (à éviter ?) :
+https://developer.mozilla.org/fr/docs/Web/API/Node/textContent
+https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
 
 
 
