@@ -26,16 +26,11 @@ html	{
 *, *::before, *::after	{
 	box-sizing: inherit;
 }
-img, svg, hr, input[type="search"]	{
+hr	{
 	box-sizing: content-box;
 }
 
 /* options */
-img {
-	max-width: 100%;
-	height: auto;
-	border: 0;
-}
 ol, ul, li	{
 	list-style: none;
 }
@@ -92,14 +87,6 @@ a:active, a:hover	{
 	text-decoration: none;
 }
 
-/* images */
-img	{
-	border-style: none;
-}
-img, a img, img[usemap]	{
-	border: 0;
-}
-
 /* normalisation */
 article, aside, details, figcaption, figure,
 footer, header, main, menu, nav, section	{ /* to do : hgroup ? */
@@ -111,24 +98,8 @@ hr	{
 	height: 0;
 	overflow: visible;
 }
-svg:not(:root)	{
-	overflow: hidden;
-}
 iframe	{
 	border : 0;
-}
-canvas	{
-	display: inline-block;
-}
-template	{
-	display: none;
-}
-audio, video	{
-	display: inline-block;
-}
-audio:not([controls])	{
-	display: none;
-	height: 0;
 }
 summary	{
 	display: list-item;
@@ -164,8 +135,7 @@ sup	{
 iframe	{
 	vertical-align: top;
 }
-img,
-audio, canvas, embed, math, object, svg, video	{
+math	{
 	vertical-align: middle;
 }
 span, a, small, strong, b, u, i	{
@@ -178,11 +148,10 @@ span, a, small, strong, b, u, i	{
 
 /*	RESET BASIQUE ****	****	****	****	****	*/
 
-article, aside, audio, body, canvas, dd,
-div, dl, dt, embed, figcaption, figure,
+article, aside, body, dd,
+div, dl, dt, figcaption, figure,
 h1, h2, h3, h4, h5, h6, header, html, iframe, li,
-main, math, nav, object, ol, p, pre, section,
-select, ul, video	{
+main, math, nav, ol, p, pre, section, ul	{
 	margin: 0;
 	padding: 0;
 }
