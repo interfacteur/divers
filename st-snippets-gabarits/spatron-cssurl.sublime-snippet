@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+http://interfacteur.github.io/x/rexul.css
+http://interfacteur.github.io/x/rexul-svg.css
+http://interfacteur.github.io/x/rexul-textuel.css
+]]></content>
+	<tabTrigger>d3</tabTrigger>
+</snippet>
