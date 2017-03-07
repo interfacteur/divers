@@ -1,0 +1,45 @@
+body	{
+	line-height: 1.6;
+	padding: 1em 1em 7em 1em;
+}
+a	{
+	border-left: 4px solid white;
+	color: black;
+	display: block;
+	font-size: Arial;
+	position: relative;
+	white-space: nowrap;
+	z-index: 2;
+}
+/* pas de :visited::before etc. :
+http://stackoverflow.com/questions/12342516/combine-avisited-with-aafter-or-chaining-pseudo-classes-with-pseudo-elements */
+a:visited:not(:hover)	{
+	border-color: chocolate;
+}
+a::before	{
+	content: "•";
+	display: inline-block;
+	font-size: 1.15em;
+	margin-right: .33em;
+	padding-right: .33em;
+}
+a:hover::before	{
+	background-color: chocolate;
+	color: white;
+}
+a:hover::after	{
+	background: white;
+	box-shadow: 0 0 1em darkSlateGrey;
+	color: darkSlateGrey;
+	content: attr(href);
+	font-size: .9em;
+	padding-left: 1em;
+	position: absolute;
+	right: 0;
+	text-align: right;
+	top: 2em;
+	white-space: pre-wrap;
+}
+a:hover ~ a	{
+	z-index: 1;
+}

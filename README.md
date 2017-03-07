@@ -1,9 +1,7 @@
 Divers
 ========
 
-
-* css-alt-php-js : CSS alternatifs aux pseudo-classes avec PHP et Modernizr - cf. http://interfacteur.blogspot.fr/2014/12/css-alternatifs-avec-php-et-js.html
-* css-ratio-responsive : styles pour éléments conservant leur ratio dans un contexte responsive - voir aussi http://www.equatorium.net/e1/+tests/ratios-responsives/_SOMMAIRE.html
+* css-divers : CSS pour divers cas utiles (ratio responsives, alternative aux pseudos classes, formatage d'une liste de liens etc.)
 * css-regularisations : bases - complète, légère ou basique - pour régularisation des CSS
 * en-cours : tests en cours (http://www.equatorium.net/e1/+tests/), divers
 * mac : utiles sur Mac OS
