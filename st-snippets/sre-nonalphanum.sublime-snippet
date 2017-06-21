@@ -1,0 +1,5 @@
+<snippet>
+	<content><![CDATA[[^a-z ;.0-9/'\-,\n()°_?]]]></content>
+	<tabTrigger>nonalphanum</tabTrigger>
+</snippet>
+
