@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*	{
+			margin: 0;
+		}
+		body	{
+			font-family: sans-serif;
+			text-align: center;
+		}
+		div	{
+			background: darkgoldenrod;
+			margin: 1.66rem;
+		}
+		p	{
+			background: darkseagreen;
+			font-weight: bold;
+			margin: 1.66rem;
+		}
+		hr	{
+			background: lightgrey;
+			color:  lightgrey;
+			height: 3px;
+			margin: 0 auto;
+			width: 50%;
+		}
+		div:nth-of-type(2)::before	{
+			content: " ";
+			display: table;
+		}
+		div:nth-of-type(3)::before,
+		div:nth-of-type(3)::after	{
+			content: " ";
+			display: table;
+		}
+		div:nth-of-type(4)::after	{
+			content: " ";
+			display: table;
+		}
+		div:nth-of-type(5)	{
+			overflow: hidden;
+		}
+		div:nth-of-type(6)	{
+			overflow: hidden;
+		}
+		div:nth-of-type(7)	{
+			border-top: .01rem solid transparent;
+		}
+		div:nth-of-type(8)	{
+			border: .01rem solid transparent;
+		}
+		div:nth-of-type(9)	{
+			border-bottom: .01rem solid transparent;
+		}
+		div:nth-of-type(10)	{
+			padding-top: .01rem;
+		}
+		div:nth-of-type(11)	{
+			padding: .01rem;
+		}
+		div:nth-of-type(12)	{
+			padding-bottom: .01rem;
+		}
+	</style>
+</head>
+<body>
+<div><p>rien</p></div>
+<hr>
+<div><p>::before</p></div>
+<div><p>::before et ::after</p></div>
+<div><p>::after</p></div>
+<hr>
+<div><p>overflow: hidden</p></div>
+<div><p>overflow: auto</p></div>
+<hr>
+<div><p>border-top</p></div>
+<div><p>border</p></div>
+<div><p>border-bottom</p></div>
+<hr>
+<div><p>padding-top</p></div>
+<div><p>padding</p></div>
+<div><p>padding-bottom</p></div>
+<hr>
+<div><p>rien</p></div>
+</body>
+</html>
