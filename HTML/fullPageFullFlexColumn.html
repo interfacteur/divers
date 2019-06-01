@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>titre page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* reset, normalize et bases */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+:root {
+	height: 100%;
+}
+body {
+	background: #FFF;
+	color: #000;
+	font-family: sans-serif;
+	min-height: 100%;
+}
+body,
+h1,
+h2,
+h3,
+p,
+ul {
+	margin: 0;
+}
+ul {
+	list-style: none;
+	padding: 0;
+}
+a:visited {
+	color: #000;
+	text-decoration: none;
+}
+a:hover,
+a:focus,
+a:active {
+	color: maroon;
+	text-decoration: underline;
+}
+a:visited {
+	color: darkgray;
+}
+
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+header {
+	order: -2;
+}
+header,
+footer {
+	background: aquamarine;
+	height: 4rem;
+}
+div {
+	border: 1px solid maroon;
+	border-width: 1px 0;
+	display: flex;
+	flex-grow: 1;
+}
+main {
+	background: burlywood;
+	flex-grow: 1;
+}
+aside:first-of-type {
+	order: -1;
+}
+aside {
+	background: beige;
+	width: 10rem;
+}
+header,
+main,
+aside,
+footer {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+</style>
+</head>
+
+<body>
+<header>
+	header
+</header>
+<div>
+	<main>
+		main
+	</main>
+	<aside>
+		aside
+	</aside>
+	<aside>
+		aside
+	</aside>
+</div>
+<footer>
+	footer
+</footer>
+</body>
+
+</html>
