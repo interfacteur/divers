@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>titrePage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+https://n.survol.fr/n/x-ua-compatible-ieedge
+https://www.alsacreations.com/astuce/lire/1437-comment-interdire-le-mode-de-compatibilite-sur-ie.html
+<!--[if IE]>
+<meta http-equiv="X-UA-Compatible" content="IE=10">
+<![endif]-->
+<style>
+/* reset, normalize et bases */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+body {
+	background: #FFF;
+	color: #000;
+	font-family: sans-serif;
+	min-height: 100vh;
+}
+body,
+h1,
+h2,
+h3,
+p,
+ul {
+	margin: 0;
+}
+ul {
+	list-style: none;
+	padding: 0;
+}
+/* :any-link, */
+a:visited {
+	color: #000;
+	text-decoration: none;
+}
+a:hover,
+a:focus,
+a:active {
+	color: maroon;
+	text-decoration: underline;
+}
+a:visited {
+	color: darkgray;
+}
+button,
+input,
+select,
+textarea {
+	color: inherit;
+	font-family: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+}
+
+
+/* génériques */
+.containr {
+	margin: 0 auto;
+}
+.own_margin::before,
+.own_margin::after {
+	content: " ";
+	display: table;
+}
+
+
+
+
+
+/* SVG */
+svg	{
+	background: #FFF;
+	box-sizing: content-box;
+	/*font-family: Tahoma;*/
+	font-family: Menlo, Consolas, "Ubuntu Mono", "Lucida Console", Monaco, monospace; /* to do… */
+	font-size: 16px; /* important pour emploi des em */
+	vertical-align: middle;
+}
+
+svg:not(:root)	{ /* 2019 : toujours utile ? */
+    overflow: hidden;
+}
+
+text	{ /* 2019 : ? */
+    dominant-baseline: central;
+}
+
+/* 2019 : ? */
+.nettete	{ /* dont bordures, mais pas de support IE/Edge */
+    shape-rendering: crispEdges;
+}
+
+/* 2019 : ? */
+.bordure-largeur-absolue	{ /* pas de support IE/Edge */
+    vector-effect: non-scaling-stroke;
+}
+</style>
+</head>
+
+<body>
+<div class="containr">
+	<header>
+
+	</header>
+	<main>
+
+	</main>
+	<footer>
+
+	</footer>
+</div>
+<script>
+(function()
+{
+	"use strict";
+})();
+</script>
+</body>
+
+</html>
