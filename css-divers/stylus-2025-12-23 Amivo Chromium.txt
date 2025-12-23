@@ -1,0 +1,84 @@
+@-moz-document domain("arte.tv") {
+/* au 20251223 : existant pour bandeau */
+.container > header + div[class^=' css-'] {
+    display: none !important;
+}
+
+
+.css-z5hc95 {
+    display: none !important;
+}
+
+
+/* 20251223 : recherche neutraliser aspect sombre au survol
+[T - Problème lecteur vidéo Arte](https://chatgpt.com/g/g-p-67671a2b698c81918b14bad1443aeb92-t/c/694a0ae8-5608-832b-af76-49004166ca17) /*
+
+
+/* cf. Drive https://drive.google.com/file/d/1kC9UdLpvId940wGg9RQPV6aYrVVkBJ8D/view?usp=drive_link
+.avp-clickcatcher{
+    display: none !important;
+}
+.container > header + div[class^=' css-'] {
+    display: none !important;
+}
+NON */
+
+
+
+.avp .avp-content {
+    background-color: transparent !important;
+
+/* n'agit pas : ?
+  transition: opacity 120ms linear !important;
+  transition-delay: 0ms !important;
+*/
+}
+
+/* suggestion c't :
+/ * plein ecran (standard) * /
+:fullscreen .avp .avp-content {
+  background-color: transparent !important;
+}
+
+/ * plein ecran (webkit, utile selon navigateur) * /
+:-webkit-full-screen .avp .avp-content {
+  background-color: transparent !important;
+}
+*/
+
+
+
+
+/* concernant les delais :
+
+.avp .avp-controls__center {
+  transition: opacity 120ms linear !important;
+  transition-delay: 0ms !important;
+}
+
+
+
+/ * quand showControls n'est plus present, on cache les controles centraux * /
+.avp .avp-player:not(.showControls) .avp-controls__center {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+
+
+/* quand Video.js passe en "user inactive", on force le masquage */
+#video_player .vjs-user-inactive ~ .avp-clickcatcher .avp-controls__center {
+  opacity: .25 !important;
+/*  pointer-events: none !important; */
+}
+
+/* optionnel : explicite l'etat actif * /
+#video_player .vjs-user-active ~ .avp-clickcatcher .avp-controls__center {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+*/
+
+
+
+}

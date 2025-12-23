@@ -1,0 +1,420 @@
+[
+  {
+    "settings": {
+      "openEditInWindow": false,
+      "openEditInWindow.popup": false,
+      "windowPosition": {},
+      "show-badge": true,
+      "disableAll": false,
+      "exposeIframes": false,
+      "exposeStyleName": false,
+      "newStyleAsUsercss": false,
+      "styleViaXhr": false,
+      "patchCsp": false,
+      "urlInstaller": true,
+      "config.autosave": true,
+      "schemeSwitcher.enabled": "system",
+      "schemeSwitcher.nightStart": "18:00",
+      "schemeSwitcher.nightEnd": "06:00",
+      "popup.breadcrumbs": true,
+      "popup.breadcrumbs.usePath": false,
+      "popup.enabledFirst": true,
+      "popup.stylesFirst": true,
+      "popup.autoResort": false,
+      "popup.borders": false,
+      "popup.findSort": "u",
+      "manage.onlyEnabled": false,
+      "manage.onlyLocal": false,
+      "manage.onlyUsercss": false,
+      "manage.onlyEnabled.invert": false,
+      "manage.onlyLocal.invert": false,
+      "manage.onlyUsercss.invert": false,
+      "manage.actions.expanded": true,
+      "manage.backup.expanded": true,
+      "manage.filters.expanded": true,
+      "manage.minColumnWidth": 750,
+      "manage.newUI": true,
+      "manage.newUI.favicons": false,
+      "manage.newUI.faviconsGray": true,
+      "manage.newUI.targets": 3,
+      "manage.newUI.sort": "title,asc",
+      "manage.searchMode": "meta",
+      "editor.options": {},
+      "editor.toc.expanded": true,
+      "editor.options.expanded": true,
+      "editor.lint.expanded": true,
+      "editor.publish.expanded": true,
+      "editor.lineWrapping": true,
+      "editor.smartIndent": true,
+      "editor.indentWithTabs": false,
+      "editor.tabSize": 4,
+      "editor.keyMap": "default",
+      "editor.theme": "default",
+      "editor.beautify": {
+        "selector_separator_newline": true,
+        "newline_before_open_brace": false,
+        "newline_after_open_brace": true,
+        "newline_between_properties": true,
+        "newline_before_close_brace": true,
+        "newline_between_rules": false,
+        "preserve_newlines": true,
+        "end_with_newline": false,
+        "indent_conditional": true,
+        "indent_mozdoc": true,
+        "space_around_combinator": true,
+        "space_around_cmp": false
+      },
+      "editor.beautify.hotkey": "",
+      "editor.lintDelay": 300,
+      "editor.linter": "csslint",
+      "editor.lintReportDelay": 500,
+      "editor.matchHighlight": "token",
+      "editor.autoCloseBrackets": true,
+      "editor.autocompleteOnTyping": false,
+      "editor.contextDelete": false,
+      "editor.selectByTokens": true,
+      "editor.arrowKeysTraverse": true,
+      "editor.appliesToLineWidget": true,
+      "editor.autosaveDraft": 10,
+      "editor.livePreview": true,
+      "editor.colorpicker": true,
+      "editor.colorpicker.hexUppercase": false,
+      "editor.colorpicker.hotkey": "",
+      "editor.colorpicker.color": "",
+      "editor.colorpicker.maxHeight": 300,
+      "hotkey._execute_browser_action": "",
+      "hotkey.openManage": "",
+      "hotkey.styleDisableAll": "",
+      "sync.enabled": "none",
+      "iconset": -1,
+      "badgeDisabled": "#8B0000",
+      "badgeNormal": "#006666",
+      "headerWidth.edit": 280,
+      "headerWidth.install": 280,
+      "headerWidth.manage": 280,
+      "popupWidth": 246,
+      "updateInterval": 24
+    },
+    "order": {
+      "main": [],
+      "prio": []
+    }
+  },
+  {
+    "enabled": false,
+    "installDate": 1595864147598,
+    "name": "fondation.edf.com/",
+    "sections": [
+      {
+        "code": "* { line-height: 1.5 !important; letter-spacing: .12em; word-spacing: .16em; }\np { margin-bottom: 2em !important; }\n",
+        "urlPrefixes": [
+          "https://fondation.edf.com"
+        ]
+      }
+    ],
+    "updateDate": 1596803875868,
+    "_id": "c8f74c7c-34d1-47a0-98b9-8ad4b26143a8",
+    "_rev": 1677419380671,
+    "id": 1
+  },
+  {
+    "enabled": true,
+    "installDate": 1609700907379,
+    "name": "www.lemonde.fr",
+    "sections": [
+      {
+        "code": "#js-message-register { display: none; }",
+        "urlPrefixes": [
+          "https://www.lemonde.fr/"
+        ]
+      }
+    ],
+    "updateDate": 1609703873184,
+    "_id": "0d48585f-1a6d-4eb1-9f9c-7ef1cb64247e",
+    "_rev": 1677419380672,
+    "id": 2
+  },
+  {
+    "enabled": true,
+    "installDate": 1617401403738,
+    "name": "allocine.fr",
+    "sections": [
+      {
+        "code": "#overlay, #didomi-host, .open-modal body::after { display: none; }\n.open-modal body, body.didomi-popup-open { overflow: scroll !important; }",
+        "domains": [
+          "allocine.fr"
+        ]
+      }
+    ],
+    "updateDate": 1617401963011,
+    "_id": "6726adf6-29ac-441d-9224-f9bbcc4a641b",
+    "_rev": 1677419380672,
+    "id": 3
+  },
+  {
+    "enabled": false,
+    "installDate": 1646487527576,
+    "name": "stackoverflow",
+    "sections": [
+      {
+        "code": ".js-consent-banner {\n    display: none;\n}\n\n",
+        "domains": [
+          "stackoverflow.com",
+          "translate.goog",
+          "stackexchange.com"
+        ]
+      }
+    ],
+    "updateDate": 1647782766402,
+    "_id": "0787dda1-9c4a-477b-9893-866f8f172136",
+    "_rev": 1677419380672,
+    "id": 4
+  },
+  {
+    "enabled": true,
+    "installDate": 1638347864795,
+    "name": "www.msn.com",
+    "sections": [
+      {
+        "code": "body {\n    background: purple;\n}\nbody * {\n    display: none;\n}",
+        "urlPrefixes": [
+          "https://www.msn.com"
+        ]
+      }
+    ],
+    "updateDate": 1638347969934,
+    "_id": "24e39039-952d-4f33-b917-88faa41389ea",
+    "_rev": 1677419380672,
+    "id": 5
+  },
+  {
+    "enabled": false,
+    "installDate": 1652528139183,
+    "name": "bannière js code",
+    "sections": [
+      {
+        "code": ".js-consent-banner, .axeptio_mount { display: none !important; }\n"
+      }
+    ],
+    "updateDate": 1654881360080,
+    "_id": "39dce5e9-61dd-4b10-b615-6db3a56e02c4",
+    "_rev": 1677607144078,
+    "id": 6
+  },
+  {
+    "enabled": false,
+    "installDate": 1661980944423,
+    "sections": [
+      {
+        "code": ""
+      }
+    ],
+    "sourceCode": "/* ==UserStyle==\n@name           www.arte.tv - 31/08/2022 23:21:09\n@namespace      github.com/openstyles/stylus\n@version        1.0.0\n@description    A new userstyle\n@author         Me\n==/UserStyle== */\n\n@-moz-document url-prefix(\"https://www.arte.tv/\") {\n    .avp-clickcatcher{\n        display: none !important;\n    }\n}",
+    "usercssData": {
+      "name": "www.arte.tv - 31/08/2022 23:21:09",
+      "namespace": "github.com/openstyles/stylus",
+      "version": "1.0.0",
+      "description": "A new userstyle",
+      "author": "Me"
+    },
+    "author": "Me",
+    "description": "A new userstyle",
+    "name": "www.arte.tv - 31/08/2022 23:21:09",
+    "updateDate": 1661980944423,
+    "_id": "ad722d9d-c373-4955-8a78-0318eef423cc",
+    "_rev": 1692913036448,
+    "id": 7
+  },
+  {
+    "enabled": true,
+    "installDate": 1673538307259,
+    "sections": [
+      {
+        "code": ""
+      }
+    ],
+    "sourceCode": "/* ==UserStyle==\n@name           www.arte.tv - 12/01/2023 16:42:54\n@namespace      github.com/openstyles/stylus\n@version        1.0.0\n@description    A new userstyle\n@author         Me\n==/UserStyle== */\n\n.container > header + div[class^=' css-'] { display: none !important; }",
+    "usercssData": {
+      "name": "www.arte.tv - 12/01/2023 16:42:54",
+      "namespace": "github.com/openstyles/stylus",
+      "version": "1.0.0",
+      "description": "A new userstyle",
+      "author": "Me"
+    },
+    "author": "Me",
+    "description": "A new userstyle",
+    "name": "www.arte.tv - 12/01/2023 16:42:54",
+    "updateDate": 1673538441433,
+    "_id": "3f3b8b39-f69d-4e98-b130-5f45e8cfa94d",
+    "_rev": 1677522294280,
+    "id": 8,
+    "customName": "Arte bandeau www.arte.tv - 12/01/2023 16:42:54"
+  },
+  {
+    "enabled": false,
+    "installDate": 1681502714940,
+    "name": "youtube.com",
+    "sections": [
+      {
+        "code": "html * { display: none !important; }",
+        "domains": [
+          "youtube.com"
+        ]
+      }
+    ],
+    "updateDate": 1681502714940,
+    "_id": "2ead35ec-f157-41bb-b761-a52288690938",
+    "_rev": 1681940283196,
+    "id": 9
+  },
+  {
+    "enabled": true,
+    "installDate": 1693165305263,
+    "name": "webmail.free.fr",
+    "sections": [
+      {
+        "code": "#xadvert-right {\n        display: none;\n}\n#mainscreen {\n    right: 0 !important;\n}",
+        "urlPrefixes": [
+          "https://webmail.free.fr/?_task=mail&_mbox=INBOX"
+        ]
+      }
+    ],
+    "updateDate": 1693165406479,
+    "_id": "7ef72371-044b-41ce-8704-3b68358acf0f",
+    "_rev": 1693165406479,
+    "id": 10
+  },
+  {
+    "enabled": false,
+    "installDate": 1697748574483,
+    "name": "ChatGPT RTFD",
+    "sections": [
+      {
+        "code": "body {\n    height: auto;\n}\n\n#__next > div > div:first-of-type {\n    display: none ! important;\n}\n\n#__next > div > div:nth-child(2),\n#__next > div > div:nth-child(2) div{\n    display: block ! important;\n    flex: none ! important;\n    height: auto ! important;\n    width: auto ! important;\n    max-width: none ! important;\n}\n\n#__next > div > div:nth-child(2) header,\n#__next > div > div:nth-child(2) form,\n#__next > div > div:nth-child(2) img[alt=\"User\"] {\n    display: none;\n}\n\n#__next > div > div:nth-child(2) a,\n#__next > div > div:nth-child(2) img {\n    height: auto;\n    max-width: 200px;\n    display: block;\n}\n\ndiv {\n    overflow: visible;\n}\n",
+        "urlPrefixes": [
+          "https://chat.openai.com"
+        ]
+      }
+    ],
+    "updateDate": 1697750227349,
+    "_id": "b32988d1-3e68-48d0-a21f-ef47f05a855b",
+    "_rev": 1697755759513,
+    "id": 11
+  },
+  {
+    "enabled": false,
+    "installDate": 1697750008926,
+    "name": "ChatGPT RTF",
+    "sections": [
+      {
+        "code": "body {\n    height: auto;\n}\n\n#__next > div > div:first-of-type {\n    display: none ! important;\n}\n\n#__next > div > div:nth-child(2),\n#__next > div > div:nth-child(2) div{\n    display: block ! important;\n    flex: none ! important;\n    height: auto ! important;\n    width: auto ! important;\n    max-width: none ! important;\n}\n\n#__next > div > div:nth-child(2) header,\n#__next > div > div:nth-child(2) form,\n#__next > div > div:nth-child(2) img {\n    display: none;\n}\n\n#__next > div > div:nth-child(2) a {\n    height: auto;\n    max-width: 200px;\n    display: block;\n}\n\ndiv {\n    overflow: visible;\n}\n",
+        "urlPrefixes": [
+          "https://chat.openai.com"
+        ]
+      }
+    ],
+    "updateDate": 1697750286120,
+    "_id": "4b91d88c-6863-45be-b0c9-542ee2089de8",
+    "_rev": 1697755759513,
+    "id": 12
+  },
+  {
+    "enabled": false,
+    "installDate": 1697750320751,
+    "name": "ChatGPT print",
+    "sections": [
+      {
+        "code": "body {\n    height: auto;\n}\nmain > [role=\"presentation\"] > div:nth-child(2) {\n    display: none;\n}\n\n",
+        "urlPrefixes": [
+          "https://chat.openai.com"
+        ]
+      }
+    ],
+    "updateDate": 1697750908137,
+    "_id": "ae33dc7e-fe85-4e17-b830-2bfeff8bf20f",
+    "_rev": 1697755767874,
+    "id": 13
+  },
+  {
+    "enabled": false,
+    "installDate": 1697750959634,
+    "name": "ChatGPT print sans image sauf plugin",
+    "sections": [
+      {
+        "code": "body {\n    height: auto;\n}\nmain > [role=\"presentation\"] > div:nth-child(2),\nheader ~ div img {\n    display: none ! important;\n}\n\n",
+        "urlPrefixes": [
+          "https://chat.openai.com"
+        ]
+      }
+    ],
+    "updateDate": 1697751145599,
+    "_id": "7be4b7dd-84e3-4074-8cb0-95665bb5e79b",
+    "_rev": 1697755759513,
+    "id": 14
+  },
+  {
+    "enabled": false,
+    "installDate": 1697751206286,
+    "name": "ChatGPT print sans aucune image",
+    "sections": [
+      {
+        "code": "body {\n    height: auto;\n}\nmain > [role=\"presentation\"] > div:nth-child(2),\nimg {\n    display: none ! important;\n}\n\n",
+        "urlPrefixes": [
+          "https://chat.openai.com"
+        ]
+      }
+    ],
+    "updateDate": 1698189283691,
+    "_id": "08253f2f-1c1d-446e-b08b-3aa4c3b76fa5",
+    "_rev": 1698189283691,
+    "id": 15
+  },
+  {
+    "enabled": true,
+    "installDate": 1698189375237,
+    "name": "ChatGPT largeur menu chats",
+    "sections": [
+      {
+        "code": "#__next > .relative > div:first-child,\n#__next > .relative > div:first-child > div:first-child {\n    width: 340px ! important;\n\n}",
+        "urlPrefixes": [
+          "https://chat.openai.com"
+        ]
+      }
+    ],
+    "updateDate": 1698189375237,
+    "_id": "f9db4482-50cc-4372-810e-f50594ce97b4",
+    "_rev": 1698189375237,
+    "id": 16
+  },
+  {
+    "enabled": true,
+    "installDate": 1698365201690,
+    "name": "fnac.com",
+    "sections": [
+      {
+        "code": "* {\n    display: none;\n}",
+        "domains": [
+          "fnac.com"
+        ]
+      }
+    ],
+    "updateDate": 1698365201690,
+    "_id": "f418c9ac-2de8-4a11-a844-9ddbc6d9873e",
+    "_rev": 1698365201690,
+    "id": 17
+  },
+  {
+    "enabled": true,
+    "installDate": 1698528385591,
+    "name": "vs cookies",
+    "sections": [
+      {
+        "code": "div.fc-consent-root {\n    display: none ! important;\n}\nbody {\n    overflow: visible ! important;\n}"
+      }
+    ],
+    "updateDate": 1698528428173,
+    "_id": "8a5cd612-bfb5-45c3-8f9a-7b7331728558",
+    "_rev": 1698528469239,
+    "id": 18
+  }
+]
