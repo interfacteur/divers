@@ -1,0 +1,33 @@
+/* au 20251223 : existant pour bandeau */
+.container > header + div[class^=' css-'] {
+    display: none !important;
+}
+
+.css-z5hc95 {
+    display: none !important;
+}
+
+
+
+/* 20251223 : recherche neutraliser aspect sombre au survol
+[T - Problème lecteur vidéo Arte](https://chatgpt.com/g/g-p-67671a2b698c81918b14bad1443aeb92-t/c/694a0ae8-5608-832b-af76-49004166ca17)
+brouillons : https://github.com/interfacteur/divers/blob/master/css-divers/stylus-2025-12-23%20Amivo%20Chromium.txt
+et https://drive.google.com/file/d/11ubanWSjuz71MkpA6PjdzbApGUEF-H57/view?usp=drive_link
+*/
+.avp .avp-content {
+    background-color: transparent !important;
+    color: #F46528 !important;
+}
+
+/* quand Video.js passe en "user inactive", on force le masquage */
+#video_player .vjs-user-inactive ~ .avp-clickcatcher .avp-controls__center {
+  opacity: .25 !important;
+}
+
+.avp .avp-timeline  {
+    color: #F46528 !important;
+    font-weight: bold !important;
+}
+.avp .vjs-progress-holder   {
+    background-color: rgba(244, 101, 40, .25) !important;
+}
